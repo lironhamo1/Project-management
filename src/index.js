@@ -8,6 +8,9 @@ app.get('/',(req,res)=>{
     res.sendFile('homePage.html')
     })
 
-app.listen(app_port)
-console.log('app is runninng. port: ${app_port}')
-console.log('http://127.0.0.1:${app_port}/')
+app.listen(app_port, () => {
+    console.log('app is runninng. port: ${app_port}')
+    //console.log('http://127.0.0.1:${app_port}/')
+})
+
+
