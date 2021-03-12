@@ -5,7 +5,7 @@ const app_port = process.env.PORT || 3000
 const app = express()
 
 app.get('/',(req,res)=>{
-    res.send(homepage.html)
+    res.sendFile(path.join(__dirname + '/homePage.html'));
     })
 
 app.listen(app_port)
