@@ -3,8 +3,6 @@ const express = require('express')
 // eslint-disable-next-line no-undef
 const app_port = process.env.PORT || 3000
 const app = express()
-var path = require('path');
-
 
 app.get('/',(req,res)=>{
     res.send('http://127.0.0.1:5500/homePage.html')
