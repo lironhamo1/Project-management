@@ -5,8 +5,8 @@ const app_port = process.env.PORT || 3000
 const app = express()
 
 app.get('/',(req,res)=>{
-    res.sendFile('homePage.html')
-    })
+    res.sendFile(__dirname + '/homePage.html')
+})
 
 app.listen(app_port, () => {
     console.log('app is runninng. port: ${app_port}')
