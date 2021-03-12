@@ -7,7 +7,6 @@
     "test": "mocha test/*.spec.js --color",
     "lint": "eslint src/*.js --color",
     "start": "node src/index.js"
-
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "firebase": "^8.2.10"
+    "firebase": "^8.2.10",
+    "path-__dirname": "^2.1.0"
   },
   "directories": {
     "test": "test"
