@@ -5,7 +5,7 @@ const app_port = process.env.PORT || 3000
 const app = express()
 
 app.get('/',(req,res)=>{
-    res.sendFile('views/test.html', {root: __dirname })
+    res.sendFile('homePage.html')
     })
 
 app.listen(app_port)
