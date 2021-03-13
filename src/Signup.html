@@ -13,6 +13,7 @@
 
 </head>
 <body>
+<form action="homePage.html" method="post">
   <div class="singup" id="description">
     <h1>Sign-up</h1>
       <p>Please fill in this form to create an account</p>
@@ -22,21 +23,21 @@
     <div class="email">
       <label for="email">Email</label>
       <br>
-      <input type="text" placeholder="Enter Email" name="email" id="email">
+      <input type="email" placeholder="Enter Email" name="email" id="email" required>
       </br>
     </div>
     <!-- Password-->
     <div class="password"></div>
       <label for="password"> Password </label>
       <br>
-      <input type="text" placeholder="Enter Password " name="password " id="password">
+      <input type="password" placeholder="Enter Password " name="password " id="password" required>
       </br>
     </div>
        <!-- Repeat Password-->
     <div class="repeat password">
       <label for="repeatPassword">Repeat Password </label>
       <br>
-      <input type="text" placeholder="Repeat Password " name="repeatPassword " id="repeatPassword">
+      <input type="password" placeholder="Repeat Password " name="repeatPassword " id="repeatPassword" required>
       </br>
     </div>
     
@@ -45,7 +46,7 @@
       <button id="butSingup">Sing Up</button>
     </div>
   </div>
-
+</form>
 </body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
