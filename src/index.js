@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-undef
 const express = require('express')
-var router=express.Router();
+//var router=express.Router();
 // eslint-disable-next-line no-undef
 const app_port = process.env.PORT || 3000
 const app = express()
@@ -24,13 +24,14 @@ app.listen(app_port, () => {
     console.log('app is runninng. port: '+app_port)
     console.log('http://127.0.0.1:'+app_port+"/")
 })
-
+/*
+// eslint-disable-next-line no-undef
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/e', {useNewUrlParser: true, useUnifiedTopology: true});
-var Schema=mongoose.Schema;
+git var Schema=mongoose.Schema;
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
+
 db.once('open', function() {
     console.log("connect!!good for you!!")
     var mys=new Schema({name:String , age:String});
@@ -41,9 +42,25 @@ db.once('open', function() {
 });
 
 
-mongoose.connect('mongodb://localhost:27017/e', {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb://localhost:27017/e', {useNewUrlParser: true, useUnifiedTopology: true});
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
+});
+
+*/
+// eslint-disable-next-line no-undef
+var mongoose = require('mongodb').MongoClient;
+mongoose.connect('mongodb://localhost:27017/', function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("mydb");
+
+
+    // eslint-disable-next-line no-unused-vars
+    dbo.collection("customers").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
 });
