@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 const express = require('express')
+var router=express.Router();
 // eslint-disable-next-line no-undef
 const app_port = process.env.PORT || 3000
 const app = express()
@@ -25,19 +26,23 @@ app.listen(app_port, () => {
 })
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/gotravel', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/e', {useNewUrlParser: true, useUnifiedTopology: true});
+var Schema=mongoose.Schema;
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log("connect!!good for you!!")
-  // we're connected!
+    var mys=new Schema({name:String , age:String});
+    var usermodel=mongoose.model("e",mys);
+    usermodel.find({},function(err,result){
+        console.log(result);
+    })
 });
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/gotravel', {useNewUrlParser: true, useUnifiedTopology: true});
 
-const db = mongoose.connection;
+mongoose.connect('mongodb://localhost:27017/e', {useNewUrlParser: true, useUnifiedTopology: true});
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
