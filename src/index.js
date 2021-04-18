@@ -24,4 +24,21 @@ app.listen(app_port, () => {
     console.log('http://127.0.0.1:'+app_port+"/")
 })
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/gotravel', {useNewUrlParser: true, useUnifiedTopology: true});
+const db = mongoose.connection;
 
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log("connect!!good for you!!")
+  // we're connected!
+});
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/gotravel', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+});
