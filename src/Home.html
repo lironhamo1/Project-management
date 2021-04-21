@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>home</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="Home.css"/>
+<script id="applicationScript" type="text/javascript" src="Home.js"></script>
+</head>
+<body>
+<div id="home">
+	<div id="background">
+		<img id="p" src="p.png" srcset="p.png 1x">
+			
+		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
+			
+	</div>
+	<div id="nav_bar">
+		<svg class="bar">
+			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+			</rect>
+		</svg>
+		<img id="logo" src="logo.png" srcset="logo.png 1x">
+			
+		<div onclick="application.goToTargetView(event)" id="QA">
+			<span>Q&A</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="Contact_Us">
+			<span>Contact Us</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="About_Us">
+			<span>About Us</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="Login">
+			<span>Login</span>
+		</div>
+		<div onclick="application.goToTargetView(event)" id="Registration">
+			<span>Registration</span>
+		</div>
+		<div id="hello_guest_">
+			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
+		</div>
+	</div>
+</div>
+</body>
+</html>

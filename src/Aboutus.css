@@ -1,0 +1,322 @@
+.mediaViewInfo {
+	--web-view-name: About Us;
+	--web-view-id: About_Us;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: About_Us;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#About_Us {
+	position: absolute;
+	width: 1530px;
+	height: 4240px;
+	overflow: hidden;
+	--web-view-name: About Us;
+	--web-view-id: About_Us;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#background {
+	mix-blend-mode: normal;
+	position: absolute;
+	width: 1530px;
+	height: 6369px;
+	left: 0px;
+	top: 0px;
+	overflow: hidden;
+}
+#p {
+	position: absolute;
+	width: 1979px;
+	height: 2376px;
+	left: 0px;
+	top: -430px;
+	overflow: visible;
+}
+#p_n {
+	position: absolute;
+	width: 1979px;
+	height: 2376px;
+	left: 0px;
+	top: 1897px;
+	overflow: visible;
+}
+#nav_bar {
+	position: absolute;
+	width: 1532px;
+	height: 361px;
+	left: 0px;
+	top: -40px;
+	overflow: visible;
+}
+#bar {
+	opacity: 0.44;
+	fill: rgba(35,41,77,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.bar {
+	position: absolute;
+	overflow: visible;
+	width: 1532px;
+	height: 88px;
+	left: 0px;
+	top: 141px;
+}
+#logo {
+	position: absolute;
+	width: 361px;
+	height: 361px;
+	left: 585px;
+	top: 0px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Home.html;
+	cursor: pointer;
+}
+#QA {
+	left: 255px;
+	top: 175px;
+	position: absolute;
+	overflow: visible;
+	width: 110px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: q&a.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+}
+#Contact_Us {
+	left: 57px;
+	top: 175px;
+	position: absolute;
+	overflow: visible;
+	width: 163px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: contactus.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+}
+#About_Us_t {
+	left: 400px;
+	top: 175px;
+	position: absolute;
+	overflow: visible;
+	width: 163px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+}
+#Login {
+	left: 1183px;
+	top: 175px;
+	position: absolute;
+	overflow: visible;
+	width: 163px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: login.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+}
+#Registration {
+	left: 1328px;
+	top: 175px;
+	position: absolute;
+	overflow: visible;
+	width: 163px;
+	white-space: nowrap;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: registration.html;
+	cursor: pointer;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+}
+#hello_guest_ {
+	left: 1402px;
+	top: 104px;
+	position: absolute;
+	overflow: visible;
+	width: 103px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(6,2,2,1);
+}
+#Path_17 {
+	fill: rgba(46,92,103,1);
+	stroke: rgba(19,41,78,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_17 {
+	overflow: visible;
+	position: absolute;
+	width: 1199px;
+	height: 1px;
+	left: 143px;
+	top: 901px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Rectangle_74 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_74 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1433px;
+	height: 620px;
+	left: 47px;
+	top: 1051px;
+}
+#ID21__________________________ {
+	left: 696px;
+	top: 1314px;
+	position: absolute;
+	overflow: visible;
+	width: 723px;
+	height: 376px;
+	text-align: right;
+	font-family: Californian FB;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
+#liron {
+	position: absolute;
+	width: 335px;
+	height: 419px;
+	left: 112px;
+	top: 1147px;
+	overflow: visible;
+}
+#____ {
+	left: 766px;
+	top: 1118px;
+	position: absolute;
+	overflow: visible;
+	width: 652px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Californian FB;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 60px;
+	color: rgba(0,0,0,1);
+}
+#Rectangle_75 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_75 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1433px;
+	height: 620px;
+	left: 49px;
+	top: 348px;
+}
+#_ {
+	left: 767px;
+	top: 411px;
+	position: absolute;
+	overflow: visible;
+	width: 652px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Californian FB;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 60px;
+	color: rgba(0,0,0,1);
+}
+#______________________________ {
+	left: 231px;
+	top: 563px;
+	position: absolute;
+	overflow: visible;
+	width: 1188px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Californian FB;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
