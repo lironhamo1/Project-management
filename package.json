@@ -24,13 +24,17 @@
     "chai": "^4.3.3",
     "eslint": "^7.21.0",
     "mocha": "^8.3.1",
+    "mongodb": "^3.6.6",
     "nodemon": "^2.0.7"
   },
   "dependencies": {
     "express": "^4.17.1",
     "firebase": "^8.2.10",
     "mongoose": "^5.12.4",
-    "path-__dirname": "^2.1.0"
+    "path-__dirname": "^2.1.0",
+    "require": "^2.4.20",
+    "require.js": "^1.0.0",
+    "requirejs": "^2.3.6"
   },
   "directories": {
     "test": "test"

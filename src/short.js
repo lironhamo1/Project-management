@@ -2834,3 +2834,120 @@ var Application = function() {
 }
 
 window.application = new Application();
+window.onload=function() {
+	var area;
+	var locations;
+	var trip_end;
+	var trip_start;
+	var cost;
+	var travelsNum;
+	var packages_left;
+	var hotel;
+	var star;
+	var purchased;
+	var flight;
+	var packageType;
+	var info;
+	var about;
+	var img;
+
+//class package
+
+	function CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+					   flight,packageType,about,info,image) {
+	let myObject = {
+		area: area,
+		locations: locations,
+		trip_start: trip_start,
+		trip_end: trip_end,
+		cost: cost,
+		travelsNum: travelsNum,
+		packages_left: packages_left,
+		hotel: hotel,
+		star: star,
+		flight: flight,
+		packageType : packageType,
+		about: about,
+		info: info,
+		img: image,
+		purchased:purchased,
+
+	};
+	return myObject;
+}
+
+	function insertObjctToMongo(jsObj){
+		/*
+		let jsonObject=JSON.stringify(jsObj);
+		const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+		//eslint-disable-next-line no-undef
+		var mongoose = require('mongodb').MongoClient;
+		mongoose.connect(url, function(err, db) {
+			if (err) throw err;
+			//Choosing DB
+			var dbo = db.db("GoTravel");
+
+			//Extracting data from accounts collection
+			// eslint-disable-next-line no-unused-vars
+			dbo.collection("Package management").forms.insert(jsonObject);
+			if (err) throw err;
+			 console.log(result);
+			 db.close();
+
+		});
+*/
+		const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+
+
+		var mongoose = require('mongodb').MongoClient;
+		mongoose.connect(url, function(err, db) {
+			if (err) throw err;
+			//Choosing DB
+			var dbo = db.db("GoTravel");
+
+			//Extracting data from accounts collection
+			// eslint-disable-next-line no-unused-vars
+			dbo.collection("Package management").find({}).toArray(function(err, result) {
+				if (err) throw err;
+				console.log(result);
+				db.close();
+			});
+		});
+
+
+	}
+
+	function addPackage() {
+		//take care of the split btn values
+		locations = document.getElementById("location").value;
+		area=document.getElementById("area").value;
+		trip_start=document.getElementById("start").value;
+		trip_end=document.getElementById("end").value;
+		cost=document.getElementById("cost").value;
+		travelsNum=document.getElementById("travelsNum").value;
+		packages_left=document.getElementById("left").value;
+		hotel=document.getElementById("hotel").value;
+		star=document.getElementById("stars").value;
+		purchased=document.getElementById("purchased").value;
+		flight=document.getElementById("flight").value;
+		packageType=document.getElementById("typePackage").value;
+		about=document.getElementById("about").value;
+		info=document.getElementById("info").value;
+		//img=document.getElementById("img");
+
+		let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+			flight,packageType,about,info);
+		//put in DB
+
+		insertObjctToMongo(myObj);
+		alert(myObj);
+
+	}
+
+
+	var temp = document.getElementById("add");
+	temp.addEventListener("click", addPackage);
+
+
+
+}

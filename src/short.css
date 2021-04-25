@@ -45,6 +45,7 @@
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
+	z-index: -1;
 }
 #p {
 	position: absolute;
@@ -71,6 +72,7 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+	z-index: -1;
 }
 .bar {
 	position: absolute;
@@ -210,3 +212,84 @@
 	left: 373px;
 	top: 397px;
 }
+#Rectangle_75 {
+	object-position: 50% 20%;
+	opacity: 0.8;
+	fill: rgb(3, 151, 157);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_75 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1433px;
+	height: 620px;
+	left: 49px;
+	top: 348px;
+	z-index: 2;
+}
+
+#title_ {
+	text-align: center;
+	top: 350px;
+	left:200px;
+	position: absolute;
+	overflow: visible;
+	width: 1188px;
+	white-space: nowrap;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,0,0,1);
+	z-index: 3;
+}
+.button {
+	text-align: center;
+	position: absolute;
+	overflow: visible;
+	width: 50;
+	white-space: nowrap;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 10px;
+	color: rgba(0,0,0,1);
+	z-index: 3;
+	padding: 15px 32px;
+	cursor: pointer;
+	background-color: #26697556;
+	border-radius: 12px;
+	left: 450px;
+
+
+}
+
+.main_btn{
+	width: 100%;
+	height: 2%;
+	left: 30%;
+	display: flex;
+	justify-content:center ;
+	flex-direction: row;
+}
+.button{
+	padding: 30px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	flex-direction: row;
+	font-size: 15px;
+	width: 100px;
+	height: 60px;
+	border: 2px solid black;
+	border-color: #faf9fa;
+	color: #faf7fa;
+}
+
+
