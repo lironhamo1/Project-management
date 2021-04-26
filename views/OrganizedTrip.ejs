@@ -5,15 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Costumer Personal Page</title>
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="AgentPersonalPage.css"/>
-<script id="applicationScript" type="text/javascript" src="AgentPersonalPage.js"></script>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../public/css/OrganizedTrip.css"/>
+<script id="applicationScript" type="text/javascript" src="../public/js/OrganizedTrip.js"></script>
 </head>
 <body>
-<div id="AgentPersonalPage">
+<div id="Costumer_Personal_Page">
 	<div id="background">
-		<img id="p" src="p.png" srcset="p.png 1x">
+		<img id="p" src="../src/p.png" srcset="../src/p.png 1x">
 			
-		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
+		<img id="p_n" src="../src/p_n.png" srcset="../src/p_n.png 1x">
 			
 	</div>
 	<div id="nav_bar">
@@ -21,7 +21,7 @@
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="logo.png" srcset="logo.png 1x">
+		<img onclick="application.goToTargetView(event)" id="logo" src="../src/logo.png" srcset="../src/logo.png 1x">
 			
 		<div onclick="application.goToTargetView(event)" id="QA">
 			<span>Q&A</span>
@@ -48,17 +48,16 @@
        
     </svg>
     <div id="title_">
-            <br>Travel Agent ***name from db*** Personal Page</br>
-        </div>
+            <br>GoTravel's Organized Trips </br>
+    </div>
 	<div id="hello_">
-        <span>Hello ***agent name from db***</span>
+        <span>Hello ***user name from db***/user</span>
 	</div>
-
-	<button class=" button password">Change your password</button>
-    <button class=" button info">Show orders information</button>
     <div id="Logout">
         <span>Logout</span>
     </div>
+    <button class=" button join">join this trip </button>
+
 </div>
 </body>
 </html>

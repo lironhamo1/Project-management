@@ -10,13 +10,13 @@ var path = require('path');
 // eslint-disable-next-line no-undef
 const fullPath=__dirname
 app.get('/',(req,res)=>{
-    res.sendFile(path.join(fullPath + '/homePage.html'))
+    res.sendFile(path.join(fullPath + '/homePage.ejs'))
 })
 app.get('/login',(req,res)=>{
-    res.sendFile(path.join(fullPath + '/login.html'))
+    res.sendFile(path.join(fullPath + '/login.ejs'))
 })
 app.get('/signup',(req,res)=>{
-    res.sendFile(path.join(fullPath + '/Signup.html'))
+    res.sendFile(path.join(fullPath + '/Signup.ejs'))
 })
 
 

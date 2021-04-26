@@ -5,15 +5,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Costumer Personal Page</title>
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="OrganizedTrip.css"/>
-<script id="applicationScript" type="text/javascript" src="OrganizedTrip.js"></script>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../public/css/costumerPersonalPage.css"/>
+<script id="applicationScript" type="text/javascript" src="../public/js/costumerPersonalPage.js"></script>
 </head>
 <body>
 <div id="Costumer_Personal_Page">
 	<div id="background">
-		<img id="p" src="p.png" srcset="p.png 1x">
+		<img id="p" src="../src/p.png" srcset="../src/p.png 1x">
 			
-		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
+		<img id="p_n" src="../src/p_n.png" srcset="../src/p_n.png 1x">
 			
 	</div>
 	<div id="nav_bar">
@@ -21,7 +21,7 @@
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="logo.png" srcset="logo.png 1x">
+		<img onclick="application.goToTargetView(event)" id="logo" src="../src/logo.png" srcset="../src/logo.png 1x">
 			
 		<div onclick="application.goToTargetView(event)" id="QA">
 			<span>Q&A</span>
@@ -48,16 +48,21 @@
        
     </svg>
     <div id="title_">
-            <br>GoTravel's Organized Trips </br>
-    </div>
+            <br>Costumer Personal Page</br>
+        </div>
 	<div id="hello_">
-        <span>Hello ***user name from db***/user</span>
+        <span>Hello ***user name from db***</span>
 	</div>
+	<a  href="changePassword.ejs">
+	<button class=" button password">Change your password</button>
+	</a>
+    <button class=" button info">My information</button>
+    <button class=" button orders">My orders</button>
+    <button class=" button wish">My wishlist </button>
+    <button class=" button upcom">Upcoming vication </button>
     <div id="Logout">
         <span>Logout</span>
     </div>
-    <button class=" button join">join this trip </button>
-
 </div>
 </body>
 </html>
