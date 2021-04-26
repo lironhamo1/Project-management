@@ -6,7 +6,7 @@
     "dev": "nodemon src/index.js",
     "test": "mocha test/*.spec.js --color",
     "lint": "eslint src/*.js --color",
-    "start": "node src/index.js"
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,12 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "requirejs": "^2.3.6",
     "firebase": "^8.2.10",
     "mongoose": "^5.12.4",
-    "path-__dirname": "^2.1.0"
+    "path-__dirname": "^2.1.0",
+    "ejs": "^3.1.6",
+    "mongodb": "latest"
   },
   "directories": {
     "test": "test"
