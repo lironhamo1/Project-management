@@ -41,27 +41,13 @@
 	mix-blend-mode: normal;
 	position: absolute;
 	width: 1530px;
-	height: 3351px;
+	height: 8000px;
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
 }
-#p {
-	position: absolute;
-	width: 1979px;
-	height: 2376px;
-	left: 0px;
-	top: -430px;
-	overflow: visible;
-}
-#p_p {
-	position: absolute;
-	width: 1979px;
-	height: 2376px;
-	left: 0px;
-	top: 1897px;
-	overflow: visible;
-}
+
+
 #nav_bar {
 	position: absolute;
 	width: 1532px;
@@ -97,7 +83,7 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: Home.ejs;
 	cursor: pointer;
 }
 #QA {
@@ -109,7 +95,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.html;
+	--web-action-target: q&a.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -127,7 +113,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.html;
+	--web-action-target: contactus.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -159,7 +145,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: login.html;
+	--web-action-target: login.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -177,7 +163,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.html;
+	--web-action-target: registration.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -255,10 +241,12 @@
 	left: 112px;
 	top: 512px;
 	position: absolute;
-	overflow: visible;
-	width: 1278px;
-	white-space: nowrap;
+
+	width: 1200px;
+
 	text-align: left;
+	word-wrap: break-word;
+
 	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
@@ -385,7 +373,7 @@
 	font-size: 40px;
 	color: rgba(0,0,0,1);
 }
-#Image_1 {
+#einav {
 	position: absolute;
 	width: 275px;
 	height: 326px;
@@ -458,7 +446,7 @@
 	font-size: 40px;
 	color: rgba(0,0,0,1);
 }
-#WhatsApp_Image_2021-04-20_at_1 {
+#ohad {
 	position: absolute;
 	width: 220.5px;
 	height: 342.804px;
@@ -531,7 +519,7 @@
 	font-size: 40px;
 	color: rgba(0,0,0,1);
 }
-#Image_2 {
+#daniel {
 	position: absolute;
 	width: 345px;
 	height: 311px;
