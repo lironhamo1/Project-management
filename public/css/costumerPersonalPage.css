@@ -288,26 +288,18 @@
 	top: 600px;
     left:50px;
 }
-.info{
+
+.orders{
     text-align: center;
 	top: 700px;
     left:50px;
 }
-.orders{
+.wish{
     text-align: center;
 	top: 800px;
     left:50px;
 }
-.wish{
-    text-align: center;
-	top: 900px;
-    left:50px;
-}
-.upcom{
-    text-align: center;
-	top: 1000px;
-    left:50px;
-}
+
 #Logout{
     text-align: center;
 	top: 1200px;

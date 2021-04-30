@@ -268,13 +268,11 @@ input {
 	margin: 40px;
 	display: inline-block;
 	border: 5px solid black;
-
   }
 button[type=submit] {
 	top: 500px;
 	position: absolute;
 	overflow: visible;
-	width: 40;
 	white-space: nowrap;
     font-family: Arial;
 	font-style: normal;

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../public/css/TripRegistrationform.css"/>
+	<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="TripRegistrationform.css"/>
+	<script src="TripRegistrationform.js"></script>
 </head>
 <body>
 	<div id="background">
-		<img id="p" src="../src/p.png" srcset="../src/p.png 1x">
+		<img id="p" src="p.png" srcset="p.png 1x">
 			
-		<img id="p_n" src="../src/p_n.png" srcset="../src/p_n.png 1x">
+		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
 			
 	</div>
 	<svg class="Rectangle_75">
@@ -20,7 +21,7 @@
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="../src/logo.png" srcset="../src/logo.png 1x">
+		<img onclick="application.goToTargetView(event)" id="logo" src="logo.png" srcset="logo.png 1x">
 			
 		<div onclick="application.goToTargetView(event)" id="QA">
 			<span>Q&A</span>
@@ -45,21 +46,19 @@
 		<br>Trip Registration Form </br>
 	</div>
 	<div id="reg">
-		<form action="ssskkk.xlsx" method="get" id="form1">
+		<form method="get" id="form1">
 			<label for="fname">First name:</label>
-			<input type="text" id="fname" name="fname" required>
+			<input type="text" id="fname" required >
 			<label for="lname">Last name:</label>
-			<input type="text" id="lname" name="lname" required >
+			<input type="text" id="lname" required >
 			<label for="lname">Phone number:</label> 
-			<input type="number" id="phone" name="phoneNo" required >
+			<input type="number" id="phone" required >
 			<label for="lname">Mail Address:</label>
-			<input type="email" id="Mail" name="Mail" required>
-			<button type="submit" form="form1"  value="Submit">Submit</button>
-		</form> 
-	</div>	
-
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+			<input type="email" id="mail" required>
+			<button type="submit" form="form1"  value="Submit" id="submit">Submit</button>
+		</form>
+	</div>
 
 </body>
+
 </html>

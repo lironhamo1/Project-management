@@ -270,23 +270,26 @@
 .button {
 	position: absolute;
 	overflow: visible;
-	width: 50;
+	width: 800px;
 	white-space: nowrap;
     font-family: Arial;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 60px;
 	color: rgba(0,0,0,1);
     z-index: 3;
     padding: 15px 32px;
     cursor: pointer;
     background-color: #26697556;
     border-radius: 12px;
+	left: 400px;
 }
-.join{
-    text-align: center;
+.tripUS{
 	top: 600px;
-    left:50px;
+}
+
+.tripLONDON{
+	top:800px;
 }
 
 #Logout{

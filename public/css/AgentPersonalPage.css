@@ -240,7 +240,7 @@
     z-index: 2;
 }
 #hello_{
-    left: 500px;
+    left: 600px;
 	top: 500px;
 	position: absolute;
 	overflow: visible;
@@ -258,7 +258,7 @@
     left:200px;
 	position: absolute;
 	overflow: visible;
-	width: 1188px;
+	width: 1000px;
 	white-space: nowrap;
     font-family: Arial;
 	font-style: normal;
@@ -271,7 +271,6 @@
     text-align: center;
 	position: absolute;
 	overflow: visible;
-	width: 50;
 	white-space: nowrap;
     font-family: Arial;
 	font-style: normal;
@@ -289,7 +288,7 @@
 }
 .password{
 	top: 600px;
-    left: 470px;
+    left: 450px;
 
 }
 .info{
