@@ -83,6 +83,8 @@ window.onload = function () {
     readDB();
     document.getElementById("title_").innerHTML = country + " Trip";
 
+
+
 }
 
 

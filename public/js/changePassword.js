@@ -93,7 +93,8 @@ window.onload = function () {
 
         console.log("enter to findAccount()")
     }
-    //write to db ?
+
+
     function update(){
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");

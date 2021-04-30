@@ -1,9 +1,9 @@
 var user='liron@gmail.com'
-
+export { user };
 window.onload = function () {
     var userId=1;
     function logout() {
-        userId = null;
+        user = null;
         alert("logout success");
     }
     var btn = document.getElementById("Logout");

@@ -146,6 +146,28 @@ app.get('/wishlist',(req,res)=>{
     res.render('wishlist')
 })
 
+app.get('/newsAgent.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss,'newsAgent.css'))
+})
+app.get('/newsAgent.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs,'newsAgent.js'))
+    //res.render(path.join('/OrdersManagementPage'))
+})
+app.get('/newsAgent',(req,res)=>{
+    res.render('newsAgent')
+})
+
+
+
+
+
+
+
+
+
+
+
+
 app.get('/img2.jpg',(req,res)=>{
     res.sendFile(path.join(fullPathimages + '/img2.jpg'))
 })
@@ -219,6 +241,29 @@ app.post("/password", (req, res) => {
 
 
 
+
+app.post("/wishlist", (req, res) => {
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('Package management').find({}).toArray(function (err, result) {
+            return res.status(200).json({
+                ok: true,
+                data: result
+            });
+            if (err) throw err;
+            db.close();
+        });
+    });
+});
+
+
 app.post("/update", (req, res) => {
     console.log(req.body)
     res.send("test")
@@ -239,6 +284,7 @@ app.post("/update", (req, res) => {
         });
     });
 });
+
 
 
 /*app.post('/password', (req, res) => {
@@ -304,6 +350,28 @@ app.post("/OrganizedTrip", (req, res) => {
         });
     });
 });
+
+app.post("/news", (req, res) => {
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('newsletter').find({}).toArray(function (err, result) {
+            return res.status(200).json({
+                ok: true,
+                data: result
+            });
+            if (err) throw err;
+            db.close();
+        });
+    });
+});
+
 
 
 app.listen(app_port, () => {

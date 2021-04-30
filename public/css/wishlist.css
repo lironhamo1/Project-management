@@ -283,26 +283,6 @@
     background-color: #26697556;
     border-radius: 12px;
 }
-.password{
-    text-align: center;
-    top: 600px;
-    left:50px;
-}
-.info{
-    text-align: center;
-    top: 700px;
-    left:50px;
-}
-.orders{
-    text-align: center;
-    top: 800px;
-    left:50px;
-}
-.wish{
-    text-align: center;
-    top: 900px;
-    left:50px;
-}
 
 #Logout{
     text-align: center;
@@ -344,4 +324,21 @@
     margin: 0;
     font-weight: bold;
 
+}
+
+.delete_wish{
+    text-align: center;
+    top: 1000px;
+    left:50px;
+    width: 500px;
+}
+
+td{
+    padding:15px 10px;
+    padding-right: 2em;
+    width: 10px;
+}
+
+.table{
+    font-size: 20px;
 }

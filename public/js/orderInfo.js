@@ -8,7 +8,6 @@ window.onload = function () {
     }
 
 
-
     //change status at data base
     function Func(){
         var data;

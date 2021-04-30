@@ -4,7 +4,7 @@ window.onload = function () {
     var userId = 1;
 
     function logout() {
-        userId = null;
+        user = null;
         flag=false;
         alert("logout success");
     }
