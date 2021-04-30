@@ -3,6 +3,7 @@ window.onload = function () {
 
     var count = 0;
     var obj;
+
     function visual() {
         if (count == 0) {
             document.getElementById("empty").innerHTML = "There is no packages in wishlist";
@@ -93,7 +94,7 @@ window.onload = function () {
     function equal(obj) {
         readTrip().then((database) => {
             var i;
-            for (i=0;i<database.length;i++){
+            for (i = 0; i < database.length; i++) {
                 if (database[i]['_id'] == obj['wishlist']) {
                     addObjectForDisplay(database[i]);
                     count++;
@@ -103,6 +104,7 @@ window.onload = function () {
 
         });
     }
+
     function addObjectForDisplay(obj) {
         let row = document.createElement('tr');
         let col2 = document.createElement('td');
@@ -141,30 +143,31 @@ window.onload = function () {
 
         let table = document.getElementById("table");
         table.appendChild(row);
+
+
+        // function updateWishlist(){
+        //     var myHeaders = new Headers();
+        //     myHeaders.append("Content-Type", "application/json");
+        //
+        //     var raw = JSON.stringify({
+        //         "mail":mail,
+        //         "newPass": newPass
+        //     });
+        //
+        //     var requestOptions = {
+        //         method: 'POST',
+        //         headers: myHeaders,
+        //         body: raw,
+        //         redirect: 'follow'
+        //     };
+        //
+        //     fetch("update", requestOptions)
+        //         .then(response => response.text())
+        //         .then(result => console.log(result))
+        //         .catch(error => console.log('error', error));
+        //
+        // }
+        // }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
 

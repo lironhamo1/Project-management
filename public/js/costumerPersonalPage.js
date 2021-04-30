@@ -1,5 +1,6 @@
 var user='liron@gmail.com'
-export { user };
+
+
 window.onload = function () {
     var userId=1;
     function logout() {
@@ -52,6 +53,8 @@ window.onload = function () {
     }
 
     foundAccount();
+    var btn = document.getElementById("Logout");
+    btn.addEventListener("click", logout);
 }
 
 
