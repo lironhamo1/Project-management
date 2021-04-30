@@ -2834,222 +2834,44 @@ var Application = function() {
 window.application = new Application();
 window.onload=function() {
     var rowCount=0;
-    function insertObjctToMongo(jsObj){
-        /*
-        let jsonObject=JSON.stringify(jsObj);
-        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-        //eslint-disable-next-line no-undef
-        var mongoose = require('mongodb').MongoClient;
-        mongoose.connect(url, function(err, db) {
-            if (err) throw err;
-            //Choosing DB
-            var dbo = db.db("GoTravel");
-            //Extracting data from accounts collection
-            // eslint-disable-next-line no-unused-vars
-            dbo.collection("Package management").forms.insert(jsonObject);
-            if (err) throw err;
-             console.log(result);
-             db.close();
-        });
-*/
-        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    function processOrderID()
+    {
+        var parameters = location.search.substring(1).split("?");
 
-
-        var mongoose = require('mongodb').MongoClient;
-        mongoose.connect(url, function(err, db) {
-            if (err) throw err;
-            //Choosing DB
-            var dbo = db.db("GoTravel");
-
-            //Extracting data from accounts collection
-            // eslint-disable-next-line no-unused-vars
-            dbo.collection("Package management").find({}).toArray(function(err, result) {
-                if (err) throw err;
-                console.log(result);
-                db.close();
-            });
-        });
-
-
+        var temp = parameters[0].split("=");
+        var id = unescape(temp[1]);
+        console.log(id)
     }
+processOrderID();
 
+};
 
-
-    function FieldsArng(listing,i) {
-        var arng=[];
-        if (listing['_id']!==undefined)
-            arng.push(i.toString());
-        if (listing['Status']!==undefined)
-            arng.push(listing['Status']);
-        else arng.push('0');
-        if (listing['Dates']!==undefined)
-            arng.push(listing['Dates']);
-        else arng.push('0');
-        if (listing['Destination']!==undefined)
-            arng.push(listing['Destination']);
-        else arng.push('0');
-        if (listing['User Name']!==undefined)
-            arng.push(listing['User Name']);
-        else arng.push('0');
-        if (listing['Phone']!==undefined)
-            arng.push(listing['Phone']);
-        else arng.push('0');
-        if (listing['Email']!==undefined)
-            arng.push(listing['Email']);
-        else arng.push('0');
-        if (listing['Price']!==undefined)
-            arng.push(listing['Price']);
-        else arng.push('0');
-        if (listing['Package Type']!==undefined)
-            arng.push(listing['Package Type']);
-        else arng.push('0');
-        arng.push(listing["_id"]);
-        return arng
-
+function Validateinfo() {
+    name=document.getElementById("firstname");
+    lname=document.getElementById("lastname");
+    id=document.getElementById("uid").value;
+    ccn=document.getElementById("ccd").value;
+    ltd=document.getElementById("ltd").value;
+    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(name)){
+        alert('Invalid name given.');
+        return false;
     }
-
-    function productsAdd(data) {
-        var id="status"+data[0].toString();
-        var hid="hid"+data[0].toString();
-        $("#package_table tbody").append("<tr>" +
-            "<td>"+data[0]+"</td>" +
-            "<td contenteditable='true' id="+id+">"+data[1]+"</td>" +
-            "<td>"+data[2]+"</td>" +
-            "<td>"+data[3]+"</td>" +
-            "<td>"+data[4]+"</td>" +
-            "<td>"+data[5]+"</td>" +
-            "<td>"+data[6]+"</td>" +
-            "<td>"+data[7]+"</td>" +
-            "<td>"+data[8]+"</td>" +
-            "<td hidden id="+hid+">"+data[9]+"</td>"+
-            "</tr>");
+    if(!regName.test(lname)){
+        alert('Invalid last name given.');
+        return false;
     }
-
-    function loadfromDb() {
-        var rdy;
-        var dataset=[];
-        var data;
-        fetch("/LoadAllFromOrders", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => response.json())
-            .then(function(response) {
-
-                if (response.ok) {
-                    console.log('got data');
-                    var i;
-                    for (i=0;i<response.data.length;i++){
-                        rdy = FieldsArng(response.data[i],i+1);
-                        rowCount++;
-                        productsAdd(rdy);
-                    }
-                document.getElementById("package_table").dataset=dataset;
-                }
-                else throw new Error('Request failed.');
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-
-        }
-
-    function commitChanges() {
-            var changes = [];
-            var i, id, ele;
-            for (i = 0; i < rowCount; i++) {
-                id = 'status' + (i + 1).toString();
-                listid='hid'+(i+1).toString();
-                ele = document.getElementById(id).innerText;
-                ele2=document.getElementById(listid).innerText;
-                mytuple=[ele,ele2]
-                changes.push(mytuple)
-            }
-            update(changes)
-        }
-
-    function update(upd){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify({
-            "data":upd,
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("UpdateAllOrderStatus", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
+    if(id.length<9||id.length>9){
+        alert("Please enter a valid ID");
+        return false;
     }
-
-
-    loadfromDb()
-    var temp = document.getElementById("add");
-    temp.addEventListener("click", commitChanges);
-}
-
-function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("package_table");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
-            // Start by saying there should be no switching:
-            shouldSwitch = false;
-            /* Get the two elements you want to compare,
-            one from current row and one from the next: */
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            /* Check if the two rows should switch place,
-            based on the direction, asc or desc: */
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark that a switch has been done: */
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            // Each time a switch is done, increase this count by 1:
-            switchcount ++;
-        } else {
-            /* If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again. */
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
+    if(ccn.length<16||ccn.length>16){
+        alert("Please enter a valid Card number");
+        return false;
     }
+    if(ltd.length<3||ltd.length>3){
+        alert("Please enter a valid last 3 digits");
+        return false;
+    }
+    return true;
 }

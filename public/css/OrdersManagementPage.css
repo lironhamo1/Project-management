@@ -91,7 +91,7 @@
     overflow: visible;
     --web-animation: fadein 0.3s ease-out;
     --web-action-type: page;
-    --web-action-target: Home.html;
+    /*--web-action-target: Home.html;*/
     cursor: pointer;
 }
 #QA {
@@ -102,7 +102,7 @@
     width: 110px;
     white-space: nowrap;
     text-align: center;
-    font-family: Arial;
+    /*font-family: Arial;*/
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -120,7 +120,7 @@
     --web-action-target: contactus.html;
     cursor: pointer;
     text-align: center;
-    font-family: Arial;
+    /*font-family: Arial;*/
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -138,7 +138,7 @@
     --web-action-target: Aboutus.html;
     cursor: pointer;
     text-align: center;
-    font-family: Arial;
+    /*font-family: Arial;*/
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -156,7 +156,7 @@
     --web-action-target: login.html;
     cursor: pointer;
     text-align: center;
-    font-family: Arial;
+    /*font-family: Arial;*/
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -174,7 +174,7 @@
     --web-action-target: registration.html;
     cursor: pointer;
     text-align: center;
-    font-family: Arial;
+    /*font-family: Arial;*/
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -231,7 +231,7 @@
     height: 620px;
     left: 49px;
     top: 348px;
-    z-index: 2;
+    z-index: -1;
 }
 
 #title_ {
@@ -247,7 +247,13 @@
     font-weight: bold;
     font-size: 20px;
     color: rgba(0,0,0,1);
-    z-index: 3;
+    z-index: -1;
+}
+#package_table{
+    z-index: 1;
+    background: white;
+    border: 3px #333333;
+    font-size: medium;
 }
 .button {
     text-align: center;
@@ -290,4 +296,7 @@
     border: 2px solid black;
     border-color: #faf9fa;
     color: #faf7fa;
+}
+#formzibi{
+    z-index: 1;
 }
