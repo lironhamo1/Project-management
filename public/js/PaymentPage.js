@@ -2833,27 +2833,30 @@ var Application = function() {
 
 window.application = new Application();
 window.onload=function() {
-    var rowCount=0;
+    var packageID;
     function processOrderID()
     {
-        var parameters = location.search.substring(1).split("?");
+        var parameters = location.search.substring(1).split("&");
 
         var temp = parameters[0].split("=");
         var id = unescape(temp[1]);
+        packageID=id;
         console.log(id)
     }
 processOrderID();
 
 };
 
+// eslint-disable-next-line no-unused-vars
 function Validateinfo() {
-    name=document.getElementById("firstname");
-    lname=document.getElementById("lastname");
-    id=document.getElementById("uid").value;
-    ccn=document.getElementById("ccd").value;
-    ltd=document.getElementById("ltd").value;
-    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    var name=document.getElementById("firstname").value;
+    var lname=document.getElementById("lastname").value;
+    var id=document.getElementById("uid").value;
+    var ccn=document.getElementById("ccd").value;
+    var ltd=document.getElementById("ltd").value;
+    var regName = /^[a-zA-Z]+$/;
     if(!regName.test(name)){
+        console.log(name)
         alert('Invalid name given.');
         return false;
     }

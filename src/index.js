@@ -1,7 +1,9 @@
-// eslint-disable-next-line no-undef
+/*global require,__dirname*/
+/*eslint no-undef: "error"*/
+
 const express = require('express')
 var bodyParser = require('body-parser')
-ObjectID = require('mongodb').ObjectID;
+var ObjectID = require('mongodb').ObjectID;
 
 //var router=express.Router();
 // eslint-disable-next-line no-undef
@@ -36,7 +38,7 @@ app.get('/login',(req,res)=>{
 app.get('/signup',(req,res)=>{
     res.sendFile(path.join(fullPath + '/Signup.html'))
 })
-
+//Orders management page
 app.get('/OrdersM',(req,res)=>{
     res.render('OrdersManagementPage')
 })
@@ -47,6 +49,7 @@ app.get('/OrdersManagementPage.js',(req,res)=>{
     res.sendFile(path.join(fullPathJs + '/OrdersManagementPage.js'))
     //res.render(path.join('/OrdersManagementPage'))
 })
+//Paying for package page
 app.get('/Pay',(req,res)=>{
     res.render('PaymentPage')
 })
@@ -55,7 +58,16 @@ app.get('/PaymentPage.css',(req,res)=>{
 })
 app.get('/PaymentPage.js',(req,res)=>{
     res.sendFile(path.join(fullPathJs + '/PaymentPage.js'))
-    //res.render(path.join('/OrdersManagementPage'))
+})
+//Order Display Page
+app.get('/OrderDisplay',(req,res)=>{
+    res.render('OrderViewingPage')
+})
+app.get('/OrderViewingPage.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/OrderViewingPage.css'))
+})
+app.get('/OrderViewingPage.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/OrderViewingPage.js'))
 })
 app.get('/logo.png',(req,res)=>{
     res.sendFile(path.join(fullPathimages + '/logo.png'))
@@ -63,28 +75,6 @@ app.get('/logo.png',(req,res)=>{
 app.get('/p.png',(req,res)=>{
     res.sendFile(path.join(fullPathimages + '/p.png'))
 })
-
-// app.get('/readFile', async (req, res) => {
-//     //let fileContent ;
-//     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-//     var mongoose = require('mongodb').MongoClient;
-//     mongoose.connect(url, function(err, db) {
-//         if (err) throw err;
-//         //Choosing DB
-//         var dbo = db.db("GoTravel");
-//
-//         //Extracting data from accounts collection
-//         // eslint-disable-next-line no-unused-vars
-//         dbo.collection('Orders').find({}).toArray(function(err, result) {
-//             temp=true
-//             //res.render('OrdersManagementPage',{temp: true})
-//             if (err) throw err;
-//             db.close();
-//         });
-//     });
-//
-// });
-
 
 app.post("/LoadAllFromOrders", (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
@@ -121,7 +111,7 @@ app.post("/UpdateAllOrderStatus",(req,res)=>{
         //Choosing DB
         var dbo = db.db("GoTravel");
         for(i=0;i<req.body.data.length;i++) {
-            var objectid=new ObjectID(req.body.data[i][1].toString())
+            var objectid=new ObjectID(req.body.data[i][1].toString());
             var myquery = {_id: objectid};
             var newvalues = {$set: {Status: req.body.data[i][0]}};
             dbo.collection("Orders").updateOne(myquery, newvalues, function (err, res) {
@@ -133,11 +123,82 @@ app.post("/UpdateAllOrderStatus",(req,res)=>{
     // eslint-disable-next-line no-unused-vars
     db.close();
 });
+    res.end("yes");
 });
 
 app.post("/InsertRowToOrders",(req,res)=>{
     console.log("IT ISSSSSS:",req.body)
+    res.end("yes");
 });
+
+function getpackage(pid){
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from account and orders collections
+        dbo.collection('orders').find({"_id": pid}).toArray(function (err, result) {
+            console.log(result);
+            return result;
+        });
+    })
+}
+function getuser(uid){
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from account and orders collections
+        dbo.collection('accounts').find({"_id": uid}).toArray(function (err, result) {
+            console.log(result);
+            return result;
+        });
+    })
+}
+
+
+app.post("/LoadPackageUserIfno",(req,res)=> {
+    var packageid = new ObjectID(req.body.pid.toString());
+    var userid = new ObjectID(req.body.uid.toString());
+    var data=[]
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    console.log(req.body.uid,req.body.pid);
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from account and orders collections
+        dbo.collection('Orders').find({"_id": packageid}).toArray(function (err, result) {
+            data.push(result);
+
+            dbo.collection('accounts').find({"_id": userid}).toArray(function (err, result) {
+            //
+                 data.push(result);
+
+
+                return res.status(200).json({
+                    ok: true,
+                    data: {
+                        "user": data[0],
+                        "package": data[1]
+                    }
+                });
+                if (err) throw err;
+                db.close();
+            });
+        });
+        });
+ });
+
+
 app.listen(app_port, () => {
     console.log('app is runninng. port: '+app_port);
     console.log('http://127.0.0.1:'+app_port+"/");
