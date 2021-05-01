@@ -1,6 +1,4 @@
 var obj;
-
-
 var email;
 var password;
 var user=null;
@@ -12,8 +10,6 @@ window.onload=function () {
 
 
 		email = document.getElementById("email").value;
-
-
 		password = document.getElementById("password").value;
 		fun(email,password);
 		alert("Have you already signed up for our newsletter service?")
@@ -47,7 +43,7 @@ function fun(email,password) {
 						if (response.data[i]['email'] == email && response.data[i]['password'] == password) {
 							user=email;
 
-							alert("hello "+response.data[i]['first_name']+" nice to see you again");
+						//	alert("hello "+response.data[i]['first_name']+" nice to see you again");
 						//move to home page/personal
 						}
 
