@@ -598,9 +598,7 @@ app.post("/insertAccount",(req,res)=>{
 
             var myUser = result;
             if( myUser.length ==0){
-                dbo.collection('accounts').insertOne(req.body);
-
-
+                dbo.collection('accounts').insertOne(req.body)
 
             }
 
