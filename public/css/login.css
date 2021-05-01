@@ -45,7 +45,50 @@
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
+	z-index: -1;
 }
+#Email {
+	left: 344.619px;
+	top: 192.024px;
+	position: absolute;
+	overflow: visible;
+	width: 202px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(6,2,2,1);
+}
+#Password {
+	left: 344.619px;
+	top: 556.024px;
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(6,2,2,1);
+}
+
+table{
+
+
+	width: 500.238px;
+	height: 300.745px;
+	position: absolute;
+	bottom: 400px;
+	right: 50%;
+	left: 350px;
+
+}
+
+
 #p {
 	position: absolute;
 	width: 1979px;
@@ -89,7 +132,7 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: Home.ejs;
 	cursor: pointer;
 }
 #QA {
@@ -101,7 +144,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.html;
+	--web-action-target: q&a.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -119,7 +162,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.html;
+	--web-action-target: contactus.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -137,7 +180,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Aboutus.html;
+	--web-action-target: Aboutus.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -174,6 +217,17 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
+#loginbtn{
+
+	background-color: #000000;
+	color: #FFFFFF;
+	float: right;
+	padding: 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
 #Registration {
 	left: 1328px;
 	top: 175px;
@@ -183,7 +237,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.html;
+	--web-action-target: registration.ejs;
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -209,6 +263,7 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+	z-index: -1;
 }
 .Path_2 {
 	mix-blend-mode: screen;
@@ -219,6 +274,8 @@
 	left: 0px;
 	top: 0px;
 	transform: matrix(1,0,0,1,0,0);
+	z-index: -1;
+
 }
 #Path_4 {
 	fill: rgba(255,255,255,1);
@@ -237,63 +294,10 @@
 	left: 636.619px;
 	top: 242.024px;
 	transform: matrix(1,0,0,1,0,0);
+
 }
-#Email {
-	left: 358.619px;
-	top: 242.024px;
-	position: absolute;
-	overflow: visible;
-	width: 109px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Arial;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(6,2,2,1);
-}
-#Password {
-	left: 353.619px;
-	top: 325.024px;
-	position: absolute;
-	overflow: visible;
-	width: 182px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Arial;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(6,2,2,1);
-}
-#Group_5 {
-	position: absolute;
-	width: 337px;
-	height: 71px;
-	left: 477.619px;
-	top: 540.538px;
-	overflow: visible;
-}
-#Path_6 {
-	filter: blur(2px);
-	fill: rgba(119,152,158,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: round;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_6 {
-	filter: drop-shadow(0px 3px 6px rgba(16, 13, 13, 0.161));
-	overflow: visible;
-	position: absolute;
-	width: 367px;
-	height: 101px;
-	left: 0px;
-	top: 0px;
-	transform: matrix(1,0,0,1,0,0);
-}
+
+
 #Login_ {
 	left: 54px;
 	top: 0.486px;
@@ -406,4 +410,32 @@
 	left: 636.619px;
 	top: 325.024px;
 	transform: matrix(1,0,0,1,0,0);
+}
+#Email {
+	left: 344.619px;
+	top: 374.024px;
+	position: absolute;
+	overflow: visible;
+	width: 109px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(6,2,2,1);
+}
+#Password {
+	left: 344.619px;
+	top: 556.024px;
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 40px;
+	color: rgba(6,2,2,1);
 }

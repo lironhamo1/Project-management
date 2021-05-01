@@ -45,6 +45,28 @@
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
+	z-index: -1;
+}
+input {
+	height: 50px;
+	width: 40%;
+	left:70px;
+	margin: 40px;
+	display: inline-block;
+	border: 5px solid black;
+
+}
+label{
+
+	position: absolute;
+	overflow: hidden;
+	width: 105px;
+	height: 38px;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+
 }
 #p {
 	position: absolute;
@@ -89,8 +111,25 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: "Home.ejs";
 	cursor: pointer;
+}
+#msg{
+	width: 600px;
+	height:200px;
+	font-size:14pt;
+
+}
+table{
+	margin-left:auto; margin-right:auto;
+	width: 900.238px;
+	height: 400.745px;
+	left: 400px;
+	position: absolute;
+	bottom:400px;
+
+
+
 }
 #QA {
 	left: 255px;
@@ -101,7 +140,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.html;
+	--web-action-target:"q&a.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -133,7 +172,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Aboutus.html;
+	--web-action-target: "Aboutus.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -151,7 +190,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: login.html;
+	--web-action-target: "login.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -169,7 +208,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.html;
+	--web-action-target: "registration.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -260,34 +299,16 @@
 	top: 648px;
 	transform: matrix(1,0,0,1,0,0);
 }
-#Name {
-	left: 487px;
-	top: 648px;
-	position: absolute;
-	overflow: visible;
-	width: 109px;
-	white-space: nowrap;
-	text-align: center;
+#emailtext{text-align: center;
 	font-family: Arial;
 	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(6,2,2,1);
-}
-#Email {
-	left: 484px;
-	top: 737px;
-	position: absolute;
-	overflow: hidden;
-	width: 105px;
-	height: 38px;
-	text-align: center;
+	font-weight: bold;
+	font-size: 30px;}
+#nametext{text-align: center;
 	font-family: Arial;
 	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(6,2,2,1);
-}
+	font-weight: bold;
+	font-size: 30px;}
 #Path_18 {
 	fill: rgba(255,255,255,1);
 	stroke: rgba(112,112,112,1);
@@ -296,6 +317,15 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+}
+#sumbit{
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgb(5, 7, 7);
+
 }
 .Path_18 {
 	overflow: visible;

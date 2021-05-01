@@ -1,9 +1,20 @@
+// var person = {name:"John", age:30, city:"New York"};
+//
+// document.getElementById("Packages").innerHTML = "<div id=\"hello_guest_\">\n" +
+//     "            <span>hello, guest</span><span style=\"font-family:Berlin Sans FB;\"></span><br>\n" +
+//     "        </
+// let names=[]
+// document.getElementById('but').addEventListener("click",Func)
+
+
+///////////////////////////////////////
+// INITIALIZATION
+///////////////////////////////////////
+
 /**
  * Functionality for scaling, showing by media query, and navigation between multiple pages on a single page.
  * Code subject to change.
  **/
-
-
 
 if (window.console==null) { window["console"] = { log : function() {} } }; // some browsers do not set console
 
@@ -2833,65 +2844,116 @@ var Application = function() {
 
 window.application = new Application();
 window.onload=function() {
-    var rowCount=0;
-    //arrange the fields in a list
-    function FieldsArng(listing,i) {
-        var arng=[];
-        if (listing['_id']!==undefined)
-            arng.push(i.toString());
-        if (listing['Status']!==undefined)
-            arng.push(listing['Status']);
-        else arng.push('0');
-        if (listing['Dates']!==undefined)
-            arng.push(listing['Dates']);
-        else arng.push('0');
-        if (listing['Destination']!==undefined)
-            arng.push(listing['Destination']);
-        else arng.push('0');
-        if (listing['User Name']!==undefined)
-            arng.push(listing['User Name']);
-        else arng.push('0');
-        if (listing['Phone']!==undefined)
-            arng.push(listing['Phone']);
-        else arng.push('0');
-        if (listing['Email']!==undefined)
-            arng.push(listing['Email']);
-        else arng.push('0');
-        if (listing['Price']!==undefined)
-            arng.push(listing['Price']);
-        else arng.push('0');
-        if (listing['Package Type']!==undefined)
-            arng.push(listing['Package Type']);
-        else arng.push('0');
-        arng.push(listing["_id"]);
-        return arng
+    var area;
+    var locations;
+    var trip_end;
+    var trip_start;
+    var cost;
+    var travelsNum;
+    var packages_left;
+    var hotel;
+    var star;
+    var purchased;
+    var flight;
+    var packageType;
+    var info;
+    var about;
+    var img;
+
+//class package
+
+    function CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+                           flight,packageType,about,info,image) {
+        let myObject = {
+            area: area,
+            locations: locations,
+            trip_start: trip_start,
+            trip_end: trip_end,
+            cost: cost,
+            travelsNum: travelsNum,
+            packages_left: packages_left,
+            hotel: hotel,
+            star: star,
+            flight: flight,
+            packageType : packageType,
+            about: about,
+            info: info,
+            img: image,
+            purchased:purchased,
+
+        };
+        return myObject;
+    }
+
+    function insertObjctToMongo(jsObj){
+        /*
+        let jsonObject=JSON.stringify(jsObj);
+        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+        //eslint-disable-next-line no-undef
+        var mongoose = require('mongodb').MongoClient;
+        mongoose.connect(url, function(err, db) {
+            if (err) throw err;
+            //Choosing DB
+            var dbo = db.db("GoTravel");
+            //Extracting data from accounts collection
+            // eslint-disable-next-line no-unused-vars
+            dbo.collection("Package management").forms.insert(jsonObject);
+            if (err) throw err;
+             console.log(result);
+             db.close();
+        });
+*/
+        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+
+
+        var mongoose = require('mongodb').MongoClient;
+        mongoose.connect(url, function(err, db) {
+            if (err) throw err;
+            //Choosing DB
+            var dbo = db.db("GoTravel");
+
+            //Extracting data from accounts collection
+            // eslint-disable-next-line no-unused-vars
+            dbo.collection("Package management").find({}).toArray(function(err, result) {
+                if (err) throw err;
+                console.log(result);
+                db.close();
+            });
+        });
+
 
     }
-    //Adds product to table
-    function productsAdd(data) {
-        var fakeid="6081c5c14aad6e5254642488"
-        var id="status"+data[0].toString();
-        var hid="hid"+data[0].toString();
-        var myhref="/OrderDisplay?pid="+data[9]+"&uid="+fakeid;
-        $("#package_table tbody").append("<tr>" +
-            "<td><a href="+myhref+">"+data[0]+"</a></td>" +
-            "<td contenteditable='true' id="+id+">"+data[1]+"</td>" +
-            "<td>"+data[2]+"</td>" +
-            "<td>"+data[3]+"</td>" +
-            "<td>"+data[4]+"</td>" +
-            "<td>"+data[5]+"</td>" +
-            "<td>"+data[6]+"</td>" +
-            "<td>"+data[7]+"</td>" +
-            "<td>"+data[8]+"</td>" +
-            "<td hidden id="+hid+">"+data[9]+"</td>"+
-            "</tr>");
+
+    function addPackage() {
+        //take care of the split btn values
+        locations = document.getElementById("location").value;
+        area=document.getElementById("area").value;
+        trip_start=document.getElementById("start").value;
+        trip_end=document.getElementById("end").value;
+        cost=document.getElementById("cost").value;
+        travelsNum=document.getElementById("travelsNum").value;
+        packages_left=document.getElementById("left").value;
+        hotel=document.getElementById("hotel").value;
+        star=document.getElementById("stars").value;
+        purchased=document.getElementById("purchased").value;
+        flight=document.getElementById("flight").value;
+        packageType=document.getElementById("typePackage").value;
+        about=document.getElementById("about").value;
+        info=document.getElementById("info").value;
+        //img=document.getElementById("img");
+
+        let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+            flight,packageType,about,info);
+        //put in DB
+
+        insertObjctToMongo(myObj);
+        alert(myObj);
+
     }
-    //Load information from database a insert to table
-    function loadfromDb() {
-        var rdy;
-        var dataset=[];
+
+    function Func() {
         var data;
-        fetch("/LoadAllFromOrders", {
+        fetch("/dani", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -2902,14 +2964,7 @@ window.onload=function() {
             .then(function(response) {
 
                 if (response.ok) {
-                    console.log('got data');
-                    var i;
-                    for (i=0;i<response.data.length;i++){
-                        rdy = FieldsArng(response.data[i],i+1);
-                        rowCount++;
-                        productsAdd(rdy);
-                    }
-                document.getElementById("package_table").dataset=dataset;
+                    console.log('got data: ', response.data);
                 }
                 else throw new Error('Request failed.');
             })
@@ -2918,102 +2973,11 @@ window.onload=function() {
             });
 
         }
-    //After commit function
-    function commitChanges() {
-            var changes =[];
-            var mytuple=[];
-            var i, id, ele,ele2,listid;
-            for (i = 0; i < rowCount; i++) {
-                id = 'status' + (i + 1).toString();
-                listid='hid'+(i+1).toString();
-                ele = document.getElementById(id).innerText;
-                ele2=document.getElementById(listid).innerText;
-                mytuple=[ele,ele2]
-                changes.push(mytuple)
-            }
-            update(changes)
-        }
-    //Sends update to data base
-    function update(upd){
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({
-            "data":upd,
-        });
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        fetch("UpdateAllOrderStatus", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-
-    }
-
-
-    loadfromDb();
     var temp = document.getElementById("add");
-    temp.addEventListener("click", commitChanges);
-}
+    temp.addEventListener("click", Func);
 
-// eslint-disable-next-line no-unused-vars
-function sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("package_table");
-    switching = true;
-    // Set the sorting direction to ascending:
-    dir = "asc";
-    /* Make a loop that will continue until
-    no switching has been done: */
-    while (switching) {
-        // Start by saying: no switching is done:
-        switching = false;
-        rows = table.rows;
-        /* Loop through all table rows (except the
-        first, which contains table headers): */
-        for (i = 1; i < (rows.length - 1); i++) {
-            // Start by saying there should be no switching:
-            shouldSwitch = false;
-            /* Get the two elements you want to compare,
-            one from current row and one from the next: */
-            x = rows[i].getElementsByTagName("TD")[n];
-            y = rows[i + 1].getElementsByTagName("TD")[n];
-            /* Check if the two rows should switch place,
-            based on the direction, asc or desc: */
-            if (dir == "asc") {
-                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                }
-            } else if (dir == "desc") {
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    // If so, mark as a switch and break the loop:
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            /* If a switch has been marked, make the switch
-            and mark that a switch has been done: */
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-            switching = true;
-            // Each time a switch is done, increase this count by 1:
-            switchcount ++;
-        } else {
-            /* If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again. */
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
-        }
-    }
+
+
+
 }

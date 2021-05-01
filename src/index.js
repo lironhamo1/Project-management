@@ -33,7 +33,72 @@ app.get('/',(req,res)=>{
     res.render( 'homePage')
 })
 
+
+
+app.get('/liron.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/liron.png'))
+})
+app.get('/ohad.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/ohad.png'))
+})
+app.get('/p_n.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/p_n.png'))
+})
+app.get('/p_o.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/p_o.png'))
+})
+app.get('/daniel.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/daniel.png'))
+})
+app.get('/einav.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/einav.png'))
+})
+app.get('/logo.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/logo.png'))
+})
+app.get('/p_p.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/p_p.png'))
+})
+app.get('/p.png',(req,res)=>{
+    res.sendFile(path.join(fullPathimages + '/p.png'))
+})
+
+/////AboutUs page
+app.get('/Aboutus.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/Aboutus.css'))
+})
+app.get('/Aboutus.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/Aboutus.js'))
+    //res.render(path.join('/OrdersManagementPage'))
+})
+app.get('/Aboutus',(req,res)=>{
+    res.render( 'Aboutus')
+})
+
+/////q&a page
+app.get('/q&a.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/q&a.css'))
+})
+app.get('/q&a.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/q&a.js'))
+})
+app.get('/q&a',(req,res)=>{
+    res.render('q&a')
+})
+
+/////login page
+app.get('/login.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/login.css'))
+})
+app.get('/login.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/login.js'))
+})
 app.get('/login',(req,res)=>{
+    res.render('login')
+})
+/////registration page
+app.get('/registration.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/registration.css'))
     res.render( 'login')})
 
 app.get('/signup',(req,res)=>{
@@ -103,6 +168,11 @@ app.get('/LondonOT.js',(req,res)=>{
 app.get('/LondonOT',(req,res)=>{
     res.render('LondonOT')
 })
+app.get('/registration.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/registration.js'))
+})
+app.get('/registration',(req,res)=>{
+    res.render('registration')
 
 app.get('/UsOT.css',(req,res)=>{
     res.sendFile(path.join(fullPathCss,'UsOT.css'))
@@ -137,6 +207,16 @@ app.get('/orderInfo',(req,res)=>{
     res.render('orderInfo')
 })
 
+/////contactus page
+app.get('/contactus.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/contactus.css'))
+})
+app.get('/contactus.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/contactus.js'))
+})
+app.get('/contactus',(req,res)=>{
+    res.render('contactus')
+})
 app.get('/orderInfo.css',(req,res)=>{
     res.sendFile(path.join(fullPathCss,'orderInfo.css'))
 })
@@ -358,6 +438,13 @@ app.post("/update", (req, res) => {
 
 
 
+app.post("/loginin", (req, res) => {
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
 /*app.post('/password', (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
@@ -482,6 +569,51 @@ app.post("/LoadAllFromOrders", (req, res) => {
         if (err) throw err;
         //Choosing DB
         var dbo = db.db("GoTravel");
+
+
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('accounts').find({}).toArray(function (err, result) {
+            //
+            return res.status(200).json({
+                ok: true,
+                data: result
+            });
+            if (err) throw err;
+            db.close();
+        });
+    });
+});
+
+app.post("/cu",(req,res)=>{console.log(req.body)});
+app.post("/insertAccount",(req,res)=>{
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+
+        var dbo = db.db("GoTravel");
+
+        dbo.collection('accounts').find({"email": req.body['email']}).toArray(function (err, result) {
+
+            var myUser = result;
+            if( myUser.length ==0){
+                dbo.collection('accounts').insertOne(req.body);
+
+
+
+            }
+
+
+        });
+
+    });
+});
+
+app.listen(app_port, () => {
+    console.log('app is runninng. port: '+app_port);
+    console.log('http://127.0.0.1:'+app_port+"/");
+});
 
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
