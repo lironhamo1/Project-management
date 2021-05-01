@@ -15,7 +15,7 @@
 	box-sizing: border-box;
 	border: none;
 }
-#QA {
+#QA{
 	position: absolute;
 	width: 1530px;
 	height: 1550px;
@@ -102,6 +102,10 @@
 	text-align: center;
 	font-family: Arial;
 	font-style: normal;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: "q&a.html";
+	cursor: pointer;
 	font-weight: bold;
 	font-size: 20px;
 	color: rgba(0,0,0,1);
@@ -314,29 +318,16 @@
 	left: 155px;
 	top: 1091px;
 }
-#nnn {
-	left: 195px;
-	top: 709px;
-	position: absolute;
-	overflow: visible;
-	width: 17px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Arial;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 10px;
-	color: rgba(6,2,2,1);
-}
+
 #How_can_I_contact_the_agency {
 	left: 188px;
 	top: 658px;
 	position: absolute;
-	overflow: visible;
 	width: 429px;
-	white-space: nowrap;
 	text-align: left;
 	font-family: Arial;
+	word-wrap: break-word;
+	word-wrap: break-word;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 30px;
@@ -345,6 +336,8 @@
 #We_have_a_page_called_Contact_ {
 	left: 188px;
 	top: 738px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
 	position: absolute;
 	overflow: visible;
 	width: 1196px;
@@ -360,7 +353,9 @@
 	left: 188px;
 	top: 964px;
 	position: absolute;
+	overflow-wrap: break-word;
 	overflow: visible;
+	word-wrap: break-word;
 	width: 1196px;
 	white-space: nowrap;
 	text-align: left;
@@ -374,9 +369,11 @@
 	left: 188px;
 	top: 879px;
 	position: absolute;
+	overflow-wrap: break-word;
 	overflow: hidden;
 	width: 570px;
 	height: 40px;
+	word-wrap: break-word;
 	text-align: left;
 	font-family: Arial;
 	font-style: normal;
@@ -406,6 +403,7 @@
 #How_do_I_look_at_packages_I_li {
 	left: 179px;
 	top: 1101px;
+	word-wrap: break-word;
 	position: absolute;
 	overflow: hidden;
 	width: 570px;
@@ -421,9 +419,11 @@
 	left: 180px;
 	top: 1186px;
 	position: absolute;
+	overflow-wrap: break-word;
 	overflow: visible;
 	width: 1196px;
 	white-space: nowrap;
+	word-wrap: break-word;
 	text-align: left;
 	font-family: Arial;
 	font-style: normal;
@@ -472,7 +472,7 @@
 	left: 188px;
 	top: 1323px;
 	position: absolute;
-	overflow: hidden;
+	overflow: visible;
 	width: 626px;
 	height: 40px;
 	text-align: left;
@@ -487,11 +487,14 @@
 	top: 1408px;
 	position: absolute;
 	overflow: visible;
-	width: 1196px;
+	width: 600px;
+	word-wrap: break-word;
 	white-space: nowrap;
 	text-align: left;
 	font-family: Arial;
 	font-style: normal;
+	overflow-wrap: break-word;
+	hyphens: auto;
 	font-weight: normal;
 	font-size: 30px;
 	color: rgba(0,0,0,1);
