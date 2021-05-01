@@ -3,7 +3,7 @@
 ///////////////////////////////////////
 
 /**
- * Functionality for scaling, showing by media query, and navigation between multiple pages on a single page. 
+ * Functionality for scaling, showing by media query, and navigation between multiple pages on a single page.
  * Code subject to change.
  **/
 
@@ -122,18 +122,18 @@ var Application = function() {
 		if (self.initialized==false) {
 			if (self.enableDeepLinking) {
 				self.syncronizeViewToURL();
-			} 
-	
+			}
+
 			if (self.refreshPageForChanges) {
 				self.setupRefreshForChanges();
 			}
-	
+
 			self.initialized = true;
 		}
-		
+
 		if (self.scaleViewsToFit) {
 			self.viewScale = self.scaleViewToFit(view);
-			
+
 			if (self.viewScale<0) {
 				setTimeout(self.scaleViewToFit, 500, view);
 			}
@@ -146,7 +146,7 @@ var Application = function() {
 		else {
 			// no view found
 		}
-	
+
 		if (self.showUpdateNotification) {
 			self.showNotification();
 		}
@@ -172,14 +172,14 @@ var Application = function() {
 	}
 
 	/**
-	 * Attempt to check the last modified date by the headers 
+	 * Attempt to check the last modified date by the headers
 	 * or the last modified property from the byte array (experimental)
 	 **/
 	self.requestRefreshUpdate = function() {
 		var url = document.location.href;
 		var protocol = window.location.protocol;
 		var method;
-		
+
 		try {
 
 			if (self.refreshCheckContentSize) {
@@ -234,7 +234,7 @@ var Application = function() {
 					self.refreshRequest.ontimeout = function() {
 						self.log("Couldn't find page to check for updates");
 					}
-					
+
 					var method;
 					if (protocol=="file:") {
 						method = "GET";
@@ -262,8 +262,8 @@ var Application = function() {
 		try {
 
 			if (self.refreshRequest.readyState === XMLHttpRequest.DONE) {
-				
-				if (self.refreshRequest.status === 2 || 
+
+				if (self.refreshRequest.status === 2 ||
 					self.refreshRequest.status === 200) {
 					var pageChanged = false;
 
@@ -275,7 +275,7 @@ var Application = function() {
 						//lastModifiedDate = refreshRequest.getResponseHeader("Last-Modified");
 						var headers = self.refreshRequest.getAllResponseHeaders();
 						var hasContentHeader = headers.indexOf("Content-Length")!=-1;
-						
+
 						if (hasContentHeader) {
 							contentSize = self.refreshRequest.getResponseHeader("Content-Length");
 
@@ -307,7 +307,7 @@ var Application = function() {
 
 					}
 
-					
+
 					if (pageChanged) {
 						clearInterval(self.refreshInterval);
 						self.refreshUpdatedPage();
@@ -370,7 +370,7 @@ var Application = function() {
 		notification.setAttribute("style", styleRule);
 
 		notification.className= "PageRefreshedClass";
-		
+
 		document.body.appendChild(notification);
 
 		setTimeout(function() {
@@ -385,7 +385,7 @@ var Application = function() {
 	}
 
 	/**
-	 * Get the last modified date from the header 
+	 * Get the last modified date from the header
 	 * or file object after request has been received
 	 **/
 	self.getLastModified = function(request) {
@@ -395,7 +395,7 @@ var Application = function() {
 		if (request.response && request.response.lastModified) {
 			date = request.response.lastModified;
 		}
-		
+
 		// http protocol - check headers
 		if (date==null) {
 			date = request.getResponseHeader("Last-Modified");
@@ -406,7 +406,7 @@ var Application = function() {
 
 	self.updateLastModifiedLabel = function() {
 		var labelValue = "";
-		
+
 		if (self.lastModifiedLabel==null) {
 			self.lastModifiedLabel = document.getElementById("LastModifiedLabel");
 		}
@@ -432,7 +432,7 @@ var Application = function() {
 					labelValue += minutes==1 ? " minute" : " minutes";
 				}
 			}
-			
+
 			if (seconds<10) {
 				labelValue = "Updated now";
 			}
@@ -549,7 +549,7 @@ var Application = function() {
 	self.getStylesheetRules = function(styleSheet) {
 		try {
 			if (styleSheet) return styleSheet.cssRules || styleSheet.rules;
-	
+
 			return document.styleSheets[0]["cssRules"] || document.styleSheets[0]["rules"];
 		}
 		catch (error) {
@@ -569,7 +569,7 @@ var Application = function() {
 	}
 
 	/**
-	 * If single page application hide all of the views. 
+	 * If single page application hide all of the views.
 	 * @param {Number} selectedIndex if provided shows the view at index provided
 	 **/
 	self.hideViews = function(selectedIndex, animation) {
@@ -597,7 +597,7 @@ var Application = function() {
 						self.disableMediaQuery(rule);
 					}
 				}
-				
+
 				queryIndex++;
 			}
 		}
@@ -637,7 +637,7 @@ var Application = function() {
 			self.disableMediaQuery(rule);
 
 			//if (self.showByMediaQuery) {
-				overlay.style.display = "none";
+			overlay.style.display = "none";
 			//}
 		}
 	}
@@ -739,7 +739,7 @@ var Application = function() {
 		var display = null;
 		var reparent = true;
 		var view = null;
-		
+
 		if (overlay==null || overlay==false) {
 			self.log("Overlay not found, '"+ id + "'");
 			return;
@@ -764,7 +764,7 @@ var Application = function() {
 				event.stopImmediatePropagation();
 			}
 		}
-		
+
 		if (self.application==false || targetType=="page") {
 			document.location.href = "./" + actionTargetValue;
 			return;
@@ -796,9 +796,9 @@ var Application = function() {
 			//self.setElementAnimation(overlay, null);
 			//overlay.style.animation = animation;
 			self.enableMediaQuery(query);
-			
+
 			var display = overlay && overlay.style.display;
-			
+
 			if (overlay && display=="" || display=="none") {
 				overlay.style.display = "block";
 				//self.setViewOptions(overlay);
@@ -836,11 +836,11 @@ var Application = function() {
 		anchorTop = self.getIsStyleDefined(id, "top");
 		anchorBottom = self.getIsStyleDefined(id, "bottom");
 
-		
+
 		if (self.viewsDictionary[overlay.id] && self.viewsDictionary[overlay.id].styleDeclaration) {
 			style = self.viewsDictionary[overlay.id].styleDeclaration.style;
 		}
-		
+
 		if (centerHorizontally) {
 			style.left = "50%";
 			style.transformOrigin = "0 0";
@@ -855,7 +855,7 @@ var Application = function() {
 		else {
 			style.left = x + "px";
 		}
-		
+
 		if (centerVertically) {
 			style.top = "50%";
 			transform.push("translateY(-50%)");
@@ -894,12 +894,12 @@ var Application = function() {
 
 		if (overlay) {
 			var style = overlay.style;
-			
+
 			if (style.animation && self.supportAnimations && animate) {
 				self.reverseAnimation(overlay, true);
 
 				var duration = self.getAnimationDuration(style.animation, true);
-		
+
 				setTimeout(function() {
 					self.setElementAnimation(overlay, null);
 					self.hideOverlay(overlay);
@@ -930,10 +930,10 @@ var Application = function() {
 
 		if (hide) {
 			//target.addEventListener("animationend", self.animationEndHideHandler);
-	
+
 			var duration = self.getAnimationDuration(lastAnimation, true);
 			var isOverlay = self.isOverlay(target);
-	
+
 			setTimeout(function() {
 				self.setElementAnimation(target, null);
 
@@ -1005,7 +1005,7 @@ var Application = function() {
 
 			if (self.scaleViewsToFit) {
 				var newScaleValue = self.scaleViewToFit(view);
-				
+
 				if (newScaleValue<0) {
 					setTimeout(self.scaleViewToFit, 500, view);
 				}
@@ -1046,7 +1046,7 @@ var Application = function() {
 		// loop through rules and hide media queries except selected
 		for (var i=0;i<numberOfRules;i++) {
 			var rule = rules[i];
-			
+
 			if (rule.media!=null) {
 
 				if (queryIndex==prevQueryIndex) {
@@ -1087,7 +1087,7 @@ var Application = function() {
 		// loop through rules and hide media queries except selected
 		for (var i=0;i<numberOfRules;i++) {
 			var rule = rules[i];
-			
+
 			if (rule.media!=null) {
 
 				if (queryIndex==nextQueryIndex) {
@@ -1150,7 +1150,7 @@ var Application = function() {
 		for (var i=0;i<numberOfRules;i++) {
 			if (rules[i].media!=null) { numberOfQueries++; }
 		}
-		
+
 		return numberOfQueries;
 	}
 
@@ -1169,7 +1169,7 @@ var Application = function() {
 		var tooltip = parseInt(scale * 100 + "") + "%";
 		var inputType;
 		var inputValue;
-		
+
 		if (slider) {
 			inputValue = self.getShortNumber(scale * 100);
 			if (inputValue!=slider["value"]) {
@@ -1189,13 +1189,13 @@ var Application = function() {
 	self.viewChangeHandler = function(event) {
 		var view = self.getVisibleView();
 		var matrix = view ? getComputedStyle(view).transform : null;
-		
+
 		if (matrix) {
 			self.viewScale = self.getViewScaleValue(view);
-			
+
 			var scaleNeededToFit = self.getViewFitToViewportScale(view);
 			var isViewLargerThanViewport = scaleNeededToFit<1;
-			
+
 			// scale large view to fit if scale to fit is enabled
 			if (self.scaleViewsToFit) {
 				self.scaleViewToFit(view);
@@ -1220,7 +1220,7 @@ var Application = function() {
 	}
 
 	/**
-	 * Scales view to scale. 
+	 * Scales view to scale.
 	 * @param {Object} view view to scale. views are in views array
 	 * @param {Boolean} scaleToFit set to true to scale to fit. set false to use desired scale value
 	 * @param {Number} desiredScale scale to define. not used if scale to fit is false
@@ -1273,7 +1273,7 @@ var Application = function() {
 		}
 
 		self.updateSliderValue(desiredScale);
-		
+
 		// scale to fit width
 		if (scaleToWidth && scaleToHeight==false) {
 			canCenterVertically = scaleNeededToFitHeight>=scaleNeededToFitWidth;
@@ -1318,7 +1318,7 @@ var Application = function() {
 					translateY = "0";
 					topPosition = "0";
 				}
-				
+
 				if (style.top != topPosition) {
 					style.top = topPosition + "";
 				}
@@ -1365,7 +1365,7 @@ var Application = function() {
 			//canCenterHorizontally = scaleNeededToFitHeight<=scaleNeededToFitWidth && enableScaleUp==false;
 			canCenterVertically = scaleNeededToFitHeight>=scaleNeededToFitWidth;
 			canCenterHorizontally = scaleNeededToFitWidth>=1 && enableScaleUp==false;
-			
+
 			if (isSliderChange) {
 				canCenterHorizontally = desiredScale<scaleToFitFullHeight;
 			}
@@ -1425,7 +1425,7 @@ var Application = function() {
 					translateY = "0";
 					topPosition = "0";
 				}
-				
+
 				if (style.top != topPosition) {
 					style.top = topPosition + "";
 				}
@@ -1471,7 +1471,7 @@ var Application = function() {
 
 			//canCenterHorizontally = self.canCenterHorizontally(view, "fit", false, desiredScale);
 			//canCenterVertically = self.canCenterVertically(view, "fit", false, desiredScale);
-			
+
 			if (self.centerVertically) {
 				if (canCenterVertically) {
 					translateY = "-50%";
@@ -1481,7 +1481,7 @@ var Application = function() {
 					translateY = "0";
 					topPosition = "0";
 				}
-				
+
 				if (style.top != topPosition) {
 					style.top = topPosition + "";
 				}
@@ -1520,7 +1520,7 @@ var Application = function() {
 			self.viewTop = topPosition;
 
 			self.updateSliderValue(desiredScale);
-			
+
 			return desiredScale;
 		}
 
@@ -1546,7 +1546,7 @@ var Application = function() {
 					translateY = "0";
 					topPosition = "0";
 				}
-				
+
 				if (style.top != topPosition) {
 					style.top = topPosition + "";
 				}
@@ -1589,7 +1589,7 @@ var Application = function() {
 			self.viewTop = topPosition;
 
 			self.updateSliderValue(desiredScale);
-			
+
 			return desiredScale;
 		}
 	}
@@ -1598,8 +1598,8 @@ var Application = function() {
 	 * Returns true if view can be centered horizontally
 	 * @param {HTMLElement} view view
 	 * @param {String} type type of scaling - width, height, all, none
-	 * @param {Boolean} scaleUp if scale up enabled 
-	 * @param {Number} scale target scale value 
+	 * @param {Boolean} scaleUp if scale up enabled
+	 * @param {Number} scale target scale value
 	 */
 	self.canCenterHorizontally = function(view, type, scaleUp, scale, minimumScale, maximumScale) {
 		var scaleNeededToFit = self.getViewFitToViewportScale(view, scaleUp);
@@ -1613,7 +1613,7 @@ var Application = function() {
 		scaleUp = scaleUp == null ? false : scaleUp;
 
 		if (type=="width") {
-	
+
 			if (scaleUp && maximumScale==null) {
 				canCenter = false;
 			}
@@ -1634,7 +1634,7 @@ var Application = function() {
 					minScale = Math.max(minimumScale, Math.min(maximumScale, scaleNeededToFitHeight));
 				}
 			}
-	
+
 			if (scaleUp && maximumScale=="") {
 				canCenter = false;
 			}
@@ -1655,7 +1655,7 @@ var Application = function() {
 		}
 
 		self.horizontalScrollbarsNeeded = canCenter;
-		
+
 		return canCenter;
 	}
 
@@ -1663,8 +1663,8 @@ var Application = function() {
 	 * Returns true if view can be centered horizontally
 	 * @param {HTMLElement} view view to scale
 	 * @param {String} type type of scaling
-	 * @param {Boolean} scaleUp if scale up enabled 
-	 * @param {Number} scale target scale value 
+	 * @param {Boolean} scaleUp if scale up enabled
+	 * @param {Number} scale target scale value
 	 */
 	self.canCenterVertically = function(view, type, scaleUp, scale, minimumScale, maximumScale) {
 		var scaleNeededToFit = self.getViewFitToViewportScale(view, scaleUp);
@@ -1676,7 +1676,7 @@ var Application = function() {
 		type = type==null ? "none" : type;
 		scale = scale==null ? 1 : scale;
 		scaleUp = scaleUp == null ? false : scaleUp;
-	
+
 		if (type=="width") {
 			canCenter = scaleNeededToFitHeight>=scaleNeededToFitWidth;
 		}
@@ -1697,7 +1697,7 @@ var Application = function() {
 		}
 
 		self.verticalScrollbarsNeeded = canCenter;
-		
+
 		return canCenter;
 	}
 
@@ -1723,7 +1723,7 @@ var Application = function() {
 		else if (elementWidth > availableWidth || elementHeight > availableHeight) {
 			newScale = Math.min(availableHeight/elementHeight, availableWidth/elementWidth);
 		}
-		
+
 		return newScale;
 	}
 
@@ -1748,7 +1748,7 @@ var Application = function() {
 		else if (elementWidth > availableWidth) {
 			newScale = availableWidth/elementWidth;
 		}
-		
+
 		return newScale;
 	}
 
@@ -1771,14 +1771,14 @@ var Application = function() {
 		else if (elementHeight > availableHeight) {
 			newScale = availableHeight/elementHeight;
 		}
-		
+
 		return newScale;
 	}
 
 	self.keypressHandler = function(event) {
 		var rightKey = 39;
 		var leftKey = 37;
-		
+
 		// listen for both events 
 		if (event.type=="keypress") {
 			window.removeEventListener("keyup", self.keypressHandler);
@@ -1786,7 +1786,7 @@ var Application = function() {
 		else {
 			window.removeEventListener("keypress", self.keypressHandler);
 		}
-		
+
 		if (self.showNavigationControls) {
 			if (self.navigationOnKeypress) {
 				if (event.keyCode==rightKey) {
@@ -1844,7 +1844,7 @@ var Application = function() {
 
 	self.getVisibleView = function() {
 		var viewIds = self.getViewIds();
-		
+
 		for (var i=0;i<viewIds.length;i++) {
 			var viewId = viewIds[i].replace(/[\#?\.?](.*)/, "$" + "1");
 			var view = self.getElement(viewId);
@@ -1853,10 +1853,10 @@ var Application = function() {
 			if (view==null && viewId && viewId.lastIndexOf(postName)!=-1) {
 				view = self.getElement(viewId.replace(postName, ""));
 			}
-			
+
 			if (view) {
 				var display = getComputedStyle(view).display;
-		
+
 				if (display=="block" || display=="flex") {
 					return view;
 				}
@@ -1869,7 +1869,7 @@ var Application = function() {
 	self.getVisibleViews = function() {
 		var viewIds = self.getViewIds();
 		var views = [];
-		
+
 		for (var i=0;i<viewIds.length;i++) {
 			var viewId = viewIds[i].replace(/[\#?\.?](.*)/, "$" + "1");
 			var view = self.getElement(viewId);
@@ -1878,10 +1878,10 @@ var Application = function() {
 			if (view==null && viewId && viewId.lastIndexOf(postName)!=-1) {
 				view = self.getElement(viewId.replace(postName, ""));
 			}
-			
+
 			if (view) {
 				var display = getComputedStyle(view).display;
-				
+
 				if (display=="none") {
 					continue;
 				}
@@ -1908,10 +1908,10 @@ var Application = function() {
 			for (let index = 0; index < views.length; index++) {
 				var viewId = views[index];
 				var state = self.viewsDictionary[viewId];
-				var rule = state && state.rule; 
+				var rule = state && state.rule;
 				var matchResults = window.matchMedia(rule.conditionText);
 				var view = self.views[viewId];
-				
+
 				if (matchResults.matches) {
 					if (ids==true) {
 						matchingViews.push(viewId);
@@ -1947,7 +1947,7 @@ var Application = function() {
 				var viewStateName = self.getStyleRuleValue(mediaRule, self.STATE_NAME, state);
 				var stateFoundAtt = view.getAttribute(self.STATE_NAME)==state;
 				var matchesResults = false;
-				
+
 				if (viewStateName==stateName) {
 					if (matchQuery) {
 						matchesResults = self.ruleMatchesQuery(rule);
@@ -1992,12 +1992,12 @@ var Application = function() {
 
 		if (self.showByMediaQuery) {
 			var stateName = fragment;
-			
+
 			if (stateName==null || stateName=="") {
 				var initialView = self.getInitialView();
 				stateName = initialView ? self.getStateNameByViewId(initialView.id) : null;
 			}
-			
+
 			self.showMediaQueryViewsByState(stateName);
 			return;
 		}
@@ -2016,7 +2016,7 @@ var Application = function() {
 				window.history.pushState({name:currentView.id}, null, "#"+ currentView.id);
 			}
 		}
-		
+
 		self.setViewVariables(view);
 		return view;
 	}
@@ -2044,7 +2044,7 @@ var Application = function() {
 		var computedStyle = window.getComputedStyle(view);
 		var value = computedStyle.getPropertyValue(property);
 		var type = typeof value;
-		
+
 		if (value=="true" || (type=="string" && value.indexOf("true")!=-1)) {
 			return true;
 		}
@@ -2061,10 +2061,10 @@ var Application = function() {
 		if (value===undefined) {
 			return defaultValue;
 		}
-		
+
 		value = value.replace(/^[\s\"]*/, "");
 		value = value.replace(/[\s\"]*$/, "");
-		value = value.replace(/^[\s"]*(.*?)[\s"]*$/, function (match, capture) { 
+		value = value.replace(/^[\s"]*(.*?)[\s"]*$/, function (match, capture) {
 			return capture;
 		});
 
@@ -2077,10 +2077,10 @@ var Application = function() {
 		if (value===undefined) {
 			return null;
 		}
-		
+
 		value = value.replace(/^[\s\"]*/, "");
 		value = value.replace(/[\s\"]*$/, "");
-		value = value.replace(/^[\s"]*(.*?)[\s"]*$/, function (match, capture) { 
+		value = value.replace(/^[\s"]*(.*?)[\s"]*$/, function (match, capture) {
 			return capture;
 		});
 
@@ -2090,7 +2090,7 @@ var Application = function() {
 	/**
 	 * Get the first defined value of property. Returns empty string if not defined
 	 * @param {String} id id of element
-	 * @param {String} property 
+	 * @param {String} property
 	 */
 	self.getCSSPropertyValueForElement = function(id, property) {
 		var styleSheets = document.styleSheets;
@@ -2105,19 +2105,19 @@ var Application = function() {
 			var cssRules = self.getStylesheetRules(styleSheet);
 			var numOfCSSRules = cssRules.length;
 			var cssRule;
-			
+
 			for (var j=0;j<numOfCSSRules;j++) {
 				cssRule = cssRules[j];
-				
+
 				if (cssRule.media) {
 					var mediaRules = cssRule.cssRules;
 					var numOfMediaRules = mediaRules ? mediaRules.length : 0;
-					
+
 					for(var k=0;k<numOfMediaRules;k++) {
 						var mediaRule = mediaRules[k];
-						
+
 						if (mediaRule.selectorText==selectorIDText || mediaRule.selectorText==selectorClassText) {
-							
+
 							if (mediaRule.style && mediaRule.style.getPropertyValue(property)!="") {
 								value = mediaRule.style.getPropertyValue(property);
 								values.push(value);
@@ -2153,7 +2153,7 @@ var Application = function() {
 			const view = self.getElement(id);
 			self.views[id] = view;
 		}
-		
+
 		self.viewIds = viewIds;
 	}
 
@@ -2165,13 +2165,13 @@ var Application = function() {
 			const id = viewIds[index];
 			const view = self.getViewById(id);
 			const isOverlay = view && self.isOverlay(view);
-			
+
 			if (isOverlay) {
 				ids.push(id);
 				self.overlays[id] = view;
 			}
 		}
-		
+
 		self.overlayIds = ids;
 	}
 
@@ -2190,21 +2190,21 @@ var Application = function() {
 		var property = self.prefix + "view-id";
 		var stateName = self.prefix + "state";
 		var stateValue;
-		
+
 		for (var j=0;j<numOfCSSRules;j++) {
 			cssRule = cssRules[j];
-			
+
 			if (cssRule.media) {
 				var mediaRules = cssRule.cssRules;
 				var numOfMediaRules = mediaRules ? mediaRules.length : 0;
 				var mediaViewInfoFound = false;
 				var mediaId = null;
-				
+
 				for(var k=0;k<numOfMediaRules;k++) {
 					var mediaRule = mediaRules[k];
 
 					selectorText = mediaRule.selectorText;
-					
+
 					if (selectorText==".mediaViewInfo" && mediaViewInfoFound==false) {
 
 						mediaId = self.getStyleRuleValue(mediaRule, property);
@@ -2212,7 +2212,7 @@ var Application = function() {
 
 						selectorIDText = "#" + mediaId;
 						selectorClassText = "." + mediaId + "_Class";
-						
+
 						// prevent duplicates from load and domcontentloaded events
 						if (self.addedViews.indexOf(mediaId)==-1) {
 							self.addView(mediaId, cssRule, mediaRule, stateValue);
@@ -2238,7 +2238,7 @@ var Application = function() {
 			}
 			else {
 				selectorText = cssRule.selectorText;
-				
+
 				if (selectorText==null) continue;
 
 				selectorText = selectorText.replace(/[#|\s|*]?/g, "");
@@ -2318,7 +2318,7 @@ var Application = function() {
 		var targetState = targetView ? self.getStateNameByViewId(targetView.id) : null;
 		var actionTargetStyles = targetView ? targetView.style : null;
 		var state = self.viewsDictionary[actionTargetValue];
-		
+
 		// navigate to page
 		if (self.application==false || targetType=="page") {
 			document.location.href = "./" + actionTargetValue;
@@ -2334,7 +2334,7 @@ var Application = function() {
 
 			if (self.showByMediaQuery) {
 				var stateName = targetState;
-				
+
 				if (stateName==null || stateName=="") {
 					var initialView = self.getInitialView();
 					stateName = initialView ? self.getStateNameByViewId(initialView.id) : null;
@@ -2396,8 +2396,8 @@ var Application = function() {
 					self.updateViewLabel();
 				}, duration)
 			}
-			// if target view is on bottom
-			// then show target view instantly 
+				// if target view is on bottom
+				// then show target view instantly
 			// and fade out current view
 			else if (fromIndex>toIndex) {
 				self.setElementAnimation(to, null);
@@ -2431,7 +2431,7 @@ var Application = function() {
 		}
 
 		self.setElementAnimation(element, null);
-		
+
 		element.style.animation = animation;
 	}
 
@@ -2502,7 +2502,7 @@ var Application = function() {
 	}
 
 	self.resizeHandler = function(event) {
-		
+
 		if (self.showByMediaQuery) {
 			if (self.enableDeepLinking) {
 				var stateName = self.getHashFragment();
@@ -2517,7 +2517,7 @@ var Application = function() {
 		else {
 			var visibleViews = self.getVisibleViews();
 
-			for (let index = 0; index < visibleViews.length; index++) {	
+			for (let index = 0; index < visibleViews.length; index++) {
 				var view = visibleViews[index];
 				self.scaleViewIfNeeded(view);
 			}
@@ -2596,7 +2596,7 @@ var Application = function() {
 		// loop views that match media query 
 		for (let index = 0; index < matchedViews.length; index++) {
 			var view = matchedViews[index];
-			
+
 			// let user determine visible view
 			if (self.showStateFunction!=null) {
 				if (self.showStateFunction(view, state)) {
@@ -2658,7 +2658,7 @@ var Application = function() {
 			viewChangeEvent.hideViews = hideViews;
 			window.dispatchEvent(viewChangeEvent);
 		}
-		
+
 	}
 
 	self.clearDisplay = function(view) {
@@ -2684,7 +2684,7 @@ var Application = function() {
 				self.showView(view);
 				self.setViewVariables(view);
 				self.updateViewLabel();
-				
+
 				window.dispatchEvent(new Event(self.VIEW_CHANGE));
 			}
 			else {
@@ -2732,7 +2732,7 @@ var Application = function() {
 		if (self.scaleToFitOnDoubleClick && self.actualSizeOnDoubleClick) {
 			var isViewScaled = view.getAttributeNS(null, self.SIZE_STATE_NAME);
 			var isScaled = false;
-			
+
 			// if scale is not 1 then view needs scaling
 			if (scaleNeededToFit!=1) {
 
@@ -2756,7 +2756,7 @@ var Application = function() {
 				self.scaleViewToFit(view);
 				isScaled = false;
 			}
-			
+
 			view.setAttributeNS(null, self.SIZE_STATE_NAME, isScaled+"");
 			isViewScaled = view.getAttributeNS(null, self.SIZE_STATE_NAME);
 		}
@@ -2788,45 +2788,45 @@ var Application = function() {
 
 	self.getStackArray = function(error) {
 		var value = "";
-		
+
 		if (error==null) {
-		  try {
-			 error = new Error("Stack");
-		  }
-		  catch (e) {
-			 
-		  }
+			try {
+				error = new Error("Stack");
+			}
+			catch (e) {
+
+			}
 		}
-		
+
 		if ("stack" in error) {
-		  value = error.stack;
-		  var methods = value.split(/\n/g);
-	 
-		  var newArray = methods ? methods.map(function (value, index, array) {
-			 value = value.replace(/\@.*/,"");
-			 return value;
-		  }) : null;
-	 
-		  if (newArray && newArray[0].includes("getStackTrace")) {
-			 newArray.shift();
-		  }
-		  if (newArray && newArray[0].includes("getStackArray")) {
-			 newArray.shift();
-		  }
-		  if (newArray && newArray[0]=="") {
-			 newArray.shift();
-		  }
-	 
+			value = error.stack;
+			var methods = value.split(/\n/g);
+
+			var newArray = methods ? methods.map(function (value, index, array) {
+				value = value.replace(/\@.*/,"");
+				return value;
+			}) : null;
+
+			if (newArray && newArray[0].includes("getStackTrace")) {
+				newArray.shift();
+			}
+			if (newArray && newArray[0].includes("getStackArray")) {
+				newArray.shift();
+			}
+			if (newArray && newArray[0]=="") {
+				newArray.shift();
+			}
+
 			return newArray;
 		}
-		
+
 		return null;
 	}
 
 	self.log = function(value) {
 		console.log.apply(this, [value]);
 	}
-	
+
 	// initialize on load
 	// sometimes the body size is 0 so we call this now and again later
 	window.addEventListener("load", self.onloadHandler);
@@ -2834,3 +2834,560 @@ var Application = function() {
 }
 
 window.application = new Application();
+window.onload=function() {
+	var area;
+	var locations;
+	var trip_end;
+	var trip_start;
+	var cost;
+	var travelsNum;
+	var packages_left;
+	var hotel;
+	var star;
+	var purchased;
+	var flight;
+	var packageType;
+	var info;
+	var about;
+	var img;
+	var serial;
+	var packageList=[];
+	var flagIcon=false;
+	var generalFilter;
+	var updatPackage;//id of package that is update
+	var generalobject;
+
+
+	function filterArea(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("area").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].area.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterlocation(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("location").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].locations.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterstart(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("start").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].trip_start.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterend(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("end").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].trip_end.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filtercost(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("cost").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].cost.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filtertravelsNum(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("travelsNum").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].travelsNum.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterleft(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("left").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].packages_left.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterstars(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("stars").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].star.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterpurchased(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("purchased").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].purchased.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filterflight(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("flight").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].flight.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+	function filtertypePackage(){
+		let temp =  readFromMongoDB().then((result)=>
+		{
+			clearDisplayFildes();
+			generalFilter=document.getElementById("typePackage").value;
+			for(let i=0;i<result.length;i++)
+			{
+				if(generalFilter.toLocaleLowerCase()==result[i].packageType.toLocaleLowerCase()){
+					readFromDBToPackageMangmentPage(result[i]);
+
+				}
+			}
+		});
+	}
+
+
+	function clearFields(){
+		locations = document.getElementById("location").value="";
+		area=document.getElementById("area").value;
+		trip_start=document.getElementById("start").value;
+		trip_end=document.getElementById("end").value;
+		cost=document.getElementById("cost").value;
+		travelsNum=document.getElementById("travelsNum").value="";
+		packages_left=document.getElementById("left").value="";
+		hotel=document.getElementById("hotel").value="";
+		star=document.getElementById("stars").value;
+		purchased=document.getElementById("purchased").value="";
+		flight=document.getElementById("flight").value;
+		packageType=document.getElementById("typePackage").value;
+		about=document.getElementById("about").value="";
+		info=document.getElementById("info").value="";
+
+		//img=document.getElementById("img");
+		//clear the slection fildes!!
+
+	}
+	function toString(obj){
+		let srt="area "+obj.area+"\n"+"locations  "+obj.locations+"\n"+"trip_start  "+obj.trip_start+"\n"+"trip_end "+obj.trip_end+"\n"+
+			"cost "+obj.cost+"\n"+"travelsNum "+obj.travelsNum+"\n"+"packages_left  "+obj.packages_left+"\n"+"hotel  "+obj.hotel+"\n"+
+			+"star "+obj.star+"\n"+"purchased "+obj.purchased+"\n"+"flight  "+obj.flight+"\n"+"packageType  "+obj.packageType+"\n"+
+			"info  "+obj.info+"\n"+"about  "+obj.about+"\n"+"serial: "+obj.serial;
+
+		return srt;
+
+	}
+	function addObjectForDesply(obj){
+		let row = document.createElement('tr'); // create row node
+		let col = document.createElement('td'); //
+		let col1= document.createElement('td');
+		let col2 = document.createElement('td'); //
+		let col3 = document.createElement('td'); //
+		let col4 = document.createElement('td'); //
+		let col5 = document.createElement('td'); //
+		let col6 = document.createElement('td'); //
+		let col7 = document.createElement('td'); //
+		let col8 = document.createElement('td'); //
+		let col9 = document.createElement('td');//
+		let col10 = document.createElement('td'); //
+		let col11 = document.createElement('td'); //
+		let col12 = document.createElement('td'); //
+		let col13 = document.createElement('td'); //
+		let col14 = document.createElement('td'); //
+		let col15 = document.createElement('td'); //
+		let col16 = document.createElement('td'); //
+		let col17 = document.createElement('td'); //
+
+
+		row.appendChild(col); // append first column to row
+		row.appendChild(col1); // append  column to row
+		row.appendChild(col2); // append  column to row
+		row.appendChild(col3);
+		row.appendChild(col4);
+		row.appendChild(col5);
+		row.appendChild(col6);
+		row.appendChild(col7);
+		row.appendChild(col8);
+		row.appendChild(col9);
+		row.appendChild(col10);
+		row.appendChild(col11);
+		row.appendChild(col12);
+		row.appendChild(col13);
+		row.appendChild(col14);
+		row.appendChild(col15);
+		row.appendChild(col16);
+		row.appendChild(col17);
+
+		col.innerHTML = '<i class="far fa-square" </i>';
+		col.addEventListener("click",switchIcone);
+		col1.innerHTML = '<i class="fas fa-user-edit" </i>';
+		col1.setAttribute('id',obj.serial);
+		col1.addEventListener("click",WritingFieldsScreen);
+		col2.innerHTML =obj.area; // put data in first column
+		col3.innerHTML=obj.locations;
+		col4.innerHTML=obj.trip_start;
+		col5.innerHTML=obj.trip_end;
+		col6.innerHTML=obj.cost;
+		col7.innerHTML = obj.travelsNum; // put data in first column
+		col8.innerHTML =obj.packages_left; // put data in second column
+		col9.innerHTML=obj.locations;
+		col10.innerHTML=obj.trip_start;
+		col11.innerHTML=obj.trip_end;
+		col12.innerHTML=obj.cost;
+		col13.innerHTML=obj.about;
+		col14.innerHTML=obj.info;
+		col15.innerHTML=obj.purchased;
+		col16.innerHTML=obj.serial;
+
+		col17.innerHTML='<img src=obj.img>';
+
+
+
+		let table = document.getElementById("tableToModify"); // find table to append to
+		table.appendChild(row); // append row to table
+
+	}
+	function WritingFieldsScreen(){
+		let objToUpdate=this.parentNode.childNodes;
+		document.getElementById("area").value=value=objToUpdate[2].innerHTML;
+		document.getElementById("location").value=objToUpdate[3].innerHTML;
+		//document.getElementById("start").value=objToUpdate[4].innerHTML;
+		//document.getElementById("end").value=objToUpdate[5].innerHTML;
+		document.getElementById("cost").value=objToUpdate[6].innerHTML;;
+		document.getElementById("travelsNum").value=objToUpdate[7].innerHTML;;
+		document.getElementById("left").value=objToUpdate[8].innerHTML;
+		document.getElementById("hotel").value=objToUpdate[9].innerHTML;
+		document.getElementById("stars").value=objToUpdate[10].innerHTML;
+		document.getElementById("purchased").value=objToUpdate[15].innerHTML;
+		document.getElementById("flight").value=objToUpdate[11].innerHTML;
+		document.getElementById("typePackage").value=objToUpdate[12].innerHTML;
+		document.getElementById("about").value=objToUpdate[13].innerHTML;
+		document.getElementById("info").value=objToUpdate[14].innerHTML;
+		// document.getElementById("img").value=objToUpdate[17].innerHTML;
+		updatPackage=this.id;
+
+	}
+//class package
+	function CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+						   flight,packageType,about,info,image,serial) {
+		let myObject = {
+			area: area,
+			locations: locations,
+			trip_start: trip_start,
+			trip_end: trip_end,
+			cost: cost,
+			travelsNum: travelsNum,
+			packages_left: packages_left,
+			hotel: hotel,
+			star: star,
+			flight: flight,
+			packageType : packageType,
+			about: about,
+			info: info,
+			img: image,
+			purchased:purchased,
+			serial: 1+serial,
+
+
+		};
+		return myObject;
+	}
+
+	function addImageToDirctory(img){
+		const path='views\images';
+
+	}
+	function switchIcone(){
+		if(flagIcon==false){
+			this.innerHTML='<i class="far fa-check-square"></i>';
+			flagIcon=true;
+		}
+		else{
+			this.innerHTML='<i class="far fa-square"></i>';
+			flagIcon=false;
+		}
+
+
+
+	}
+	function addPackage() {
+		//take care of the split btn values
+
+		locations = document.getElementById("location").value;
+		area=document.getElementById("area").value;
+		trip_start=document.getElementById("start").value;
+		trip_end=document.getElementById("end").value;
+		cost=document.getElementById("cost").value;
+		travelsNum=document.getElementById("travelsNum").value;
+		packages_left=document.getElementById("left").value;
+		hotel=document.getElementById("hotel").value;
+		star=document.getElementById("stars").value;
+		purchased=document.getElementById("purchased").value;
+		flight=document.getElementById("flight").value;
+		packageType=document.getElementById("typePackage").value;
+		about=document.getElementById("about").value;
+		info=document.getElementById("info").value;
+		img=document.getElementById("fileUpload").value;
+
+
+
+		let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
+			flight,packageType,about,info,img,serial);
+		serial=serial+1;
+		generalobject=myObj;
+		//writingToMongo(myObj);
+		packageList.push(myObj);
+		addObjectForDesply(myObj);
+		readFromMongoDB();
+		clearFields();
+
+	}
+	function writingToMongo(){
+
+		//generalobject
+		console.log("enter to read()")
+
+
+	}
+	function readFromMongoDB() {
+		let myPromise=new Promise((resolve,reject)=>{
+		let data;
+		fetch("/dani", {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		})
+			.then(response => response.json())
+			.then(function(response) {
+				if (response.ok) {
+					console.log('got data: ', response.data);
+					resolve(response.data);
+
+
+					//readFromDBToPackageMangmentPage(response.data);
+
+				}
+				else throw new Error('Request failed.');
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
+
+	});
+		return myPromise;
+	}
+	function deletePackage(){
+		let deletelist=document.getElementsByClassName("far fa-check-square");
+		let i=0;
+		for (i = deletelist.length-1; i >= 0  ; i--) {//delete from display
+			deletelist[i].parentElement.parentElement.remove();
+		}
+		//packageList.splice(i,1);//delet from list
+		//delet from db* need to be done
+
+
+	}
+	function readFromDBToPackageMangmentPage(packageListFromDB){
+		for(let i=0;i<packageListFromDB.length;i++){
+
+				addObjectForDesply(packageListFromDB[i]);
+			}
+			serial=packageListFromDB.length-1;
+		if(packageListFromDB.length===undefined){
+			addObjectForDesply(packageListFromDB);
+
+		}
+		}
+	function main() {
+		readFromMongoDB().then((result)=> {
+			readFromDBToPackageMangmentPage(result);
+		});
+
+
+	}
+	function clearDisplayFildes(){
+		let table = document.getElementById("result");
+		let totalRowCount = table.rows.length-1;
+		for(let i=totalRowCount;i>0;i--){
+			document.getElementById("result").deleteRow(i);
+
+		}
+
+
+	}
+	function UpdatPackage(){
+		let rowToBeUpdare=document.getElementById(updatPackage).parentElement.childNodes;
+		rowToBeUpdare[2].innerHTML=document.getElementById("area").value;
+		rowToBeUpdare[3].innerHTML=document.getElementById("location").value;
+		rowToBeUpdare[4].innerHTML=document.getElementById("start").value;
+		rowToBeUpdare[5].innerHTML=document.getElementById("end").value;
+		rowToBeUpdare[6].innerHTML=document.getElementById("cost").value;
+		rowToBeUpdare[7].innerHTML=document.getElementById("travelsNum").value;
+		rowToBeUpdare[8].innerHTML=document.getElementById("left").value;
+		rowToBeUpdare[9].innerHTML=document.getElementById("hotel").value;
+		rowToBeUpdare[10].innerHTML=document.getElementById("location").value;
+		rowToBeUpdare[11].innerHTML=document.getElementById("stars").value;
+		rowToBeUpdare[12].innerHTML=document.getElementById("purchased").value;
+		rowToBeUpdare[13].innerHTML=document.getElementById("flight").value;
+		rowToBeUpdare[14].innerHTML=document.getElementById("typePackage").value;
+		rowToBeUpdare[15].innerHTML=document.getElementById("about").value;
+		rowToBeUpdare[16].innerHTML=document.getElementById("info").value;
+		//rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
+		findPackageFromDB();
+		clearFields();
+		//update DB
+
+	}
+	function generalSearch(){
+		let filter=document.getElementById("filter").value;
+		switch(filter) {
+			case "location":
+				filterlocation();
+				break;
+			case "start":
+				filterstart();
+				break;
+			case "end":
+				filterend();
+				break;
+			case "cost":
+				filtercost();
+				break;
+			case "travelsNum":
+				filtertravelsNum();
+				break;
+			case "left":
+				filterleft();
+				break;
+			case "stars":
+				filterstars();
+				break;
+			case "purchased":
+				filterpurchased();
+				break;
+			case "area":
+				filterArea();
+				break;
+			case "flight":
+				filterflight();
+				break;
+			case "typePackage":
+				filtertypePackage()
+			default:
+				clearDisplayFildes();
+
+		}
+
+	}
+	////////////////////////////////////////////
+	function findPackageFromDB(){
+		readFromMongoDB().then((result)=>{
+			let i=0;
+			for(i=0;i<result.length;i++){
+				if (result[i]['serial']==updatPackage){
+					var myHeaders = new Headers();
+					myHeaders.append("Content-Type", "application/json");
+					var raw = JSON.stringify({
+						"locations":document.getElementById("location").value,
+
+					});
+					var requestOptions = {
+						method: 'POST',
+						headers: myHeaders,
+						body: raw,
+						redirect: 'follow'
+					};
+					fetch("update", requestOptions)
+						.then(response => response.text())
+						.then(result => console.log(result))
+						.catch(error => console.log('error', error));
+
+				}
+
+					}
+		});
+
+	}
+	const btnAdd = document.getElementById("add");
+	btnAdd.addEventListener("click", addPackage);
+	const btnSearch=document.getElementById("search");
+	btnSearch.addEventListener("click",generalSearch);
+	const btnDelets = document.getElementById("delete");
+	btnDelets.addEventListener("click", deletePackage);
+	const btnUpdate=document.getElementById("update");
+	btnUpdate.addEventListener("click",UpdatPackage);
+
+
+	main();
+
+
+}
+
