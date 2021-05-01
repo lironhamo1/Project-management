@@ -159,9 +159,9 @@ app.get('/OrdersManagementPage.js',(req,res)=>{
     //res.render(path.join('/OrdersManagementPage'))
 })
 //Paying for package page
-app.get('/Pay',(req,res)=>{
+app.get('/Pay',(req,res)=> {
     res.render('PaymentPage')
-
+})
 app.get('/OrganizedTrip.css',(req,res)=>{
     res.sendFile(path.join(fullPathCss,'OrganizedTrip.css'))
 })
@@ -441,6 +441,7 @@ app.post("/news", (req, res) => {
             db.close();
         });
     });
+});
 app.post("/UpdateAllOrderStatus",(req,res)=>{
     var i;
     console.log("IT ISSSSSS:",req.body.data);
@@ -473,36 +474,28 @@ app.post("/InsertRowToOrders",(req,res)=>{
     res.end("yes");
 });
 
-function getpackage(pid){
+app.post("/LoadAllFromOrders", (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
+    console.log(req.body)
     mongoose.connect(url, function (err, db) {
         if (err) throw err;
-
+        //Choosing DB
         var dbo = db.db("GoTravel");
 
-        //Extracting data from account and orders collections
-        dbo.collection('orders').find({"_id": pid}).toArray(function (err, result) {
-            console.log(result);
-            return result;
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('Orders').find({}).toArray(function (err, result) {
+            //
+            return res.status(200).json({
+                ok: true,
+                data: result
+            });
+            if (err) throw err;
+            db.close();
         });
-    })
-}
-function getuser(uid){
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-
-        var dbo = db.db("GoTravel");
-
-        //Extracting data from account and orders collections
-        dbo.collection('accounts').find({"_id": uid}).toArray(function (err, result) {
-            console.log(result);
-            return result;
-        });
-    })
-}
+    });
+});
 
 
 app.post("/LoadPackageUserIfno",(req,res)=> {
@@ -541,10 +534,6 @@ app.post("/LoadPackageUserIfno",(req,res)=> {
  });
 
 
-app.listen(app_port, () => {
-    console.log('app is runninng. port: '+app_port);
-    console.log('http://127.0.0.1:'+app_port+"/");
-});
 
 
 

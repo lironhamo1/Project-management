@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Orders Management</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="OrdersManagementPage.css"/>
+    <script id="applicationScript" type="text/javascript" src="OrdersManagementPage.js"></script>
+
+</head>
+<body>
+<div id="short_page">
+    <div id="background">
+        <img id="p" src="p.png" srcset="p.png 1x">
+
+    </div>
+
+    <div id="nav_bar">
+        <svg class="bar">
+            <rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+            </rect>
+        </svg>
+        <img onclick="application.goToTargetView(event)" id="logo" src="logo.png" srcset="logo.png 1x">
+
+        <div id="QA">
+            <span>Q&A</span>
+        </div>
+        <div onclick="application.goToTargetView(event)" id="Contact_Us">
+            <span>Contact Us</span>
+        </div>
+        <div onclick="application.goToTargetView(event)" id="About_Us">
+            <span>About Us</span>
+        </div>
+        <div onclick="application.goToTargetView(event)" id="Login">
+            <span>Login</span>
+        </div>
+        <div onclick="application.goToTargetView(event)" id="Registration">
+            <span>Registration</span>
+        </div>
+        <div id="hello_guest_">
+            <span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
+        </div>
+    </div>
+    <svg class="Rectangle_75">
+        <rect id="Rectangle_75" rx="0" ry="0" x="0" y="0" width="1433" height="900">
+        </rect>
+    </svg>
+
+
+    <div id="title_">
+        <br>Order management</br>
+        <form>
+        <table style="width:100%" id="package_table" class="sortable" >
+            <tr>
+                <th onclick=sortTable(0)>Order ID</th>
+                <th onclick="sortTable(1)" >Status</th>
+                <th onclick="sortTable(2)">Dates</th>
+                <th onclick="sortTable(3)">Destination</th>
+                <th onclick="sortTable(4)">User Name</th>
+                <th onclick="sortTable(5)">Phone</th>
+                <th onclick="sortTable(6)">Email</th>
+                <th onclick="sortTable(7)">Price</th>
+                <th onclick="sortTable(8)">Package Type</th>
+            </tr>
+        </table>
+
+        <div class="main_btn">
+            <button class=" button add" id="add">Submit</button>
+
+        </div>
+        </form>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+</div>
+</div>
+
+
+</div>
+<script id="applicationScript" type="text/javascript" src="OrdersManagementPage.js"></script>
+
+</body>
+</html>
