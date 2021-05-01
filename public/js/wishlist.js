@@ -8,10 +8,12 @@ window.onload = function () {
         if (count == 0) {
             document.getElementById("empty").innerHTML = "There is no packages in wishlist";
             //document.getElementById("btn_wishList").hidden = "hidden"
-        } else {
+            document.getElementById("titles_table").hidden="hidden"
 
+        } else {
         }
     }
+    foundAccount()
 
     function Func() {
         let myPromise = new Promise((resolve, reject) => {
@@ -49,7 +51,7 @@ window.onload = function () {
             var i;
             for (i = 0; i < database.length; i++) {
                 if (database[i]['email'] == user) {
-                    document.getElementById("title_").innerHTML = database[i]['first_name'] + " WishList Page";
+                    document.getElementById("title_").innerHTML = database[i]['firstname'] + " WishList Page";
                     equal(database[i]);
                 }
             }
@@ -58,7 +60,6 @@ window.onload = function () {
 
     }
 
-    foundAccount()
 
 
     function readTrip() {

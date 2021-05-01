@@ -361,7 +361,7 @@ app.post("/news", (req, res) => {
 
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
-        dbo.collection('newsletter').find({}).toArray(function (err, result) {
+        dbo.collection('accounts').find({}).toArray(function (err, result) {
             return res.status(200).json({
                 ok: true,
                 data: result

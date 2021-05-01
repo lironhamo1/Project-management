@@ -46,7 +46,8 @@ window.onload = function () {
         console.log(database)
         var i;
         for (i = 0; i < database.length; i++) {
-            addObjectForDisplay(database[i])
+            if(database[i]["newsletter"]=="on")
+                addObjectForDisplay(database[i])
         }
     }
     readDB()

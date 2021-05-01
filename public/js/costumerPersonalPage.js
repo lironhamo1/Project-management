@@ -1,6 +1,4 @@
 var user='liron@gmail.com'
-
-
 window.onload = function () {
     var userId=1;
     function logout() {
@@ -46,7 +44,7 @@ window.onload = function () {
             var i;
             for (i = 0; i < database.length; i++) {
                 if(database[i]['email']==user){
-                    document.getElementById("hello_").innerHTML=database[i]['first_name']+" Personal Page";
+                    document.getElementById("hello_").innerHTML=database[i]['firstname']+" Personal Page";
                 }
             }
         });
