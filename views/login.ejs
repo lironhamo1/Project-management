@@ -1,43 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>login</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="login.css"/>
+<script id="applicationScript" type="text/javascript" src="login.js"></script>
 </head>
-<style>
-    h1{font-size: 36px;}
-</style>
 <body>
-    <h1>Login</h1>  
-<form action="homepage.html" method="post">
+<div id="login">
+	<div id="background">
+		<img id="p" src="p.png" srcset="p.png 1x">
+			
+	</div>
+	<div id="nav_bar">
+		<svg class="bar">
 
-    <table width=300px>
-       
-        
-        <tr>
-            <td><label>name:</label></td>
-            <td><input type="text" name="userName" required></td>
-        </tr>
-        <tr>
-            <td><label>email:</label></td>
-            <td><input type="email" name="mail" required></td>
-        </tr>
-        <tr>
-            <td><label>password:</label></td>
-            <td><input type="password" name="password" required></td>
-        </tr>
-        <tr>
-            <td><label>Remember me</label></td>
-            <td><input type="checkbox" name="confirm"></td>
-        </tr>
-    </table>
-<br><br><br>
-<button type="sumbit">enter</button>
+			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+			</rect>
+		</svg>
+		<img herf="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+		<a herf="/q&a" id="QA"><span>Q&A</span></a>
+		<a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+		<a href="/Aboutus" id="About_Us"><span>About Us</span></a>
+		<a href="/login" id="Login_u"><span>Login</span></a>
+		<a href="/registration" id="Registration"><span>Registration</span></a>
+		<div id="hello_guest_">
+			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
+		</div>
+	</div>
+	<div id="loginTab">
 
 
-</form>
 
+
+
+		<svg class="Path_2" viewBox="0 0 1292.238 880.697">
+			<path id="Path_2" d="M 0 0 L 1292.23779296875 0 L 1292.23779296875 880.697265625 L 0 880.697265625 L 0 0 Z">
+			</path>
+		</svg>
+
+
+
+
+		<form id="loginform">
+
+			<table align="center" cellspaceing="0">
+
+
+				<tr align="center">
+					<td><span>Email</span></td>
+					<td><input type="email" name="email" id="email" required></td>
+				</tr>
+				<tr align="center">
+					<td><span>Password</span></td>
+					<td><input type="password"  name="password" id="password" required></td>
+				</tr>
+				<tr align="center">
+
+					<td colspan="2"><button type="sumbit"  form="loginform" id="loginbtn">LogIn</button></td>
+
+				</tr>
+
+
+
+			</table>
+		</form>
+
+
+
+		</div>
+
+	</div>
+</div>
 </body>
 </html>

@@ -1,104 +1,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Registration</title>
-<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="../public/css/registration.css"/>
-<script id="applicationScript" type="text/javascript" src="../public/js/registration.js"></script>
+
+
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="registration.css"/>
+	<script id="applicationScript" type="text/javascript" src="registration.js"></script>
 </head>
 <body>
+
 <div id="Registration">
 	<div id="background">
-		<img id="p" src="../src/p.png" srcset="../src/p.png 1x">
-			
+		<img id="p" src="p.png" srcset="p.png 1x">
+
 	</div>
 	<div id="nav_bar">
 		<svg class="bar">
+
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="../src/logo.png" srcset="../src/logo.png 1x">
-			
-		<div onclick="application.goToTargetView(event)" id="QA">
-			<span>Q&A</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Contact_Us">
-			<span>Contact Us</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="About_Us">
-			<span>About Us</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Login">
-			<span>Login</span>
-		</div>
-		<div id="Registration_u">
-			<span>Registration</span>
+		<img herf="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+		<a herf="/q&a" id="QA"><span>Q&A</span></a>
+		<a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+		<a href="/Aboutus" id="About_Us"><span>About Us</span></a>
+		<a href="/login" id="Login"><span>Login</span></a>
+		<a href="/registration" id="Registration_u"><span>Registration</span></a>
+		<div id="hello_guest_">
+			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
 		</div>
 	</div>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+			emailjs.init("user_o2CH7yyXlbJp01sfF6SYD");
+		})();
+	</script>
+
+
 	<div id="reg">
+
 		<svg class="Path_2" viewBox="0 0 1292.238 1053.745">
 			<path id="Path_2" d="M 0 0 L 1292.23779296875 0 L 1292.23779296875 1053.74462890625 L 0 1053.74462890625 L 0 0 Z">
 			</path>
 		</svg>
-		<div id="Email">
-			<span>Email</span>
-		</div>
-		<div id="Password">
-			<span>Password</span>
-		</div>
-		<div id="Group_8">
-			<div id="Group_5">
-				<svg class="Path_6" viewBox="0 0 337 71">
-					<path id="Path_6" d="M 0 0 L 337 0 L 337 71 L 0 71 L 0 0 Z">
-					</path>
-				</svg>
-				<div id="Sign_In">
-					<span>Sign In</span>
-				</div>
-			</div>
-		</div>
-		<svg class="Path_18" viewBox="0 0 352.516 61.815">
-			<path id="Path_18" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
-		<div id="First_Name">
-			<span>First Name</span>
-		</div>
-		<div id="Last_Name">
-			<span>Last Name</span>
-		</div>
-		<div id="Phone_number">
-			<span>Phone number</span>
-		</div>
-		<div id="Confirm_Password">
-			<span>Confirm Password</span>
-		</div>
-		<svg class="Path_19" viewBox="0 0 352.516 61.815">
-			<path id="Path_19" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
-		<svg class="Path_20" viewBox="0 0 352.516 61.815">
-			<path id="Path_20" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
-		<svg class="Path_21" viewBox="0 0 352.516 61.815">
-			<path id="Path_21" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
-		<svg class="Path_22" viewBox="0 0 352.516 61.815">
-			<path id="Path_22" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
-		<svg class="Path_23" viewBox="0 0 352.516 61.815">
-			<path id="Path_23" d="M 0 0 L 352.515869140625 0 L 352.515869140625 61.8153076171875 L 0 61.8153076171875 L 0 0 Z">
-			</path>
-		</svg>
+
+		<form action="/insertAccount" method="POST" onsubmit="return Validateinfo()">
+
+					<table align="center" cellspaceing="0">
+
+						<tr align="center">
+							<td ><span>First Name</span></td>
+							<td><input type="text"  name="firstname" id="firstname" required></td>
+						</tr>
+						<tr align="center">
+							<td ><span>Last Name</span></td>
+							<td><input type="text"  name="lastname" id="lastname" required></td>
+						</tr>
+						<tr align="center">
+							<td><span>Email</span></td>
+							<td><input type="email" name="email" id="email" required></td>
+						</tr>
+						<tr align="center">
+							<td><span>Phone number</span></td>
+							<td><input type="number"  name="phone" id="phone" required></td>
+						</tr>
+						<tr align="center">
+							<td><span>Password</span></td>
+							<td><input type="password"  name="password" id="password" required></td>
+						</tr>
+						<tr align="center">
+							<td><span>Confirm Password</span></td>
+							<td><input type="password"  id="cpassword" required></td>
+						</tr>
+						<tr align="center">
+							<td><label>do you want to get newsletter ?</label></td>
+							<td><input type="checkbox" name="newsletter" id="newsletter"></td>
+						</tr>
+						<tr align="center">
+							<td><label>type of user</label></td>
+							<td><select name="type" id="type">
+									<option value="agent">Agent</option>>
+									<option value="client">Client</option>>
+								</select></td>
+						</tr>
+
+						<tr align="center">
+							<td colspan="2"><button type="submit" id="SignUpbtn">SignUn</button></td>
+
+						</tr>
+
+					</table>
+
+
+
+				</form>
+
+
+
+
+
+
+
+
+
+
 	</div>
-	<div id="hello_guest_">
-		<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
-	</div>
+
+
 </div>
 </body>
 </html>

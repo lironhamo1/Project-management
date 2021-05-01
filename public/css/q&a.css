@@ -1,5 +1,5 @@
 .mediaViewInfo {
-	--web-view-name: Q&A;
+
 	--web-view-id: QA;
 	--web-scale-to-fit: true;
 	--web-scale-to-fit-type: width;
@@ -20,7 +20,7 @@
 	width: 1530px;
 	height: 1550px;
 	overflow: hidden;
-	--web-view-name: Q&A;
+
 	--web-view-id: QA;
 	--web-scale-to-fit: true;
 	--web-scale-to-fit-type: width;
@@ -89,10 +89,10 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: "Home.html";
 	cursor: pointer;
 }
-#QA_q {
+#QA_s {
 	left: 255px;
 	top: 175px;
 	position: absolute;
@@ -115,7 +115,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.html;
+	--web-action-target: "contactus.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -133,7 +133,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Aboutus.html;
+	--web-action-target: "Aboutus.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -151,7 +151,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: login.html;
+	--web-action-target:"login.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -169,7 +169,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.html;
+	--web-action-target: "registration.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -192,7 +192,7 @@
 	font-size: 20px;
 	color: rgba(6,2,2,1);
 }
-#Rectangle_64 {
+#Rectangle {
 	opacity: 0.72;
 	fill: rgba(255,255,255,1);
 	stroke: rgba(112,112,112,1);
@@ -202,15 +202,15 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_64 {
+.Rectangle {
 	position: absolute;
 	overflow: visible;
 	width: 1413px;
-	height: 1103px;
+	height: 1194px;
 	left: 59px;
 	top: 356px;
 }
-#Rectangle_65 {
+#headLine_rec {
 	fill: rgba(132,218,212,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -219,7 +219,7 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_65 {
+.headLine_rec {
 	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
@@ -228,23 +228,39 @@
 	left: 373px;
 	top: 397px;
 }
-#ID1 {
+#QA_ {
+	left: 526px;
+	top: 417px;
 	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 373px;
-	top: 727px;
 	overflow: visible;
+	width: 430px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 80px;
+	color: rgba(6,2,2,1);
 }
-#Group_4 {
+#q1 {
+	fill: rgba(5,15,14,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.q1 {
+	mix-blend-mode: multiply;
 	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
 	overflow: visible;
+	width: 1244px;
+	height: 60px;
+	left: 155px;
+	top: 644px;
 }
-#Rectangle_73 {
+#ans1 {
 	fill: rgba(132,218,212,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -253,39 +269,17 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_73 {
+.ans1 {
 	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
+	width: 1244px;
+	height: 106px;
+	left: 155px;
+	top: 717px;
 }
-#ID1_ {
-	left: 737px;
-	top: 0px;
-	position: absolute;
-	overflow: visible;
-	width: 341px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(255,255,255,1);
-}
-#Group_3 {
-	position: absolute;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-	overflow: visible;
-}
-#Rectangle_66 {
-	fill: rgba(17,21,21,1);
+#q2 {
+	fill: rgba(5,15,14,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
 	stroke-linejoin: miter;
@@ -293,46 +287,104 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_66 {
+.q2 {
 	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-}
-#___ {
+	width: 1244px;
+	height: 60px;
 	left: 155px;
-	top: 0px;
+	top: 865px;
+}
+#q3 {
+	fill: rgba(5,15,14,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.q3 {
+	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
-	width: 892px;
+	width: 1244px;
+	height: 60px;
+	left: 155px;
+	top: 1091px;
+}
+#nnn {
+	left: 195px;
+	top: 709px;
+	position: absolute;
+	overflow: visible;
+	width: 17px;
 	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
+	text-align: center;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 40px;
+	font-size: 10px;
+	color: rgba(6,2,2,1);
+}
+#How_can_I_contact_the_agency {
+	left: 188px;
+	top: 658px;
+	position: absolute;
+	overflow: visible;
+	width: 429px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
 	color: rgba(255,255,255,1);
 }
-#ID2 {
+#We_have_a_page_called_Contact_ {
+	left: 188px;
+	top: 738px;
 	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 373px;
-	top: 908px;
 	overflow: visible;
+	width: 1196px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(0,0,0,1);
 }
-#Group_4_ {
+#You_can_go_to_our_main_page_an {
+	left: 188px;
+	top: 964px;
 	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
 	overflow: visible;
+	width: 1196px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(0,0,0,1);
 }
-#Rectangle_73_ {
+#How_do_I_book_a_vacation_packa {
+	left: 188px;
+	top: 879px;
+	position: absolute;
+	overflow: hidden;
+	width: 570px;
+	height: 40px;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(255,255,255,1);
+}
+#ans1_ba {
 	fill: rgba(132,218,212,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -341,86 +393,45 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_73_ {
+.ans1_ba {
 	mix-blend-mode: multiply;
-	position: absolute;
 	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-}
-#ID1_ba {
-	left: 737px;
-	top: 0px;
 	position: absolute;
-	overflow: visible;
-	width: 341px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(255,255,255,1);
-}
-#Group_3_ {
-	position: absolute;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-	overflow: visible;
-}
-#Rectangle_66_ba {
-	fill: rgba(17,21,21,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Rectangle_66_ba {
-	mix-blend-mode: multiply;
-	position: absolute;
-	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-}
-#____ {
+	width: 1244px;
+	height: 106px;
 	left: 155px;
-	top: 0px;
+	top: 943px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#How_do_I_look_at_packages_I_li {
+	left: 179px;
+	top: 1101px;
 	position: absolute;
-	overflow: visible;
-	width: 892px;
-	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
+	overflow: hidden;
+	width: 570px;
+	height: 40px;
+	text-align: left;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 40px;
+	font-size: 30px;
 	color: rgba(255,255,255,1);
 }
-#ID3 {
+#You_can_enter_your_personal_pa {
+	left: 180px;
+	top: 1186px;
 	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 373px;
-	top: 1089px;
 	overflow: visible;
+	width: 1196px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(0,0,0,1);
 }
-#Group_4_bd {
-	position: absolute;
-	width: 1077px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-	overflow: visible;
-}
-#Rectangle_73_be {
+#ans1_bd {
 	fill: rgba(132,218,212,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -429,39 +440,18 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_73_be {
+.ans1_bd {
 	mix-blend-mode: multiply;
-	position: absolute;
 	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-}
-#ID1_bf {
-	left: 737px;
-	top: 0px;
 	position: absolute;
-	overflow: visible;
-	width: 341px;
-	white-space: nowrap;
-	text-align: center;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(255,255,255,1);
+	width: 1244px;
+	height: 106px;
+	left: 155px;
+	top: 1165px;
+	transform: matrix(1,0,0,1,0,0);
 }
-#Group_3_bg {
-	position: absolute;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
-	overflow: visible;
-}
-#Rectangle_66_bh {
-	fill: rgba(17,21,21,1);
+#q3_be {
+	fill: rgba(5,15,14,1);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
 	stroke-linejoin: miter;
@@ -469,26 +459,59 @@
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
 }
-.Rectangle_66_bh {
+.q3_be {
 	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
-	width: 1061px;
-	height: 64px;
-	left: 0px;
-	top: 0px;
+	width: 1244px;
+	height: 60px;
+	left: 164px;
+	top: 1313px;
 }
-#____bi {
-	left: 155px;
-	top: 0px;
+#How_do_I_look_at_packages_I_al {
+	left: 188px;
+	top: 1323px;
 	position: absolute;
-	overflow: visible;
-	width: 892px;
-	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
+	overflow: hidden;
+	width: 626px;
+	height: 40px;
+	text-align: left;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 40px;
+	font-size: 30px;
 	color: rgba(255,255,255,1);
+}
+#You_can_enter_your_personal_pa_bg {
+	left: 189px;
+	top: 1408px;
+	position: absolute;
+	overflow: visible;
+	width: 1196px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(0,0,0,1);
+}
+#ans1_bh {
+	fill: rgba(132,218,212,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.ans1_bh {
+	mix-blend-mode: multiply;
+	overflow: visible;
+	position: absolute;
+	width: 1244px;
+	height: 106px;
+	left: 156px;
+	top: 1387px;
+	transform: matrix(1,0,0,1,0,0);
 }

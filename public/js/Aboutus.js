@@ -2,6 +2,7 @@
 // INITIALIZATION
 ///////////////////////////////////////
 
+export {user} from '\login.js';
 /**
  * Functionality for scaling, showing by media query, and navigation between multiple pages on a single page. 
  * Code subject to change.
@@ -10,6 +11,7 @@
 if (window.console==null) { window["console"] = { log : function() {} } }; // some browsers do not set console
 
 var Application = function() {
+	alert(user);
 	// event constants
 	this.prefix = "--web-";
 	this.NAVIGATION_CHANGE = "viewChange";

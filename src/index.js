@@ -5,8 +5,11 @@ const express = require('express')
 const app_port = process.env.PORT || 3000
 const app = express()
 app.set('view engine','ejs')
+app.use(express.json());
+var bodyParser=require('body-parser');
 // eslint-disable-next-line no-undef
 var path = require('path');
+app.use(bodyParser.urlencoded({extended:true}));
 app.set('views',path.join(__dirname,'../','views'));
 var temp;
 // eslint-disable-next-line no-undef
@@ -56,49 +59,58 @@ app.get('/Aboutus.js',(req,res)=>{
     res.sendFile(path.join(fullPathJs + '/Aboutus.js'))
     //res.render(path.join('/OrdersManagementPage'))
 })
-app.get('/',(req,res)=>{
+app.get('/Aboutus',(req,res)=>{
     res.render( 'Aboutus')
 })
 
 /////q&a page
 app.get('/q&a.css',(req,res)=>{
-    res.render(path.join(fullPathCss + '/q&a.css'))
+    res.sendFile(path.join(fullPathCss + '/q&a.css'))
 })
 app.get('/q&a.js',(req,res)=>{
     res.sendFile(path.join(fullPathJs + '/q&a.js'))
-    //res.render(path.join('/OrdersManagementPage'))
 })
-app.get('/q&a.ejs',(req,res)=>{
+app.get('/q&a',(req,res)=>{
     res.render('q&a')
 })
 
 
+/////login page
+app.get('/login.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/login.css'))
+})
+app.get('/login.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/login.js'))
+})
+app.get('/login',(req,res)=>{
+    res.render('login')
+})
+/////registration page
+app.get('/registration.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/registration.css'))
+})
+app.get('/registration.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/registration.js'))
+})
+app.get('/registration',(req,res)=>{
+    res.render('registration')
+})
+
+
+/////contactus page
+app.get('/contactus.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss + '/contactus.css'))
+})
+app.get('/contactus.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs + '/contactus.js'))
+})
+app.get('/contactus',(req,res)=>{
+    res.render('contactus')
+})
 
 
 
-// app.get('/readFile', async (req, res) => {
-//     //let fileContent ;
-//     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-//     var mongoose = require('mongodb').MongoClient;
-//     mongoose.connect(url, function(err, db) {
-//         if (err) throw err;
-//         //Choosing DB
-//         var dbo = db.db("GoTravel");
-//
-//         //Extracting data from accounts collection
-//         // eslint-disable-next-line no-unused-vars
-//         dbo.collection('Orders').find({}).toArray(function(err, result) {
-//             temp=true
-//             //res.render('OrdersManagementPage',{temp: true})
-//             if (err) throw err;
-//             db.close();
-//         });
-//     });
-//
-// });
-
-
-app.post("/dani", (req, res) => {
+app.post("/loginin", (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
     mongoose.connect(url, function (err, db) {
@@ -106,9 +118,10 @@ app.post("/dani", (req, res) => {
         //Choosing DB
         var dbo = db.db("GoTravel");
 
+
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
-        dbo.collection('Orders').find({}).toArray(function (err, result) {
+        dbo.collection('accounts').find({}).toArray(function (err, result) {
             //
             return res.status(200).json({
                 ok: true,
@@ -117,6 +130,29 @@ app.post("/dani", (req, res) => {
             if (err) throw err;
             db.close();
         });
+    });
+});
+
+app.post("/cu",(req,res)=>{console.log(req.body)});
+app.post("/insertAccount",(req,res)=>{
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+
+        var dbo = db.db("GoTravel");
+
+        dbo.collection('accounts').find({"email": req.body['email']}).toArray(function (err, result) {
+
+            var myUser = result;
+            if( myUser.length ==0){
+                dbo.collection('accounts').insertOne(req.body)
+
+            }
+
+
+        });
+
     });
 });
 
