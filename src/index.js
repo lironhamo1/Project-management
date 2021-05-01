@@ -5,7 +5,6 @@ const express = require('express')
 const app_port = process.env.PORT || 3000
 const app = express()
 app.set('view engine','ejs')
-app.use(express.json())
 // eslint-disable-next-line no-undef
 var path = require('path');
 var temp;
@@ -49,6 +48,18 @@ app.get('/AgentPersonalPage',(req,res)=>{
     res.render('AgentPersonalPage')
 })
 
+app.get('/Home.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss,'Home.css'))
+})
+app.get('/Home.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs,'Home.js'))
+    //res.render(path.join('/OrdersManagementPage'))
+})
+app.get('/Home',(req,res)=>{
+    res.render('Home')
+})
+
+
 app.get('/costOrders.css',(req,res)=>{
     res.sendFile(path.join(fullPathCss,'costOrders.css'))
 })
@@ -89,6 +100,17 @@ app.get('/UsOT.js',(req,res)=>{
 })
 app.get('/UsOT',(req,res)=>{
     res.render('UsOT')
+})
+
+app.get('/packageManagementPage.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss,'packageManagementPage.css'))
+})
+app.get('/packageManagementPage.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs,'packageManagementPage.js'))
+    //res.render(path.join('/OrdersManagementPage'))
+})
+app.get('/packageManagementPage',(req,res)=>{
+    res.render('packageManagementPage')
 })
 
 app.get('/orderInfo.css',(req,res)=>{
@@ -146,28 +168,6 @@ app.get('/wishlist',(req,res)=>{
     res.render('wishlist')
 })
 
-app.get('/newsAgent.css',(req,res)=>{
-    res.sendFile(path.join(fullPathCss,'newsAgent.css'))
-})
-app.get('/newsAgent.js',(req,res)=>{
-    res.sendFile(path.join(fullPathJs,'newsAgent.js'))
-    //res.render(path.join('/OrdersManagementPage'))
-})
-app.get('/newsAgent',(req,res)=>{
-    res.render('newsAgent')
-})
-
-
-
-
-
-
-
-
-
-
-
-
 app.get('/img2.jpg',(req,res)=>{
     res.sendFile(path.join(fullPathimages + '/img2.jpg'))
 })
@@ -218,31 +218,7 @@ app.get('/p_n.png',(req,res)=>{
 // });
 
 
-app.post("/password", (req, res) => {
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-        //Choosing DB
-        var dbo = db.db("GoTravel");
-
-        //Extracting data from accounts collection
-        // eslint-disable-next-line no-unused-vars
-        dbo.collection('accounts').find({}).toArray(function (err, result) {
-            return res.status(200).json({
-                ok: true,
-                data: result
-            });
-            if (err) throw err;
-            db.close();
-        });
-    });
-});
-
-
-
-
-app.post("/wishlist", (req, res) => {
+app.post("/dani", (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
     mongoose.connect(url, function (err, db) {
@@ -253,6 +229,7 @@ app.post("/wishlist", (req, res) => {
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
         dbo.collection('Package management').find({}).toArray(function (err, result) {
+            //
             return res.status(200).json({
                 ok: true,
                 data: result
@@ -264,51 +241,7 @@ app.post("/wishlist", (req, res) => {
 });
 
 
-app.post("/update", (req, res) => {
-    console.log(req.body)
-    res.send("test")
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-        //Choosing DB
-        var dbo = db.db("GoTravel");
-        var myquery = { email: req.body.mail };
-        var newvalues = { $set: {password:  req.body.newPass } };
-        dbo.collection("accounts").updateOne(myquery, newvalues, function(err, res) {
-            if (err) throw err;
-            console.log("1 document updated");
-        //Extracting data from accounts collection
-        // eslint-disable-next-line no-unused-vars
-            db.close();
-        });
-    });
-});
-
-
-
-/*app.post('/password', (req, res) => {
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-        //Choosing DB
-        var dbo = db.db("GoTravel");
-        var myquery = { email: req.body.mail};
-        var newvalues = { $set: { password: req.body.newPass } };
-        dbo.collection("accounts").updateOne(myquery, newvalues, function (err, res1) {
-            if (err) throw err;
-            else {
-                //alert("password changed successfully!");
-                res.redirect("/"); //the response
-            }
-            console.log("1 document updated");
-            db.close();
-        });
-    });
-});*/
-
-app.post("/readOrders", (req, res) => {
+app.post("/home", (req, res) => {
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
     mongoose.connect(url, function (err, db) {
@@ -318,7 +251,8 @@ app.post("/readOrders", (req, res) => {
 
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
-        dbo.collection('Orders').find({}).toArray(function (err, result) {
+        dbo.collection('Package management').find({}).toArray(function (err, result) {
+            //
             return res.status(200).json({
                 ok: true,
                 data: result
@@ -328,51 +262,6 @@ app.post("/readOrders", (req, res) => {
         });
     });
 });
-
-
-app.post("/OrganizedTrip", (req, res) => {
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-        //Choosing DB
-        var dbo = db.db("GoTravel");
-
-        //Extracting data from accounts collection
-        // eslint-disable-next-line no-unused-vars
-        dbo.collection('Organized Trip').find({}).toArray(function (err, result) {
-            return res.status(200).json({
-                ok: true,
-                data: result
-            });
-            if (err) throw err;
-            db.close();
-        });
-    });
-});
-
-app.post("/news", (req, res) => {
-    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-    var mongoose = require('mongodb').MongoClient;
-    mongoose.connect(url, function (err, db) {
-        if (err) throw err;
-        //Choosing DB
-        var dbo = db.db("GoTravel");
-
-        //Extracting data from accounts collection
-        // eslint-disable-next-line no-unused-vars
-        dbo.collection('accounts').find({}).toArray(function (err, result) {
-            return res.status(200).json({
-                ok: true,
-                data: result
-            });
-            if (err) throw err;
-            db.close();
-        });
-    });
-});
-
-
 
 app.listen(app_port, () => {
     console.log('app is runninng. port: '+app_port);
