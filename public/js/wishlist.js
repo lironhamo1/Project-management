@@ -96,7 +96,7 @@ window.onload = function () {
         readTrip().then((database) => {
             var i;
             for (i = 0; i < database.length; i++) {
-                if (database[i]['_id'] == obj['wishlist']) {
+                if (database[i]['serial'] == obj['wishlist']) {
                     addObjectForDisplay(database[i]);
                     count++;
                 }

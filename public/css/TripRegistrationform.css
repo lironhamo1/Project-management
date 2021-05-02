@@ -269,8 +269,8 @@ input {
 	display: inline-block;
 	border: 5px solid black;
   }
-button[type=submit] {
-	top: 500px;
+button[type=button] {
+	top: 600px;
 	position: absolute;
 	overflow: visible;
 	white-space: nowrap;

@@ -1,17 +1,4 @@
-
-
 window.onload=function() {
-	var user1 = localStorage.getItem("user");
-	console.log(user1);
-	console.log(localStorage)
-
-
-	function goToOrderPage(){
-		alert("you clicked me!");
-
-
-
-	}
 	var area;
 	var locations;
 	var trip_end;
@@ -31,6 +18,8 @@ window.onload=function() {
 	var packageList=[];
 	var flagIcon=false;
 	var generalFilter;
+	var updatPackage;//id of package that is update
+	var generalobject;
 
 
 	function filterArea(){
@@ -189,7 +178,6 @@ window.onload=function() {
 	}
 
 
-
 	function clearFields(){
 		locations = document.getElementById("location").value="";
 		area=document.getElementById("area").value;
@@ -210,7 +198,6 @@ window.onload=function() {
 		//clear the slection fildes!!
 
 	}
-
 	function toString(obj){
 		let srt="area "+obj.area+"\n"+"locations  "+obj.locations+"\n"+"trip_start  "+obj.trip_start+"\n"+"trip_end "+obj.trip_end+"\n"+
 			"cost "+obj.cost+"\n"+"travelsNum "+obj.travelsNum+"\n"+"packages_left  "+obj.packages_left+"\n"+"hotel  "+obj.hotel+"\n"+
@@ -220,11 +207,10 @@ window.onload=function() {
 		return srt;
 
 	}
-
 	function addObjectForDesply(obj){
 		let row = document.createElement('tr'); // create row node
 		let col = document.createElement('td'); //
-		let col1 = document.createElement('td'); //
+		let col1= document.createElement('td');
 		let col2 = document.createElement('td'); //
 		let col3 = document.createElement('td'); //
 		let col4 = document.createElement('td'); //
@@ -244,8 +230,8 @@ window.onload=function() {
 
 
 		row.appendChild(col); // append first column to row
-		row.appendChild(col1)
-		row.appendChild(col2); // append second column to row
+		row.appendChild(col1); // append  column to row
+		row.appendChild(col2); // append  column to row
 		row.appendChild(col3);
 		row.appendChild(col4);
 		row.appendChild(col5);
@@ -262,13 +248,11 @@ window.onload=function() {
 		row.appendChild(col16);
 		row.appendChild(col17);
 
-		col.innerHTML = '<i class="far fa-heart"></i>';
-		col.addEventListener("click",like);
-
-		col1.innerHTML = '<i class="fas fa-mouse"></i>';
+		col.innerHTML = '<i class="far fa-square" </i>';
+		col.addEventListener("click",switchIcone);
+		col1.innerHTML = '<i class="fas fa-user-edit" </i>';
 		col1.setAttribute('id',obj.serial);
-		col1.addEventListener("click",goToorderPage);
-
+		col1.addEventListener("click",WritingFieldsScreen);
 		col2.innerHTML =obj.area; // put data in first column
 		col3.innerHTML=obj.locations;
 		col4.innerHTML=obj.trip_start;
@@ -284,28 +268,33 @@ window.onload=function() {
 		col14.innerHTML=obj.info;
 		col15.innerHTML=obj.purchased;
 		col16.innerHTML=obj.serial;
-		col17.innerHTML=obj.img;
+
+		col17.innerHTML='<img src=obj.img>';
+
+
 
 		let table = document.getElementById("tableToModify"); // find table to append to
 		table.appendChild(row); // append row to table
 
-
-
 	}
-	function like(){
-		if(flagIcon==false){
-			this.innerHTML='<i class="fas fa-heart"></i>';
-			flagIcon=true;
-			packID=this.parentElement.children[1].id
-			updateWish(packID);
-		}
-		else{
-			this.innerHTML='<i class="far fa-heart"></i>';
-			packID=this.parentElement.children[1].id
-			flagIcon=false;
-			removeFromWishlist(packID);
-
-		}
+	function WritingFieldsScreen(){
+		let objToUpdate=this.parentNode.childNodes;
+		document.getElementById("area").value=value=objToUpdate[2].innerHTML;
+		document.getElementById("location").value=objToUpdate[3].innerHTML;
+		//document.getElementById("start").value=objToUpdate[4].innerHTML;
+		//document.getElementById("end").value=objToUpdate[5].innerHTML;
+		document.getElementById("cost").value=objToUpdate[6].innerHTML;;
+		document.getElementById("travelsNum").value=objToUpdate[7].innerHTML;;
+		document.getElementById("left").value=objToUpdate[8].innerHTML;
+		document.getElementById("hotel").value=objToUpdate[9].innerHTML;
+		document.getElementById("stars").value=objToUpdate[10].innerHTML;
+		document.getElementById("purchased").value=objToUpdate[15].innerHTML;
+		document.getElementById("flight").value=objToUpdate[11].innerHTML;
+		document.getElementById("typePackage").value=objToUpdate[12].innerHTML;
+		document.getElementById("about").value=objToUpdate[13].innerHTML;
+		document.getElementById("info").value=objToUpdate[14].innerHTML;
+		// document.getElementById("img").value=objToUpdate[17].innerHTML;
+		updatPackage=this.id;
 
 	}
 //class package
@@ -338,11 +327,19 @@ window.onload=function() {
 		const path='views\images';
 
 	}
-	function goToorderPage(){
-		window.location.href = "packageManagementPage.ejs?id="+this.id;
-		//send to pay page!
-	}
+	function switchIcone(){
+		if(flagIcon==false){
+			this.innerHTML='<i class="far fa-check-square"></i>';
+			flagIcon=true;
+		}
+		else{
+			this.innerHTML='<i class="far fa-square"></i>';
+			flagIcon=false;
+		}
 
+
+
+	}
 	function addPackage() {
 		//take care of the split btn values
 
@@ -360,47 +357,54 @@ window.onload=function() {
 		packageType=document.getElementById("typePackage").value;
 		about=document.getElementById("about").value;
 		info=document.getElementById("info").value;
-		img=document.getElementById("myfile").value;
+		img=document.getElementById("fileUpload").value;
 
 
-
-		//alert(img);
 
 		let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
 			flight,packageType,about,info,img,serial);
 		serial=serial+1;
-		//writingToMongo(myObj);
+		generalobject=myObj;
+		writingToMongo(myObj);
 		packageList.push(myObj);
 		addObjectForDesply(myObj);
 		readFromMongoDB();
 		clearFields();
 
 	}
-
-
 	function writingToMongo(obj){
-		let jsonObj=JSON.stringify(obj);
-		const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-		var mongoose = require('mongodb').MongoClient;
-		mongoose.connect(url, function(err, db) {
-			if (err) throw err;
-			//Choosing DB
-			var dbo = db.db("GoTravel");
-
-			//Extracting data from accounts collection
-			// eslint-disable-next-line no-unused-vars
-			dbo.collection('Package management').insertOne({jsonObj}).toArray(function(err, result) {
-				temp=true
-				//res.render('OrdersManagementPage',{temp: true})
-				if (err) throw err;
-				db.close();
-			});
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+		var raw = JSON.stringify({
+			"locations":obj.locations,
+			"area":obj.area,
+			"trip_start":obj.trip_start,
+			"trip_end":obj.trip_end,
+			"cost":obj.cost,
+			"travelsNum":obj.travelsNum,
+			"packages_left":obj.packages_left,
+			"hotel":obj.hotel,
+			"star":obj.star,
+			"purchased":obj.purchased,
+			"flight":obj.flight,
+			"info":obj.info,
+			"about":obj.about,
+			"img":obj.img,
+			"serial":obj.serial,
 		});
-
+		console.log(raw);
+		var requestOptions = {
+			method: 'POST',
+			headers: myHeaders,
+			body: raw,
+			redirect: 'follow'
+		};
+		fetch("addNewPacakage", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
 
 	}
-
-
 	function readFromMongoDB() {
 		let myPromise=new Promise((resolve,reject)=>{
 			let data;
@@ -431,32 +435,17 @@ window.onload=function() {
 		return myPromise;
 	}
 
-
-
 	function deletePackage(){
 		let deletelist=document.getElementsByClassName("far fa-check-square");
 		let i=0;
-		//let seralListToDelete;
-		for (i = deletelist.length; i > 0  ; i--) {//delete from display
-			alert(deletelist.valueOf());
-			if(deletelist[i].closest()!=null){
-				deletelist[i].closest().remove();
-			}
-			else{
-				alert("doesnt work");
-			}
-
-
+		for (i = deletelist.length-1; i >= 0  ; i--) {//delete from display
+			deletelist[i].parentElement.parentElement.remove();
 		}
 		//packageList.splice(i,1);//delet from list
 		//delet from db* need to be done
 
 
 	}
-
-
-
-
 	function readFromDBToPackageMangmentPage(packageListFromDB){
 		for(let i=0;i<packageListFromDB.length;i++){
 
@@ -468,16 +457,13 @@ window.onload=function() {
 
 		}
 	}
-
-
 	function main() {
-		let temp =  readFromMongoDB().then((result)=>{
+		readFromMongoDB().then((result)=> {
 			readFromDBToPackageMangmentPage(result);
 		});
 
 
 	}
-
 	function clearDisplayFildes(){
 		let table = document.getElementById("result");
 		let totalRowCount = table.rows.length-1;
@@ -489,6 +475,27 @@ window.onload=function() {
 
 	}
 
+	function UpdatPackage(){
+
+		let rowToBeUpdare=document.getElementById(updatPackage).parentElement.childNodes;
+		rowToBeUpdare[2].innerHTML=document.getElementById("area").value;
+		rowToBeUpdare[3].innerHTML=document.getElementById("location").value;
+		rowToBeUpdare[4].innerHTML=document.getElementById("start").value;
+		rowToBeUpdare[5].innerHTML=document.getElementById("end").value;
+		rowToBeUpdare[6].innerHTML=document.getElementById("cost").value;
+		rowToBeUpdare[7].innerHTML=document.getElementById("travelsNum").value;
+		rowToBeUpdare[8].innerHTML=document.getElementById("left").value;
+		rowToBeUpdare[9].innerHTML=document.getElementById("hotel").value;
+		rowToBeUpdare[10].innerHTML=document.getElementById("stars").value;
+		rowToBeUpdare[11].innerHTML=document.getElementById("flight").value;
+		rowToBeUpdare[12].innerHTML=document.getElementById("typePackage").value;
+		rowToBeUpdare[13].innerHTML=document.getElementById("about").value;
+		rowToBeUpdare[14].innerHTML=document.getElementById("info").value;
+		rowToBeUpdare[15].innerHTML=document.getElementById("purchased").value;
+		//rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
+		findPackageFromDB();
+
+	}
 	function generalSearch(){
 		let filter=document.getElementById("filter").value;
 		switch(filter) {
@@ -530,54 +537,85 @@ window.onload=function() {
 		}
 
 	}
+	////////////////////////////////////////////
+	function findPackageFromDB(){
+		readFromMongoDB().then((result)=> {
+			var i;
+			for (i = 0; i < result.length; i++) {
+				if (result[i]['serial'] == updatPackage) {
+					locations=document.getElementById("location").value;
+					area=document.getElementById("area").value;
+					trip_start=document.getElementById("start").value;
+					trip_end=document.getElementById("end").value;
+					cost=document.getElementById("cost").value;
+					travelsNum=document.getElementById("travelsNum").value;
+					packages_left=document.getElementById("left").value;
+					hotel=document.getElementById("hotel").value;
+					star=document.getElementById("stars").value;
+					purchased=document.getElementById("purchased").value;
+					flight=document.getElementById("flight").value;
+					info=document.getElementById("info").value;
+					about=document.getElementById("about").value;
+					//img=document.getElementById("img").value;
+					update(locations,area,trip_start,trip_end,cost,travelsNum,packages_left,hotel,star,purchased,flight,info,about,img);
+					clearFields();
+				}
+			}
+		});
+	}
 
+	function update(locations,area,trip_start,trip_end,cost,travelsNum,packages_left,hotel,star,purchased,flight,info,about,img){
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			"locations":locations,
+			"area":area,
+			"trip_start":trip_start,
+			"trip_end":trip_end,
+			"cost":cost,
+			"travelsNum":travelsNum,
+			"packages_left":packages_left,
+			"hotel":hotel,
+			"star":star,
+			"purchased":purchased,
+			"flight":flight,
+			"info":info,
+			"about":about,
+			"img":img,
+			"serial":updatPackage,
+
+		});
+
+		var requestOptions = {
+			method: 'POST',
+			headers: myHeaders,
+			body: raw,
+			redirect: 'follow'
+		};
+
+		fetch("updateP", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
+
+	}
+
+
+
+
+	const btnAdd = document.getElementById("add");
+	btnAdd.addEventListener("click", addPackage);
 	const btnSearch=document.getElementById("search");
 	btnSearch.addEventListener("click",generalSearch);
+	const btnDelets = document.getElementById("delete");
+	btnDelets.addEventListener("click", deletePackage);
+	const btnUpdate=document.getElementById("update");
+	btnUpdate.addEventListener("click",UpdatPackage);
 
 
 	main();
-	function updateWish(){
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
 
-		var raw = JSON.stringify({
-			"mail":user1,
-			"wishlist": packID
-		});
-		console.log(raw);
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-		fetch("wishListUP", requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log('error', error));
-
-	}
-	function removeFromWishlist(){
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify({
-			"mail":user1,
-			"wishlist": ' '
-		});
-		console.log(raw);
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-		fetch("wishListUP", requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log('error', error));
-
-	}
 
 }
 

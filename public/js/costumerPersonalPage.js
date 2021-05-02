@@ -1,6 +1,15 @@
 var user='liron@gmail.com'
+// window.location.href = "Home?id="+user;
+
 window.onload = function () {
-    var userId=1;
+
+    var user1 = user;
+    console.log(user1)
+    localStorage.setItem("user", user1);
+    //window.location.href = "Home";
+    console.log(localStorage);
+
+
     function logout() {
         user = null;
         alert("logout success");

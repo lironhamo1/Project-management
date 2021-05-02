@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>package Management Page </title>
+	<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="packageManagementPage.css"/>
+	<script id="applicationScript" type="text/javascript" src="packageManagementPage.js"></script>
+	<script src="https://kit.fontawesome.com/afd4b939f3.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="packageManagementPage">
+	<div id="background">
+		<img id="p" src="p.png" srcset="p.png 1x">
+
+	</div>
+
+	<div id="nav_bar">
+		<svg class="bar">
+
+			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+			</rect>
+		</svg>
+		<img herf="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+		<a herf="/q&a" id="QA"><span>Q&A</span></a>
+		<a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+		<a href="/Aboutus" id="About_Us_t"><span>About Us</span></a>
+		<a href="/login" id="Login"><span>Login</span></a>
+		<a href="/registration" id="Registration"><span>Registration</span></a>
+		<div id="hello_guest_">
+			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
+		</div>
+	</div>
+	<svg class="Rectangle_75">
+		<rect id="Rectangle_75" rx="0" ry="0" x="0" y="0" width="1433" height="500">
+		</rect>
+	</svg>
+
+	<div id="title_">
+		<br>Package management</br>
+		<br>
+	<form action="" method="get" id="fields">
+
+	<label for="area">Choose an area:</label>
+		<select id="area" name="area">
+			<option value="area">Area</option>
+			<option value="america">America</option>
+			<option value="asia">Asia</option>
+			<option value="europe">Europe</option>
+			<option value="australia">Australia</option>
+			<option value="antarctica">Antarctica</option>
+		</select>
+
+		<label >Location:</label>
+		<input type="text"  name="location" id="location" >
+		<label >Start date:</label>
+		<input type="date" id="start" name="trip-start" >
+		<label >End date:</label>
+		<input type="date" id="end" name="trip-end" >
+		<label >Cost:</label>
+		<input type="number"  name="cost" id="cost" >
+		<br><br><br>
+		<label >Amount of travels:</label>
+		<input type="number"  name="travels" id="travelsNum" >
+		<label >Packages left:</label>
+		<input type="number"  name="left" id="left" >
+		<label >Hotel:</label>
+		<input type="text"  name="hotel" id="hotel" >
+		<label for="stars">Choose a number of stars:</label>
+		<select id="stars" name="stars">
+			<option value="stars">stars</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<br><br><br>
+		<label >purchased:</label>
+		<input type="number"  name="purchased" id="purchased" >
+		<label >About:</label>
+		<input type="text"  name="about" id="about" >
+		<label >Information:</label>
+		<input type="text"  name="info" id="info" >
+		<label for="flight">include flight:</label>
+		<select id="flight" name="flight" >
+			<option id="optFlight" value="flight">Flight</option>
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+		</select>
+		<br><br>
+		<label for="typePackage">Choose type of Package:</label>
+		<select id="typePackage" name="typePackage">
+			<option value="type of Package">Type of Package</option>
+			<option value="all inclusive">All inclusive</option>
+			<option value="Sailing">Sailing</option>
+			<option value="local">local</option>
+			<option value="business">business</option>
+
+		</select>
+
+		<br><br>
+		<div id="imag">
+			<label for="myfile">Select an image:</label>
+			<input type="file" id="fileUpload" name="myfile" accept="image" >
+		</div>
+	</form>
+	</div>
+
+
+	<svg class="Rectangle_76"  >
+		<rect id="Rectangle_76" rx="0" ry="0" x="0" y="0" width="1433" height="500"  >
+			<table class="table" id="result">
+				<tbody id="tableToModify">
+				<tr>
+					<th scope="col">mark<i class="far fa-trash-alt"></i></th>
+					<th scope="col">update<i class="fas fa-wrench"></i></th>
+					<th scope="col">area<i class="fas fa-map-marked-alt"></i></th>
+					<th scope="col">location <i class="fas fa-location-arrow"></i></th>
+					<th scope="col">start date <i class="fas fa-calendar-week"></i></th>
+					<th scope="col">end date <i class="fas fa-calendar-week"></i></th>
+					<th scope="col">cost <i class="fas fa-dollar-sign"></i></th>
+					<th scope="col">number of travel <i class="fas fa-users"></i>  </th>
+					<th scope="col">package left <i class="fas fa-shopping-cart"></i></th>
+					<th scope="col">hotel <i class="fas fa-hotel"></i></th>
+					<th scope="col">star<i class="far fa-star"></i></th>
+					<th scope="col">flight <i class="fas fa-plane-departure"></i></th>
+					<th scope="col">package Type <i class="fas fa-user-tag"></i>	</th>
+					<th scope="col">about <i class="fas fa-eject"></i>  </th>
+					<th scope="col">information <i class="fas fa-info"></i></th>
+					<th scope="col"> purchased<i class="fas fa-money-bill-wave"></i></th>
+					<th scope="col">serial <i class="fas fa-list-ol"></i></th>
+					<th scope="col">image <i class="far fa-images"></i></th>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				</tbody>
+			</table>
+
+
+
+		</rect>
+	</svg>
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="main_btn">
+	<table style="width:100%" id="main_btn">
+		<tr>
+			<select id="filter" name="filter">
+					<option value="filter">Select a filter field</option>
+					<option value="area">area</option>
+					<option value="location">location</option>
+					<option value="start">Start date</option>
+					<option value="end">End date</option>
+					<option value="cost">Cost</option>
+					<option value="travelsNum">Amount of travels</option>
+					<option value="left">Packages left</option>
+					<option value="hotel">Hotel</option>
+					<option value="stars">stars</option>
+					<option value="purchased">purchased</option>
+					<option value="flight">include flight</option>
+					<option value="typePackage">typePackage</option>
+				</select>
+			<th><button class=" button add" id="add">Add</button></th>
+			<th><button class=" button delete" id="delete">Delete</button></th>
+			<th><button class=" button update" id="update">Update</button></th>
+			<th><button class=" button update" id="search">Search</button></th>
+
+		</tr>
+	</table>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
