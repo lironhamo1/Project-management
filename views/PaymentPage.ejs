@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="PaymentPage.css"/>
+    <script id="applicationScript" type="text/javascript" src="PaymentPage.js"></script>
+</head>
+<body>
+<div id="Registration">
+    <div id="background">
+        <img id="p" src="p.png" srcset="p.png 1x">
+
+    </div>
+    <div id="nav_bar">
+        <svg class="bar">
+
+            <rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+            </rect>
+        </svg>
+        <img href="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+        <a href="/qa" id="QAl"><span>Q&A</span></a>
+        <a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+        <a href="/Aboutus" id="About_Us"><span>About Us</span></a>
+        <a href="/login" id="Login"><span>Login</span></a>
+        <a href="/registration" id="Registration"><span>Registration</span></a>
+        <label id="hello">hello, guest</label><br>
+    </div>
+
+
+
+    <div id="reg">
+
+
+        <svg class="Path_2" viewBox="0 0 1292.238 1053.745">
+            <path id="Path_2" d="M 0 0 L 1292.23779296875 0 L 1292.23779296875 1053.74462890625 L 0 1053.74462890625 L 0 0 Z">
+            </path>
+        </svg>
+
+
+        <form action="/InsertRowToOrders" method="POST" onsubmit="return Validateinfo()">
+
+            <table align="center" cellspaceing="0" id="table">
+
+                <tr align="center">
+                    <td ><span>First Name</span></td>
+                    <td><input type="text"  name="firstname" id="firstname" required></td>
+                </tr>
+                <tr align="center">
+                    <td width=100% ><span>Last Name</span></td>
+                    <td><input type="text"  name="lastname" id="lastname" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Email</span></td>
+                    <td><input type="email" name="email" id=:email" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Phone number</span></td>
+                    <td><input type="number"  name="phone" id="phone" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>ID</span></td>
+                    <td><input type="number"  name="uid" id="uid" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Credit card number</span></td>
+                    <td><input type="number"  name="ccd" id="ccd" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Last 3 digits on the back</span></td>
+                    <td><input type="number"  name="ltd" id="ltd" required></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Credit card expiration date</span></td>
+                    <td><input type="date"  name="expdate" id="expdate" required></td>
+                </tr>
+
+                <tr align="center">
+                    <div class="main_btn">
+                        <td colspan="2"><button type="sumbit" id="submitbtn">Submit</button></td>
+                    </div>
+                </tr>
+
+            </table>
+
+
+
+        </form>
+
+
+
+
+
+
+    </div>
+
+</div>
+</body>
+</html>

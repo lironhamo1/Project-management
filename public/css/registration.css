@@ -45,6 +45,9 @@
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
+	z-index: -1;
+
+
 }
 #p {
 	position: absolute;
@@ -53,6 +56,7 @@
 	left: 0px;
 	top: -430px;
 	overflow: visible;
+	z-index: -1;
 }
 #nav_bar {
 	position: absolute;
@@ -89,7 +93,7 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: "Home.html";
 	cursor: pointer;
 }
 #QA {
@@ -101,7 +105,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.html;
+	--web-action-target: "q&a.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -119,7 +123,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.html;
+	--web-action-target: "contactus.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -137,7 +141,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Aboutus.html;
+	--web-action-target: "Aboutus.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -155,7 +159,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: login.html;
+	--web-action-target: "login.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -185,6 +189,38 @@
 	left: 128.381px;
 	top: 405.976px;
 	overflow: visible;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+}
+.reg {
+
+
+	width: 1292.238px;
+	height: 1053.745px;
+	left: 0px;
+	top: 0px;
+}
+
+table{
+	margin-left:auto; margin-right:auto;
+	width: 900.238px;
+	height: 400.745px;
+	left: 40px;
+	position: absolute;
+	bottom:500px;
+
+
+
+}
+
+tr,
+td {
+
+	width: 60%;
+	tab-size: 0em;
+
 }
 #Path_2 {
 	opacity: 0.68;
@@ -195,16 +231,19 @@
 	stroke-linecap: butt;
 	stroke-miterlimit: 4;
 	shape-rendering: auto;
+	z-index: -1;
 }
+
 .Path_2 {
 	mix-blend-mode: screen;
 	overflow: visible;
 	position: absolute;
-	width: 1292.238px;
-	height: 1053.745px;
-	left: 0px;
+	width: 900.238px;
+	height: 900.745px;
+	left: 140px;
 	top: 0px;
 	transform: matrix(1,0,0,1,0,0);
+	z-index: -1;
 }
 #Email {
 	left: 344.619px;
@@ -234,42 +273,8 @@
 	font-size: 40px;
 	color: rgba(6,2,2,1);
 }
-#Group_8 {
-	position: absolute;
-	width: 337px;
-	height: 71px;
-	left: 466.619px;
-	top: 862.538px;
-	overflow: visible;
-}
-#Group_5 {
-	position: absolute;
-	width: 337px;
-	height: 71px;
-	left: 0px;
-	top: 0px;
-	overflow: visible;
-}
-#Path_6 {
-	filter: blur(2px);
-	fill: rgba(119,152,158,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: round;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_6 {
-	filter: drop-shadow(0px 3px 6px rgba(16, 13, 13, 0.161));
-	overflow: visible;
-	position: absolute;
-	width: 367px;
-	height: 101px;
-	left: 0px;
-	top: 0px;
-	transform: matrix(1,0,0,1,0,0);
-}
+
+
 #Sign_In {
 	left: 64px;
 	top: 0.486px;
@@ -284,24 +289,7 @@
 	font-size: 60px;
 	color: rgba(255,255,255,1);
 }
-#Path_18 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_18 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 183.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
+
 #First_Name {
 	left: 344.619px;
 	top: 192.024px;
@@ -358,99 +346,20 @@
 	font-size: 40px;
 	color: rgba(6,2,2,1);
 }
-#Path_19 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
+
+.SignInbtn{
+	background-color: #000000;
+	color: #FFFFFF;
+	float: right;
+	padding: 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
-.Path_19 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 274.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#Path_20 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_20 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 365.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#Path_21 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_21 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 456.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#Path_22 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_22 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 547.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#Path_23 {
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Path_23 {
-	overflow: visible;
-	position: absolute;
-	width: 352.516px;
-	height: 61.815px;
-	left: 706.619px;
-	top: 638.116px;
-	transform: matrix(1,0,0,1,0,0);
-}
-#hello_guest_ {
-	left: 1410px;
-	top: 64px;
+
+#hello {
+	left: 1407px;
+	top: 103px;
 	position: absolute;
 	overflow: visible;
 	width: 103px;

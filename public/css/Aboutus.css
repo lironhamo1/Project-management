@@ -18,7 +18,7 @@
 #About_Us {
 	position: absolute;
 	width: 1530px;
-	height: 4240px;
+	height: 4299px;
 	overflow: hidden;
 	--web-view-name: About Us;
 	--web-view-id: About_Us;
@@ -41,33 +41,20 @@
 	mix-blend-mode: normal;
 	position: absolute;
 	width: 1530px;
-	height: 6369px;
+	height: 8000px;
 	left: 0px;
 	top: 0px;
 	overflow: hidden;
+	z-index: -1;
 }
-#p {
-	position: absolute;
-	width: 1979px;
-	height: 2376px;
-	left: 0px;
-	top: -430px;
-	overflow: visible;
-}
-#p_n {
-	position: absolute;
-	width: 1979px;
-	height: 2376px;
-	left: 0px;
-	top: 1897px;
-	overflow: visible;
-}
+
+
 #nav_bar {
 	position: absolute;
 	width: 1532px;
 	height: 361px;
 	left: 0px;
-	top: -40px;
+	top: 0px;
 	overflow: visible;
 }
 #bar {
@@ -97,10 +84,10 @@
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.html;
+	--web-action-target: "Home.html";
 	cursor: pointer;
 }
-#QA {
+#QA{
 	left: 255px;
 	top: 175px;
 	position: absolute;
@@ -109,7 +96,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.html;
+	--web-action-target: "qa.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -127,7 +114,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.html;
+	--web-action-target: "contactus.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -136,7 +123,7 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#About_Us_t {
+#About_Us_v {
 	left: 400px;
 	top: 175px;
 	position: absolute;
@@ -159,7 +146,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: login.html;
+	--web-action-target: "login.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -177,7 +164,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.html;
+	--web-action-target: "registration.html";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -186,7 +173,7 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#hello_guest_ {
+#hello{
 	left: 1402px;
 	top: 104px;
 	position: absolute;
@@ -215,63 +202,8 @@
 	width: 1199px;
 	height: 1px;
 	left: 143px;
-	top: 901px;
+	top: 913.537px;
 	transform: matrix(1,0,0,1,0,0);
-}
-#Rectangle_74 {
-	opacity: 0.8;
-	fill: rgba(255,255,255,1);
-	stroke: rgba(112,112,112,1);
-	stroke-width: 1px;
-	stroke-linejoin: miter;
-	stroke-linecap: butt;
-	stroke-miterlimit: 4;
-	shape-rendering: auto;
-}
-.Rectangle_74 {
-	mix-blend-mode: lighten;
-	position: absolute;
-	overflow: visible;
-	width: 1433px;
-	height: 620px;
-	left: 47px;
-	top: 1051px;
-}
-#ID21__________________________ {
-	left: 696px;
-	top: 1314px;
-	position: absolute;
-	overflow: visible;
-	width: 723px;
-	height: 376px;
-	text-align: right;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 40px;
-	color: rgba(0,0,0,1);
-}
-#liron {
-	position: absolute;
-	width: 335px;
-	height: 419px;
-	left: 112px;
-	top: 1147px;
-	overflow: visible;
-}
-#____ {
-	left: 766px;
-	top: 1118px;
-	position: absolute;
-	overflow: visible;
-	width: 652px;
-	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 60px;
-	color: rgba(0,0,0,1);
 }
 #Rectangle_75 {
 	opacity: 0.8;
@@ -287,36 +219,312 @@
 	mix-blend-mode: lighten;
 	position: absolute;
 	overflow: visible;
-	width: 1433px;
-	height: 620px;
+	width: 1344px;
+	height: 409px;
 	left: 49px;
 	top: 348px;
 }
-#_ {
-	left: 767px;
+#About_us {
+	left: 112px;
 	top: 411px;
 	position: absolute;
 	overflow: visible;
-	width: 652px;
+	width: 276px;
 	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
+	text-align: left;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: bold;
-	font-size: 60px;
-	color: rgba(0,0,0,1);
-}
-#______________________________ {
-	left: 231px;
-	top: 563px;
-	position: absolute;
-	overflow: visible;
-	width: 1188px;
-	white-space: nowrap;
-	text-align: right;
-	font-family: Californian FB;
-	font-style: normal;
-	font-weight: normal;
 	font-size: 40px;
 	color: rgba(0,0,0,1);
+}
+#The_company_was_established_wh {
+	left: 112px;
+	top: 512px;
+	position: absolute;
+
+	width: 1200px;
+
+	text-align: left;
+	word-wrap: break-word;
+
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(0,0,0,1);
+}
+#Rectangle_79 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_79 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1344px;
+	height: 409px;
+	left: 49px;
+	top: 815px;
+}
+#liron {
+	position: absolute;
+	width: 252px;
+	height: 315px;
+	left: 1069px;
+	top: 880px;
+	overflow: visible;
+}
+#_21_Ashkelon__My_job_is_to_loo {
+	left: 103px;
+	top: 942px;
+	position: absolute;
+	overflow: visible;
+	width: 723px;
+	height: 254px;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(0,0,0,1);
+}
+#Liron_Hamo_Business_Packages_A {
+	left: 91px;
+	top: 851px;
+	position: absolute;
+	overflow: visible;
+	width: 770px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
+#Path_26 {
+	fill: rgba(46,92,103,1);
+	stroke: rgba(19,41,78,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_26 {
+	overflow: visible;
+	position: absolute;
+	width: 1199px;
+	height: 1px;
+	left: 143px;
+	top: 1378.925px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Rectangle_80 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_80 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1344px;
+	height: 409px;
+	left: 49px;
+	top: 1281px;
+}
+#_24_Ashdod__My_job_is_to_find_ {
+	left: 103px;
+	top: 1407px;
+	position: absolute;
+	overflow: visible;
+	width: 723px;
+	height: 214px;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(0,0,0,1);
+}
+#Einav_Bitton_Cruise_Packages_A {
+	left: 91px;
+	top: 1315px;
+	position: absolute;
+	overflow: visible;
+	width: 770px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
+#einav {
+	position: absolute;
+	width: 275px;
+	height: 326px;
+	left: 1058px;
+	top: 1324px;
+	overflow: visible;
+}
+#Path_27 {
+	fill: rgba(46,92,103,1);
+	stroke: rgba(19,41,78,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_27 {
+	overflow: visible;
+	position: absolute;
+	width: 1199px;
+	height: 1px;
+	left: 139px;
+	top: 1855.465px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Rectangle_81 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_81 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1344px;
+	height: 409px;
+	left: 45px;
+	top: 1759px;
+}
+#_27_Rehovot__My_job_is_to_find {
+	left: 99px;
+	top: 1884px;
+	position: absolute;
+	overflow: visible;
+	width: 723px;
+	height: 214px;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(0,0,0,1);
+}
+#Ohad_Shalom_All_inclusive_Pack {
+	left: 87px;
+	top: 1792px;
+	position: absolute;
+	overflow: visible;
+	width: 770px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
+#ohad {
+	position: absolute;
+	width: 220.5px;
+	height: 342.804px;
+	left: 1085.25px;
+	top: 1804.101px;
+	overflow: visible;
+}
+#Path_28 {
+	fill: rgba(46,92,103,1);
+	stroke: rgba(19,41,78,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Path_28 {
+	overflow: visible;
+	position: absolute;
+	width: 1199px;
+	height: 1px;
+	left: 139px;
+	top: 2332.005px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Rectangle_82 {
+	opacity: 0.8;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.Rectangle_82 {
+	mix-blend-mode: lighten;
+	position: absolute;
+	overflow: visible;
+	width: 1344px;
+	height: 409px;
+	left: 45px;
+	top: 2236px;
+}
+#_25_Ashdod__My_job_is_to_find_ {
+	left: 99px;
+	top: 2361px;
+	position: absolute;
+	overflow: visible;
+	width: 723px;
+	height: 239px;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(0,0,0,1);
+}
+#Daniel_Assayag_Local_Packages_ {
+	left: 87px;
+	top: 2269px;
+	position: absolute;
+	overflow: visible;
+	width: 770px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 40px;
+	color: rgba(0,0,0,1);
+}
+#daniel {
+	position: absolute;
+	width: 345px;
+	height: 311px;
+	left: 997px;
+	top: 2285px;
+	overflow: visible;
 }

@@ -1,13 +1,37 @@
-var user="AviNeelavi@gmail.com";
 var flag=true;
 
 window.onload = function () {
-    var user1 = user;
-    console.log(user1)
-    localStorage.setItem("user", user1);
-    //window.location.href = "Home";
+
     console.log(localStorage);
-    var userId = 1;
+    var name = localStorage.getItem("user");
+    document.getElementById("hello").innerText = 'hello, ' + name;
+
+    const btn1 = document.getElementById("hello");
+    if (localStorage.getItem("type") == "agent") {
+        btn1.addEventListener("click", agentPage);
+    } if (localStorage.getItem("type") == "client") {
+        btn1.addEventListener("click", clientPage);
+    } if (localStorage.getItem("type")==null) {
+        document.getElementById("hello").innerText='Hello,guest '
+        btn1.addEventListener("click", nullP);
+    }
+    function clientPage() {
+        window.open('costumerPersonalPage');
+    }
+    function agentPage() {
+        window.open('AgentPersonalPage');
+    }
+    function nullP(){
+        alert("please login first");
+    }
+
+    //
+    // var user1 = user;
+    // console.log(user1)
+    // localStorage.setItem("user", user1);
+    // //window.location.href = "Home";
+    // console.log(localStorage);
+    // var userId = 1;
 
     function logout() {
         console.log(localStorage);

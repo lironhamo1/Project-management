@@ -100,7 +100,7 @@
 	--web-action-target: Home.html;
 	cursor: pointer;
 }
-#QA {
+#QAl {
 	left: 255px;
 	top: 175px;
 	position: absolute;
@@ -186,7 +186,7 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#hello_guest_ {
+#hello{
 	left: 1402px;
 	top: 104px;
 	position: absolute;

@@ -94,7 +94,7 @@
 	--web-action-target: Home.ejs;
 	cursor: pointer;
 }
-#QA {
+#QAl{
 	left: 255px;
 	top: 175px;
 	position: absolute;
@@ -180,7 +180,7 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#hello_guest_ {
+#hello{
 	left: 1407px;
 	top: 103px;
 	position: absolute;
