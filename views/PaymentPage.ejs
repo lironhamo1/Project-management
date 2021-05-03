@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pay</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="PaymentPage.css"/>
     <script id="applicationScript" type="text/javascript" src="PaymentPage.js"></script>
 </head>
@@ -45,7 +46,7 @@
 
         <form action="/InsertRowToOrders" method="POST" onsubmit="return Validateinfo()">
 
-            <table align="center" cellspaceing="0">
+            <table align="center" cellspaceing="0" id="table">
 
                 <tr align="center">
                     <td ><span>First Name</span></td>
@@ -82,7 +83,7 @@
 
                 <tr align="center">
                     <div class="main_btn">
-                    <td colspan="2"><button type="sumbit" id="submitbtn">Submit</button></td>
+                        <td colspan="2"><button type="sumbit" id="submitbtn">Submit</button></td>
                     </div>
                 </tr>
 
@@ -99,9 +100,6 @@
 
     </div>
 
-    <div id="hello_guest_">
-        <span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
-    </div>
 </div>
 </body>
 </html>

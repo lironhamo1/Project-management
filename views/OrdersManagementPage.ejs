@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>short page</title>
+    <title>Orders Management</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="OrdersManagementPage.css"/>
+    <script id="applicationScript" type="text/javascript" src="OrdersManagementPage.js"></script>
 
 </head>
 <body>
@@ -48,82 +48,35 @@
 
 
     <div id="title_">
-        <br>Package management</br>
+        <br>Order management</br>
+        <form>
+            <table style="width:100%" id="package_table" class="sortable" >
+                <tr>
+                    <th onclick=sortTable(0)>Order ID</th>
+                    <th onclick="sortTable(1)" >Status</th>
+                    <th onclick="sortTable(2)">Dates</th>
+                    <th onclick="sortTable(3)">Destination</th>
+                    <th onclick="sortTable(4)">User Name</th>
+                    <th onclick="sortTable(5)">Phone</th>
+                    <th onclick="sortTable(6)">Email</th>
+                    <th onclick="sortTable(7)">Price</th>
+                    <th onclick="sortTable(8)">Package Type</th>
+                </tr>
+            </table>
 
-        <label for="area">Choose an area:</label>
-        <select id="area" name="area">
-            <option value="america">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="australia">Australia</option>
-            <option value="antarctica">Antarctica</option>
-        </select>
+            <div class="main_btn">
+                <button class=" button add" id="add">Submit</button>
 
-        <label >Location:</label>
-        <input type="text"  name="location" id="location" >
-        <label >Start date:</label>
-        <input type="date" id="start" name="trip-start" >
-        <label >End date:</label>
-        <input type="date" id="end" name="trip-end" >
-        <label >Cost:</label>
-        <input type="number"  name="cost" id="cost" >
-        <br><br><br>
-        <label >Amount of travels:</label>
-        <input type="number"  name="travels" id="travelsNum" >
-        <label >Packages left:</label>
-        <input type="number"  name="left" id="left" >
-        <label >Hotel:</label>
-        <input type="text"  name="hotel" id="hotel" >
-        <label for="stars">Choose a number of stars:</label>
-        <select id="stars" name="stars">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-        <br><br><br>
-        <label >purchased:</label>
-        <input type="number"  name="purchased" id="purchased" >
-        <label >About:</label>
-        <input type="text"  name="about" id="about" >
-        <label >Information:</label>
-        <input type="text"  name="info" id="info" >
-        <label for="flight">inclide flight:</label>
-        <select id="flight" name="flight">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select>
-        <br><br>
-        <label for="typePackage">Choose type of Package:</label>
-        <select id="typePackage" name="typePackage">
-            <option value="all inclusive">All inclusive</option>
-            <option value="Sailing">Sailing</option>
-            <option value="local">local</option>
-            <option value="business">business</option>
-
-        </select>
-
-        <br><br>
-        <div id="imag">
-            <label for="myfile">Select an image:</label>
-            <input type="file" id="myfile" name="myfile" accept="image" id="img" >
-        </div>
-
-
+            </div>
+        </form>
 
     </div>
-
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="main_btn">
-    <button class=" button add" id="add">Add</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 </div>
-
 </div>
 
 

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Info</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="OrderViewingPage.css"/>
     <script id="applicationScript" type="text/javascript" src="OrderViewingPage.js"></script>
 </head>
@@ -44,40 +45,54 @@
 
 
         <form>
-
-            <table align="center" cellspaceing="0">
-
+            <table align="center" cellspaceing="0" id="order_table">
                 <tr align="center">
                     <td ><span>First Name</span></td>
-                    <td><input type="text"  name="firstname" id="firstname" required></td>
+                    <td><span id="fname"></span></td>
                 </tr>
                 <tr align="center">
                     <td width=100% ><span>Last Name</span></td>
-                    <td><input type="text"  name="lastname" id="lastname" required></td>
-                </tr>
-                <tr align="center">
-                    <td><span>Email</span></td>
-                    <td><input type="email" name="email" id=:email" required></td>
-                </tr>
-                <tr align="center">
-                    <td><span>Phone number</span></td>
-                    <td><input type="number"  name="phone" id="phone" required></td>
+                    <td><span id="lname"></span></td>
                 </tr>
                 <tr align="center">
                     <td><span>ID</span></td>
-                    <td><input type="number"  name="uid" id="uid" required></td>
+                    <td><span id="uid"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Email</span></td>
+                    <td><span id="email"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Phone number</span></td>
+                    <td><span id="phone"></span></td>
                 </tr>
                 <tr align="center">
                     <td><span>Credit card number</span></td>
-                    <td><input type="number"  name="ccd" id="ccd" required></td>
+                    <td><span id="creditcd"></span></td>
                 </tr>
                 <tr align="center">
                     <td><span>Last 3 digits on the back</span></td>
-                    <td><input type="number"  name="ltd" id="ltd" required></td>
+                    <td><span id="ltd"></span></td>
                 </tr>
                 <tr align="center">
                     <td><span>Credit card expiration date</span></td>
-                    <td><input type="date"  name="expdate" id="expdate" required></td>
+                    <td><span id="expdate"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Package Type</span></td>
+                    <td><span id="ptype"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Passengers</span></td>
+                    <td><span id="passnum"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Price</span></td>
+                    <td><span id="price"></span></td>
+                </tr>
+                <tr align="center">
+                    <td><span>Dates</span></td>
+                    <td><span id="dates"></span></td>
                 </tr>
 
                 <tr align="center">
