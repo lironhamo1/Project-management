@@ -1,5 +1,31 @@
-var user='liron@gmail.com'
+var user = localStorage.getItem("user");
+console.log(user);
+console.log(localStorage)
+
 window.onload = function () {
+    console.log(localStorage);
+    var name = localStorage.getItem("user");
+    document.getElementById("hello").innerText = 'hello, ' + name;
+
+    const btn1 = document.getElementById("hello");
+    if (localStorage.getItem("type") == "agent") {
+        btn1.addEventListener("click", agentPage);
+    } if (localStorage.getItem("type") == "client") {
+        btn1.addEventListener("click", clientPage);
+    } if (localStorage.getItem("type")==null) {
+        document.getElementById("hello").innerText='Hello,guest '
+        btn1.addEventListener("click", nullP);
+    }
+    function clientPage() {
+        window.open('costumerPersonalPage');
+    }
+    function agentPage() {
+        window.open('AgentPersonalPage');
+    }
+    function nullP(){
+        alert("please login first");
+    }
+
 
     var count = 0;
     var obj;
@@ -96,7 +122,7 @@ window.onload = function () {
         readTrip().then((database) => {
             var i;
             for (i = 0; i < database.length; i++) {
-                if (database[i]['_id'] == obj['wishlist']) {
+                if (database[i]['serial'] == obj['wishlist']) {
                     addObjectForDisplay(database[i]);
                     count++;
                 }

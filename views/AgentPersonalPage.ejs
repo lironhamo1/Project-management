@@ -11,36 +11,24 @@
 <body>
 <div id="AgentPersonalPage">
 	<div id="background">
-		<img id="p" src="../views/images/p.png" srcset="../views/images/p.png 1x">
+		<img id="p" src="p.png" srcset="p.png 1x">
 			
-		<img id="p_n" src="../views/images/p_n.png" srcset="../views/images/p_n.png 1x">
+		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
 			
 	</div>
 	<div id="nav_bar">
 		<svg class="bar">
+
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="../views/images/logo.png" srcset="../views/images/logo.png 1x">
-			
-		<div onclick="application.goToTargetView(event)" id="QA">
-			<span>Q&A</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Contact_Us">
-			<span>Contact Us</span>
-		</div>
-		<div id="About_Us_t">
-			<span>About Us</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Login">
-			<span>Login</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Registration">
-			<span>Registration</span>
-		</div>
-		<div id="hello_guest_">
-			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
-		</div>
+		<img href="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+		<a href="/qa" id="QAl"><span>Q&A</span></a>
+		<a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+		<a href="/Aboutus" id="About_Us"><span>About Us</span></a>
+		<a href="/login" id="Login"><span>Login</span></a>
+		<a href="/registration" id="Registration"><span>Registration</span></a>
+		<label id="hello">hello, guest</label><br>
 	</div>
     <svg class="Rectangle_75">
 		<rect id="Rectangle_75" rx="0" ry="0" x="0" y="0" width="1433" height="900">
@@ -60,9 +48,69 @@
     <button class=" button info">Orders Management</button></a>
 	<a href="newsAgent">
 		<button class=" button newsLetter">Newsletter list</button></a>
-    <div id="Logout">
+	<a href="showRegistrations">
+	<button class=" button orgen">organized trip registration</button></a>
+	<div id="Logout">
         <span>Logout</span>
     </div>
 </div>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/*body {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 20px;
+        }*/
+
+		#myBtn {
+			display: none;
+			position: fixed;
+			bottom: 20px;
+			left: 30px;
+			z-index: 99;
+			font-size: 18px;
+			border: none;
+			outline: none;
+			background-color: red;
+			color: white;
+			cursor: pointer;
+			padding: 15px;
+			border-radius: 4px;
+		}
+
+		#myBtn:hover {
+			background-color: #555;
+		}
+	</style>
+</head>
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+<script>
+	//Get the button
+	var mybutton = document.getElementById("myBtn");
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			mybutton.style.display = "block";
+		} else {
+			mybutton.style.display = "none";
+		}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
+</script>
+
+
 </body>
 </html>

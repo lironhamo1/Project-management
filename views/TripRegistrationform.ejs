@@ -6,9 +6,9 @@
 </head>
 <body>
 	<div id="background">
-		<img id="p" src="../views/images/p.png" srcset="../views/images/p.png 1x">
+		<img id="p" src="p.png" srcset="p.png 1x">
 			
-		<img id="p_n" src="../views/images/p_n.png" srcset="../views/images/p_n.png 1x">
+		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
 			
 	</div>
 	<svg class="Rectangle_75">
@@ -18,29 +18,17 @@
     </svg>
 	<div id="nav_bar">
 		<svg class="bar">
+
 			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
 			</rect>
 		</svg>
-		<img onclick="application.goToTargetView(event)" id="logo" src="../views/images/logo.png" srcset="../views/images/logo.png 1x">
-			
-		<div onclick="application.goToTargetView(event)" id="QA">
-			<span>Q&A</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Contact_Us">
-			<span>Contact Us</span>
-		</div>
-		<div id="About_Us_t">
-			<span>About Us</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Login">
-			<span>Login</span>
-		</div>
-		<div onclick="application.goToTargetView(event)" id="Registration">
-			<span>Registration</span>
-		</div>
-		<div id="hello_guest_">
-			<span>hello, guest</span><span style="font-family:Berlin Sans FB;"></span><br>
-		</div>
+		<img href="/home" id="logo" src="logo.png" srcset="logo.png 1x">
+		<a href="/qa" id="QAl"><span>Q&A</span></a>
+		<a href="/contactus" id="Contact_Us"><span>Contact Us</span></a>
+		<a href="/Aboutus" id="About_Us"><span>About Us</span></a>
+		<a href="/login" id="Login"><span>Login</span></a>
+		<a href="/registration" id="Registration"><span>Registration</span></a>
+		<label id="hello">hello, guest</label><br>
 	</div>
 	<div id="title_">
 		<br>Trip Registration Form </br>
@@ -48,14 +36,19 @@
 	<div id="reg">
 		<form method="get" id="form1">
 			<label for="fname">First name:</label>
-			<input type="text" id="fname" required >
+			<input type="text" id="fname"  >
 			<label for="lname">Last name:</label>
-			<input type="text" id="lname" required >
+			<input type="text" id="lname"  >
 			<label for="lname">Phone number:</label> 
-			<input type="number" id="phone" required >
+			<input type="number" id="phone"  >
 			<label for="lname">Mail Address:</label>
-			<input type="email" id="mail" required>
-			<button type="submit" form="form1"  value="Submit" id="submit">Submit</button>
+			<input type="email" id="mail" >
+			<label>Choose a location:</label>
+			<select name="comboLoc" id="comboLoc">
+				<option value="London">London</option>
+				<option value="United State">United State</option>
+			</select>
+			<button type="button" form="form1"  value="Submit" id="submit">Submit</button>
 		</form>
 	</div>
 

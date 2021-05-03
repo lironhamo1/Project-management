@@ -132,7 +132,7 @@ table{
 	overflow: visible;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Home.ejs;
+	--web-action-target: "Home.ejs";
 	cursor: pointer;
 }
 #QA {
@@ -144,7 +144,7 @@ table{
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: q&a.ejs;
+	--web-action-target: "qa.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -162,7 +162,7 @@ table{
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: contactus.ejs;
+	--web-action-target: "contactus.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -180,7 +180,7 @@ table{
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: Aboutus.ejs;
+	--web-action-target: "Aboutus.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -189,7 +189,7 @@ table{
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#hello_guest_ {
+#hello{
 	left: 1410px;
 	top: 107px;
 	position: absolute;
@@ -217,6 +217,17 @@ table{
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
+#loginbtn{
+
+	background-color: #000000;
+	color: #FFFFFF;
+	float: right;
+	padding: 10px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+}
 #Registration {
 	left: 1328px;
 	top: 175px;
@@ -226,7 +237,7 @@ table{
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: registration.ejs;
+	--web-action-target: "registration.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -421,10 +432,13 @@ table{
 	overflow: visible;
 	width: 182px;
 	white-space: nowrap;
+
 	text-align: center;
 	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 40px;
 	color: rgba(6,2,2,1);
+
+
 }

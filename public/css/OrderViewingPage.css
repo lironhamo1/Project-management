@@ -95,7 +95,7 @@
     --web-action-target: Home.html;
     cursor: pointer;
 }
-#QA {
+#QAl {
     left: 255px;
     top: 175px;
     position: absolute;
@@ -167,7 +167,7 @@
     font-size: 20px;
     color: rgba(0,0,0,1);
 }
-#Registration_u {
+#Registration {
     left: 1328px;
     top: 175px;
     position: absolute;
@@ -384,7 +384,7 @@ td {
     -webkit-border-radius: 10px;
 }
 
-#hello_guest_ {
+#hello{
     left: 1410px;
     top: 64px;
     position: absolute;

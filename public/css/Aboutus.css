@@ -87,7 +87,7 @@
 	--web-action-target: "Home.html";
 	cursor: pointer;
 }
-#QA {
+#QA{
 	left: 255px;
 	top: 175px;
 	position: absolute;
@@ -96,7 +96,7 @@
 	white-space: nowrap;
 	--web-animation: fadein 0.3s ease-out;
 	--web-action-type: page;
-	--web-action-target: "q&a.html";
+	--web-action-target: "qa.ejs";
 	cursor: pointer;
 	text-align: center;
 	font-family: Arial;
@@ -173,7 +173,7 @@
 	font-size: 20px;
 	color: rgba(0,0,0,1);
 }
-#hello_guest_ {
+#hello{
 	left: 1402px;
 	top: 104px;
 	position: absolute;

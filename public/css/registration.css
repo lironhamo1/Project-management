@@ -357,9 +357,9 @@ td {
 	-webkit-border-radius: 10px;
 }
 
-#hello_guest_ {
-	left: 1410px;
-	top: 64px;
+#hello {
+	left: 1407px;
+	top: 103px;
 	position: absolute;
 	overflow: visible;
 	width: 103px;
