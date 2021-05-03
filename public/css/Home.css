@@ -357,3 +357,10 @@ select,input{
 	border: 1px solid black;
 
 }
+#person{
+	top:-530px;
+	right: -100px;
+	background-color: #290bd4;
+	font-size: 15px;
+	width: 200px;
+}

@@ -1,8 +1,8 @@
 
 
 window.onload=function() {
-	var user1 = localStorage.getItem("user");
-	console.log(user1);
+	var user = localStorage.getItem("user");
+	console.log(user);
 	console.log(localStorage)
 
 
@@ -578,6 +578,54 @@ window.onload=function() {
 			.catch(error => console.log('error', error));
 
 	}
+
+	function findType(user){
+		console.log(user);
+		let temp =  readAccountsDB().then((result)=>{
+			var i;
+			for(i=0;i<result.length;i++) {
+				if (result[i]['email'] == user)
+					if (result[i]['type'] == 'agent') {
+						location.href = 'AgentPersonalPage';
+					} else location.href = 'costumerPersonalPage';
+			}
+		});
+	}
+
+	function  readAccountsDB(){
+		let myPromise=new Promise((resolve,reject)=>{
+			let data;
+			fetch("/password", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			})
+				.then(response => response.json())
+				.then(function(response) {
+					if (response.ok) {
+						console.log('got data: ', response.data);
+						resolve(response.data);
+						//readFromDBToPackageMangmentPage(response.data);
+					}
+					else throw new Error('Request failed.');
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
+
+		});
+		return myPromise;
+	}
+
+	const btnPorsnalPage=document.getElementById("person");
+	// document.getElementById("person").addEventListener("click", findType(user));
+	btnPorsnalPage.addEventListener("click", function(){ findType(user); });
+
+	// btnPorsnalPage.addEventListener('onclick', findType(user))
+
+
 
 }
 
