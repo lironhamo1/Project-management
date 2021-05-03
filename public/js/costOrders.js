@@ -1,4 +1,6 @@
-var user="AviNeelavi@gmail.com";
+var user = localStorage.getItem("user");
+console.log(user);
+console.log(localStorage)
 
 window.onload = function () {
     function addObjectForDisplay(obj) {

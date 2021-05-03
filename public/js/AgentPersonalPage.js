@@ -1,5 +1,6 @@
 var user="Ohad5855@gmail.com";
 var flag=true;
+
 window.onload = function () {
     var userId = 1;
 

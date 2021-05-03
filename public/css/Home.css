@@ -324,15 +324,36 @@
 #result{
 	display: flex;
 	position: absolute;
-	top: 1000px;
-	left: 30px;
+	top: 800px;
+	left: 5px;
 	z-index:5;
-	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	border-spacing: 5px 1rem;
+
 }
 
 .main_btn{
-	top:800px;
+	top:750px;
+}
+
+td,tr,th{
+	border: 1px solid black;
+	width: 100px;
+	text-align: center;
+	background-color: #aafae7;
+
+}
+select,input{
+	width: 200px;
+	height: 30px;
+	border: 1px solid black;
+
 }

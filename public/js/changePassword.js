@@ -3,6 +3,8 @@ var passVar;
 var newPass;
 var mail;
 var obj;
+
+
 window.onload = function () {
 
     function read() {

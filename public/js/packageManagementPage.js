@@ -1,3 +1,5 @@
+
+
 window.onload=function() {
 	var area;
 	var locations;
@@ -15,7 +17,6 @@ window.onload=function() {
 	var about;
 	var img;
 	var serial;
-	var packageList=[];
 	var flagIcon=false;
 	var generalFilter;
 	var updatPackage;//id of package that is update
@@ -198,15 +199,6 @@ window.onload=function() {
 		//clear the slection fildes!!
 
 	}
-	function toString(obj){
-		let srt="area "+obj.area+"\n"+"locations  "+obj.locations+"\n"+"trip_start  "+obj.trip_start+"\n"+"trip_end "+obj.trip_end+"\n"+
-			"cost "+obj.cost+"\n"+"travelsNum "+obj.travelsNum+"\n"+"packages_left  "+obj.packages_left+"\n"+"hotel  "+obj.hotel+"\n"+
-			+"star "+obj.star+"\n"+"purchased "+obj.purchased+"\n"+"flight  "+obj.flight+"\n"+"packageType  "+obj.packageType+"\n"+
-			"info  "+obj.info+"\n"+"about  "+obj.about+"\n"+"serial: "+obj.serial;
-
-		return srt;
-
-	}
 	function addObjectForDesply(obj){
 		let row = document.createElement('tr'); // create row node
 		let col = document.createElement('td'); //
@@ -258,11 +250,11 @@ window.onload=function() {
 		col4.innerHTML=obj.trip_start;
 		col5.innerHTML=obj.trip_end;
 		col6.innerHTML=obj.cost;
-		col7.innerHTML = obj.travelsNum; // put data in first column
-		col8.innerHTML =obj.packages_left; // put data in second column
-		col9.innerHTML=obj.locations;
-		col10.innerHTML=obj.trip_start;
-		col11.innerHTML=obj.trip_end;
+		col7.innerHTML = obj.star; // put data in first column
+		col8.innerHTML =obj.flight; // put data in second column
+		col9.innerHTML=obj.hotel;
+		col10.innerHTML=obj.star;
+		col11.innerHTML=obj.flight;
 		col12.innerHTML=obj.cost;
 		col13.innerHTML=obj.about;
 		col14.innerHTML=obj.info;
@@ -281,6 +273,8 @@ window.onload=function() {
 		let objToUpdate=this.parentNode.childNodes;
 		document.getElementById("area").value=value=objToUpdate[2].innerHTML;
 		document.getElementById("location").value=objToUpdate[3].innerHTML;
+		locations=document.getElementById("location").value
+		console.log("goout"+locations);
 		//document.getElementById("start").value=objToUpdate[4].innerHTML;
 		//document.getElementById("end").value=objToUpdate[5].innerHTML;
 		document.getElementById("cost").value=objToUpdate[6].innerHTML;;
@@ -293,7 +287,7 @@ window.onload=function() {
 		document.getElementById("typePackage").value=objToUpdate[12].innerHTML;
 		document.getElementById("about").value=objToUpdate[13].innerHTML;
 		document.getElementById("info").value=objToUpdate[14].innerHTML;
-		// document.getElementById("img").value=objToUpdate[17].innerHTML;
+		document.getElementById("fileUpload").value=objToUpdate[17].innerHTML;
 		updatPackage=this.id;
 
 	}
@@ -342,22 +336,62 @@ window.onload=function() {
 	}
 	function addPackage() {
 		//take care of the split btn values
+		locations=document.getElementById("location").value;
+		if(document.getElementById("location")&&!locations){
+			alert("you must to enter location!")
+			return;
+		}
 
-		locations = document.getElementById("location").value;
 		area=document.getElementById("area").value;
 		trip_start=document.getElementById("start").value;
 		trip_end=document.getElementById("end").value;
 		cost=document.getElementById("cost").value;
+		if(document.getElementById("cost")&&!cost){
+			alert("you must to enter cost!")
+			return;
+		}
+
 		travelsNum=document.getElementById("travelsNum").value;
+		if(document.getElementById("travelsNum")&&!travelsNum){
+			alert("you must to enter travels Number!")
+			return;
+		}
 		packages_left=document.getElementById("left").value;
+		if(document.getElementById("left")&&!packages_left){
+			alert("you must to enter number of package that left!")
+			return;
+		}
 		hotel=document.getElementById("hotel").value;
+		if(document.getElementById("hotel")&&!hotel){
+			alert("you must to enter number of package that left!")
+			return;
+		}
 		star=document.getElementById("stars").value;
 		purchased=document.getElementById("purchased").value;
+		if(document.getElementById("purchased")&&!purchased){
+			alert("you must to enter number of purchased !")
+			return;
+		}
 		flight=document.getElementById("flight").value;
 		packageType=document.getElementById("typePackage").value;
 		about=document.getElementById("about").value;
+		if(document.getElementById("about")&&!about){
+			alert("you must to enter  about !")
+			return;
+		}
 		info=document.getElementById("info").value;
+		if(document.getElementById("info")&&!info){
+			alert("you must to enter  about !")
+			return;
+		}
 		img=document.getElementById("fileUpload").value;
+		if(trip_start>trip_end){
+			alert("the start date must to be smeller");
+		}
+		if(cost<=0||packages_left<=0||travelsNum<=0){
+			alert("The number must be bigger than 0!");
+			return;
+		}
 
 
 
@@ -365,16 +399,13 @@ window.onload=function() {
 			flight,packageType,about,info,img,serial);
 		serial=serial+1;
 		generalobject=myObj;
-		writingToMongo(myObj);
-		packageList.push(myObj);
+		//writingToMongo(myObj);
 		addObjectForDesply(myObj);
-		readFromMongoDB();
+		//readFromMongoDB();
 		clearFields();
-
 	}
 	function writingToMongo(obj){
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
+
 		var raw = JSON.stringify({
 			"locations":obj.locations,
 			"area":obj.area,
@@ -405,6 +436,8 @@ window.onload=function() {
 			.catch(error => console.log('error', error));
 
 	}
+
+
 	function readFromMongoDB() {
 		let myPromise=new Promise((resolve,reject)=>{
 			let data;
@@ -434,7 +467,6 @@ window.onload=function() {
 		});
 		return myPromise;
 	}
-
 	function deletePackage(){
 		let deletelist=document.getElementsByClassName("far fa-check-square");
 		let i=0;
@@ -474,9 +506,7 @@ window.onload=function() {
 
 
 	}
-
 	function UpdatPackage(){
-
 		let rowToBeUpdare=document.getElementById(updatPackage).parentElement.childNodes;
 		rowToBeUpdare[2].innerHTML=document.getElementById("area").value;
 		rowToBeUpdare[3].innerHTML=document.getElementById("location").value;
@@ -492,8 +522,10 @@ window.onload=function() {
 		rowToBeUpdare[13].innerHTML=document.getElementById("about").value;
 		rowToBeUpdare[14].innerHTML=document.getElementById("info").value;
 		rowToBeUpdare[15].innerHTML=document.getElementById("purchased").value;
-		//rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
+		rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
 		findPackageFromDB();
+
+
 
 	}
 	function generalSearch(){
@@ -539,16 +571,20 @@ window.onload=function() {
 	}
 	////////////////////////////////////////////
 	function findPackageFromDB(){
-		readFromMongoDB().then((result)=> {
-			var i;
-			for (i = 0; i < result.length; i++) {
-				if (result[i]['serial'] == updatPackage) {
+
+		readFromMongoDB().then((result)=>{
+			let i=0;
+			for(i=0;i<result.length;i++){
+				if (result[i]['serial']==updatPackage){
+
+					var myHeaders = new Headers();
+					myHeaders.append("Content-Type", "application/json");
 					locations=document.getElementById("location").value;
 					area=document.getElementById("area").value;
 					trip_start=document.getElementById("start").value;
 					trip_end=document.getElementById("end").value;
 					cost=document.getElementById("cost").value;
-					travelsNum=document.getElementById("travelsNum").value;
+					travelsNum=document.getElementById(travelsNum).value;
 					packages_left=document.getElementById("left").value;
 					hotel=document.getElementById("hotel").value;
 					star=document.getElementById("stars").value;
@@ -556,54 +592,43 @@ window.onload=function() {
 					flight=document.getElementById("flight").value;
 					info=document.getElementById("info").value;
 					about=document.getElementById("about").value;
-					//img=document.getElementById("img").value;
-					update(locations,area,trip_start,trip_end,cost,travelsNum,packages_left,hotel,star,purchased,flight,info,about,img);
-					clearFields();
+					img=document.getElementById("img").value;
+					var raw = JSON.stringify({
+						"locations":locations,
+						"area":area,
+						"trip_start":trip_start,
+						"trip_end":trip_end,
+						"cost":cost,
+						"travelsNum":travelsNum,
+						"packages_left":packages_left,
+						"hotel":hotel,
+						"star":star,
+						"purchased":purchased,
+						"flight":flight,
+						"info":info,
+						"about":about,
+						"img":img,
+						"serial":updatPackage,
+
+					});
+					console.log(raw);
+					var requestOptions = {
+						method: 'POST',
+						headers: myHeaders,
+						body: raw,
+						redirect: 'follow'
+					};
+					fetch("updateP", requestOptions)
+						.then(response => response.text())
+						.then(result => console.log(result))
+						.catch(error => console.log('error', error));
+
 				}
+
 			}
 		});
-	}
-
-	function update(locations,area,trip_start,trip_end,cost,travelsNum,packages_left,hotel,star,purchased,flight,info,about,img){
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify({
-			"locations":locations,
-			"area":area,
-			"trip_start":trip_start,
-			"trip_end":trip_end,
-			"cost":cost,
-			"travelsNum":travelsNum,
-			"packages_left":packages_left,
-			"hotel":hotel,
-			"star":star,
-			"purchased":purchased,
-			"flight":flight,
-			"info":info,
-			"about":about,
-			"img":img,
-			"serial":updatPackage,
-
-		});
-
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow'
-		};
-
-		fetch("updateP", requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log('error', error));
 
 	}
-
-
-
-
 	const btnAdd = document.getElementById("add");
 	btnAdd.addEventListener("click", addPackage);
 	const btnSearch=document.getElementById("search");

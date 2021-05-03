@@ -11,11 +11,13 @@ window.onload=function() {
         lname = document.getElementById("lname").value;
         phone = document.getElementById("phone").value;
         mail = document.getElementById("mail").value;
-        loc=document.getElementById("locate").value
+        loc=document.getElementById("comboLoc").value;
+
         call()
     }
 
     function call() {
+        alert("register success")
             var myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
 
@@ -40,6 +42,9 @@ window.onload=function() {
 
     var btn = document.getElementById("submit");
     btn.addEventListener("click", read);
+
+
+
 }
 
 

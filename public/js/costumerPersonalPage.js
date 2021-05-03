@@ -1,5 +1,12 @@
-var user='liron@gmail.com'
-// window.location.href = "Home?id="+user;
+var user='AviNeelavi@gmail.com'
+
+var user1 = user;
+console.log(user1)
+localStorage.setItem("user", user1);
+console.log(localStorage);
+
+
+
 
 window.onload = function () {
 

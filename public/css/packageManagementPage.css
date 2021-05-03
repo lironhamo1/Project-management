@@ -214,7 +214,7 @@
 }
 #Rectangle_75 {
 	object-position: 50% 20%;
-	opacity: 0.95;
+	opacity: 0.0;
 	fill: rgb(107, 134, 170);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -238,7 +238,7 @@
 
 #Rectangle_76 {
 	object-position: 50% 20%;
-	opacity: 0.9;
+	opacity: 0.0;
 	fill: rgb(107, 134, 170);
 	stroke: rgba(112,112,112,1);
 	stroke-width: 1px;
@@ -272,7 +272,7 @@
 #title_ {
 	text-align: center;
 	top: 350px;
-	left:200px;
+	left:10px;
 	position: absolute;
 	overflow: visible;
 	width: 1188px;
@@ -311,24 +311,49 @@
 
 }
 
-.main_btn{
-	width: 700px;
-	height: 2%;
-	left: 30%;
-	z-index:5;
-	display: flex;
-	position: absolute;
 
-}
 
 #result{
 	display: flex;
 	position: absolute;
-	top: 1000px;
-	left: 30px;
+	top: 800px;
+	left: 5px;
 	z-index:5;
-	font-family: Arial;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	border-spacing: 5px 1rem;
+
+}
+td,tr,th{
+	border: 1px solid black;
+	width: 100px;
+	text-align: center;
+	background-color: #aafae7;
+
+}
+select,input{
+	width: 200px;
+	height: 30px;
+	border: 1px solid black;
+
+}
+
+.main_btn{
+	top:730px;
+	width: 700px;
+	height: 2%;
+	left: 40%;
+	z-index:5;
+	display: flex;
+	position: absolute;
+	border: none;
+
+
 }

@@ -288,4 +288,7 @@ button[type=button] {
 	left: 300px;
 	margin: 40px;
   }
-  
+#comboLoc{
+	font-size: 40px;
+	float: left;
+}

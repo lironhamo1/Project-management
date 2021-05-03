@@ -172,6 +172,18 @@ app.get('/packageManagementPage.css',(req,res)=>{
 })
 
 
+app.get('/showRegistrations.js',(req,res)=>{
+    res.sendFile(path.join(fullPathJs,'showRegistrations.js'))
+    //res.render(path.join('/OrdersManagementPage'))
+})
+app.get('/showRegistrations',(req,res)=>{
+    res.render('showRegistrations')
+})
+
+app.get('/showRegistrations.css',(req,res)=>{
+    res.sendFile(path.join(fullPathCss,'showRegistrations.css'))
+})
+
 app.get('/Home.css',(req,res)=>{
     res.sendFile(path.join(fullPathCss,'Home.css'))
 })
@@ -279,6 +291,28 @@ app.post("/password", (req, res) => {
 });
 
 
+app.post("/readReg", (req, res) => {
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('Organized Trip').find({}).toArray(function (err, result) {
+            return res.status(200).json({
+                ok: true,
+                data: result
+            });
+            if (err) throw err;
+            db.close();
+        });
+    });
+});
+
+
 
 
 app.post("/wishlist", (req, res) => {
@@ -356,9 +390,10 @@ app.post("/writeFile", (req, res) => {
     mongoose.connect(url, function (err, db) {
         if (err) throw err;
         //Choosing DB
+
         var dbo = db.db("GoTravel");
         var myquery = { location: req.body.loc };
-        var newvalues = { $set: {register:  req.body.mail } };
+        var newvalues = { $push: {register: req.body.mail } };
         dbo.collection("Organized Trip").updateOne(myquery, newvalues, function(err, res) {
             if (err) throw err;
             console.log("1 document updated");

@@ -1,4 +1,7 @@
-var user='liron@gmail.com'
+var user = localStorage.getItem("user");
+console.log(user);
+console.log(localStorage)
+
 window.onload = function () {
 
     var count = 0;
