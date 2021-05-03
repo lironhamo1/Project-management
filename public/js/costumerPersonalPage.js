@@ -1,10 +1,5 @@
 var user='AviNeelavi@gmail.com'
 
-var user1 = user;
-console.log(user1)
-localStorage.setItem("user", user1);
-console.log(localStorage);
-
 
 
 
@@ -18,7 +13,12 @@ window.onload = function () {
 
 
     function logout() {
-        user = null;
+        console.log(localStorage);
+        localStorage.setItem("user", null);
+        //window.location.href = "Home";
+        console.log(localStorage);
+        flag=false;
+        document.getElementById("hello_").innerHTML="Hello Guest"
         alert("logout success");
     }
     var btn = document.getElementById("Logout");

@@ -40,7 +40,7 @@
 #background {
 	mix-blend-mode: normal;
 	position: absolute;
-	width: 1530px;
+	width: 2000px;
 	height: 1550px;
 	left: 0px;
 	top: 0px;
@@ -207,7 +207,7 @@
 	mix-blend-mode: multiply;
 	position: absolute;
 	overflow: visible;
-	width: 734px;
+	width: 800px;
 	height: 300px;
 	left: 373px;
 	top: 397px;
@@ -229,7 +229,7 @@
 	mix-blend-mode: lighten;
 	position: absolute;
 	overflow: visible;
-	width: 1433px;
+	width: 2000px;
 	height: 620px;
 	left: 49px;
 	top: 348px;
@@ -259,7 +259,7 @@
 	mix-blend-mode: lighten;
 	position: absolute;
 	overflow: visible;
-	width: 1433px;
+	width: 100%;
 	height: 620px;
 	left: 49px;
 	top: 300px;
@@ -363,4 +363,23 @@ select,input{
 	background-color: #290bd4;
 	font-size: 15px;
 	width: 200px;
+}
+
+.orgenizedTrip{
+	top:-530px;
+	right: 200px;
+	font-size: 15px;
+	width: 300px;
+	position: absolute;
+	overflow: visible;
+	width: 300px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	background-color: #290bd4;
+
+
 }
