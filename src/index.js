@@ -360,6 +360,26 @@ app.post("/update", (req, res) => {
 
 
 
+app.post("/removePackageDB", (req, res) => {
+    console.log(req.body)
+    res.send("test")
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+        var myquery = { serial: req.body.id };
+        dbo.collection("Package management").deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
+            console.log("1 document deleted");
+            db.close();
+        });
+    });
+});
+
+
+
 
 app.post("/wishListUP", (req, res) => {
     console.log(req.body)

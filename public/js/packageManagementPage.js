@@ -471,13 +471,41 @@ window.onload=function() {
 		let deletelist=document.getElementsByClassName("far fa-check-square");
 		let i=0;
 		for (i = deletelist.length-1; i >= 0  ; i--) {//delete from display
+			var id=deletelist[i].parentElement.parentElement.children[1].id
+			removePackageDB(id)
 			deletelist[i].parentElement.parentElement.remove();
+
 		}
 		//packageList.splice(i,1);//delet from list
 		//delet from db* need to be done
 
 
 	}
+
+
+	function removePackageDB(id){
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			"id":id
+		});
+
+		var requestOptions = {
+			method: 'POST',
+			headers: myHeaders,
+			body: raw,
+			redirect: 'follow'
+		};
+
+		fetch("removePackageDB", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
+
+	}
+
+
 	function readFromDBToPackageMangmentPage(packageListFromDB){
 		for(let i=0;i<packageListFromDB.length;i++){
 
