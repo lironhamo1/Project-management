@@ -791,6 +791,7 @@ app.post("/InsertRowToOrders", (req, res) => {
             dbo.collection("Package management").updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
                 console.log("1 document updated");
+                console.log(res);
             });
             var obj = {
                 Status: "Approved",
