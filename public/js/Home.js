@@ -1,5 +1,7 @@
 window.onload=function() {
 	console.log(localStorage)
+	var user = localStorage.getItem("user")
+
 	var name = localStorage.getItem("name");
 	document.getElementById("hello").innerText = 'hello, ' + name;
 	var type = localStorage.getItem("type");

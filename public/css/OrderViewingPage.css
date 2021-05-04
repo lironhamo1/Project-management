@@ -1,42 +1,15 @@
-.mediaViewInfo {
-    --web-view-name: Registration;
-    --web-view-id: Registration;
-    --web-scale-to-fit: true;
-    --web-scale-to-fit-type: width;
-    --web-scale-on-resize: true;
-    --web-enable-deep-linking: true;
-}
-:root {
-    --web-view-ids: Registration;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: none;
-}
+
 #Registration {
     position: absolute;
     width: 1530px;
     height: 1550px;
     overflow: hidden;
-    --web-view-name: Registration;
-    --web-view-id: Registration;
     --web-scale-to-fit: true;
     --web-scale-to-fit-type: width;
     --web-scale-on-resize: true;
     --web-enable-deep-linking: true;
 }
-@keyframes fadein {
 
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-
-}
 #background {
     mix-blend-mode: normal;
     position: absolute;
