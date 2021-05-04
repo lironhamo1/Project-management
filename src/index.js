@@ -376,8 +376,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -398,13 +396,12 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
     app.post("/cu", (req, res) => {
         console.log(req.body)
+        console.log(res)
     });
     app.post("/insertAccount", (req, res) => {
         const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
@@ -427,6 +424,7 @@ app.get('/einav.png',(req,res)=> {
             });
 
         });
+        console.log(res)
     });
 
     app.post("/password", (req, res) => {
@@ -444,8 +442,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -466,8 +462,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -488,8 +482,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -512,6 +504,7 @@ app.get('/einav.png',(req,res)=> {
                 //Extracting data from accounts collection
                 // eslint-disable-next-line no-unused-vars
                 db.close();
+                console.log(res)
             });
         });
     });
@@ -557,6 +550,7 @@ app.get('/einav.png',(req,res)=> {
             dbo.collection("Package management").deleteOne(myquery, function (err, obj) {
                 if (err) throw err;
                 console.log("1 document deleted");
+                console.log(obj.result)
                 db.close();
             });
         });
@@ -580,6 +574,7 @@ app.get('/einav.png',(req,res)=> {
                 //Extracting data from accounts collection
                 // eslint-disable-next-line no-unused-vars
                 db.close();
+                console.log(res)
             });
         });
     });
@@ -602,6 +597,7 @@ app.get('/einav.png',(req,res)=> {
                 //Extracting data from accounts collection
                 // eslint-disable-next-line no-unused-vars
                 db.close();
+                console.log(res)
             });
         });
     });
@@ -641,6 +637,7 @@ app.get('/einav.png',(req,res)=> {
                 //Extracting data from accounts collection
                 // eslint-disable-next-line no-unused-vars
                 db.close();
+                console.log(res)
             });
         });
     });
@@ -682,8 +679,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -703,8 +698,10 @@ app.get('/einav.png',(req,res)=> {
                 //Extracting data from accounts collection
                 // eslint-disable-next-line no-unused-vars
                 db.close();
+                console.log(res)
             });
         });
+        console.log(res)
     });
 
     app.post("/OrganizedTrip", (req, res) => {
@@ -722,8 +719,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -743,15 +738,12 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
 
     app.post("/UpdateAllOrderStatus", (req, res) => {
         var i;
-        console.log("IT ISSSSSS:", req.body.data);
         if (req.body.data === undefined)
             return -1;
         const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
@@ -767,6 +759,7 @@ app.get('/einav.png',(req,res)=> {
                 dbo.collection("Orders").updateOne(myquery, newvalues, function (err, res) {
                     if (err) throw err;
                     console.log("1 document updated");
+                    console.log(res)
                     //Extracting data from accounts collection
                 });
             }
@@ -798,6 +791,7 @@ app.get('/einav.png',(req,res)=> {
                 dbo.collection("Package management").updateOne(myquery, newvalues, function (err, res) {
                     if (err) throw err;
                     console.log("1 document updated");
+                    console.log(res)
                 });
                 var obj = {
                     Status: "Approved",
@@ -843,8 +837,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
@@ -867,8 +859,8 @@ app.get('/einav.png',(req,res)=> {
 
 
             });
-
         });
+        console.log(res)
     });
 
 
@@ -889,9 +881,6 @@ app.get('/einav.png',(req,res)=> {
                         "package": result
                     }
                 });
-                if (err) throw err;
-                db.close();
-
             });
         });
     });
@@ -913,8 +902,6 @@ app.get('/einav.png',(req,res)=> {
                     ok: true,
                     data: result
                 });
-                if (err) throw err;
-                db.close();
             });
         });
     });
