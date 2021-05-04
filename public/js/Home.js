@@ -1,7 +1,7 @@
 window.onload=function() {
 	console.log(localStorage)
+	document.getElementById("hello").innerText = 'hello, guest';
 	var user = localStorage.getItem("user")
-
 	var name = localStorage.getItem("name");
 	document.getElementById("hello").innerText = 'hello, ' + name;
 	var type = localStorage.getItem("type");
