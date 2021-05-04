@@ -36,7 +36,6 @@ window.onload = function () {
             //document.getElementById("btn_wishList").hidden = "hidden"
             document.getElementById("titles_table").hidden="hidden"
 
-        } else {
         }
     }
     foundAccount()

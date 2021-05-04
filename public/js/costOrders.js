@@ -1,3 +1,5 @@
+var count=0;
+
 window.onload = function () {
     var user = localStorage.getItem("user")
     var name = localStorage.getItem("name");
@@ -56,7 +58,12 @@ window.onload = function () {
         col7.innerHTML = obj['Email'];
         col8.innerHTML = obj['Price'];
         col9.innerHTML = obj['Package Type'];
+        // if (status=='undefined'){
+        //     count=1;
+        //     if (count == 0) {
 
+        //
+        //     })
         let table = document.getElementById("table");
         table.appendChild(row);
     }
@@ -90,10 +97,16 @@ window.onload = function () {
     function readOrders(database) {
         var i;
         for (i = 0; i < database.length; i++) {
-            if(database[i]['Email']==user){
-                document.getElementById("title_").innerHTML=database[i]['User Name']+" Orders";
+            if (database[i]['Email'] == user) {
+                count = 1;
+                document.getElementById("title_").innerHTML = database[i]['User Name'] + " Orders";
                 addObjectForDisplay(database[i]);
             }
+        }
+        if (count == 0) {
+            document.getElementById("table").innerHTML = "There is no orders yet";
+            document.getElementsByClassName("titles_table").hidden = "hidden"
+
         }
     }
     readDB();
