@@ -15,18 +15,23 @@ orders.
 
 ## Technologies
 Project is created with:
-* Tech 1 - visual studio code- 
+* Tech 1 - webstorm
 * Tech 2 - MongoDB
-* Tech 3 - Node.js
+* Tech 3 - Node.js 14.16.0
 * Tech 4 -Npm
 * Tech 5 -Chai,MOCHA
 * Tech 6 -Linter , eslint
 * Tech 7 -express, nodemon
+* Tech 8-emailjs
+
 
 ## Setup
-step1 :Download the REPO to the PC.
-![Example screenshot](./img/screenshot.png)
-step2:
+*step 1:npm install express
+*step 2:npm install nodemon
+*step 3:npm install mocha chai
+*step 4:npm install eslint
+*step 5:npm install ejs
+*step 6:npm install mongodb
 
 
 
