@@ -26,12 +26,12 @@ Project is created with:
 
 
 ## Setup
-*step 1:npm install express
-*step 2:npm install nodemon
-*step 3:npm install mocha chai
-*step 4:npm install eslint
-*step 5:npm install ejs
-*step 6:npm install mongodb
+* step 1:npm install express
+* step 2:npm install nodemon
+* step 3:npm install mocha chai
+* step 4:npm install eslint
+* step 5:npm install ejs
+* step 6:npm install mongodb
 
 
 
@@ -39,5 +39,5 @@ Project is created with:
 Project is: **in progress**
 ### To-do list:
 * Website design
-* Connection to Data Base - MongoDB
+
 
