@@ -18,7 +18,7 @@ window.onload=function() {
         btn1.addEventListener("click", agentPage);
     } if (localStorage.getItem("type") == "client") {
         btn1.addEventListener("click", clientPage);
-    } if (type=="null") {
+    } if (type=="null"|| type==undefined) {
         document.getElementById("hello").innerText = 'hello, guest';
         btn1.addEventListener("click", nullP);
     }

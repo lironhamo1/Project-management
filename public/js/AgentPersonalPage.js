@@ -7,13 +7,12 @@ window.onload = function () {
     var type = localStorage.getItem("type");
     console.log(type)
 
-
     const btn1 = document.getElementById("hello");
     if (localStorage.getItem("type") == "agent") {
         btn1.addEventListener("click", agentPage);
     } if (localStorage.getItem("type") == "client") {
         btn1.addEventListener("click", clientPage);
-    } if (type=="null") {
+    } if (type=="null"|| type==undefined) {
         document.getElementById("hello").innerText = 'hello, guest';
         btn1.addEventListener("click", nullP);
     }
