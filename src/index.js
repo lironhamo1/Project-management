@@ -1,4 +1,6 @@
-// eslint-disable-next-line no-undef
+/*global require,__dirname,*/
+/*eslint no-undef: "error"*/
+
 const express = require('express')
 var bodyParser = require('body-parser')
 var ObjectID = require('mongodb').ObjectID;
@@ -17,9 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.set('views',path.join(__dirname,'../','views'));
 
-var temp;
 // eslint-disable-next-line no-undef
-const fullPath=__dirname
 let PathDi=path.join(__dirname, '../');
 const fullPathviews=path.join(PathDi,'/views');
 const fullPathimages=path.join(fullPathviews,'/images');

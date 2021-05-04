@@ -3,6 +3,7 @@
 //URL containing user and password
 const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
 
+// eslint-disable-next-line no-undef
 var mongoose = require('mongodb').MongoClient;
 mongoose.connect(url, function(err, db) {
     if (err) throw err;
