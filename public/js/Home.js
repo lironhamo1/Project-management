@@ -595,13 +595,22 @@ window.onload=function() {
 
 	function findType(user){
 		console.log(user);
+		flag=0;
 		let temp =  readAccountsDB().then((result)=>{
 			var i;
 			for(i=0;i<result.length;i++) {
-				if (result[i]['email'] == user)
+				if (result[i]['email'] == user) {
+					flag=1;
 					if (result[i]['type'] == 'agent') {
 						location.href = 'AgentPersonalPage';
-					} else location.href = 'costumerPersonalPage';
+					} else if (result[i]['type'] == 'client') {
+						location.href = 'costumerPersonalPage';
+					}
+				}
+			}
+			if(flag==0){
+				alert("please sign in first")
+
 			}
 		});
 	}
