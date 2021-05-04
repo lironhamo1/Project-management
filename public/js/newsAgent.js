@@ -1,17 +1,20 @@
-var user="AviNeelavi@gmail.com";
 
 window.onload = function () {
-    console.log(localStorage);
-    var name = localStorage.getItem("user");
+    var user = localStorage.getItem("user")
+
+    var name = localStorage.getItem("name");
     document.getElementById("hello").innerText = 'hello, ' + name;
+    var type = localStorage.getItem("type");
+    console.log(type)
+
 
     const btn1 = document.getElementById("hello");
     if (localStorage.getItem("type") == "agent") {
         btn1.addEventListener("click", agentPage);
     } if (localStorage.getItem("type") == "client") {
         btn1.addEventListener("click", clientPage);
-    } if (localStorage.getItem("type")==null) {
-        document.getElementById("hello").innerText='Hello,guest '
+    } if (type=="null") {
+        document.getElementById("hello").innerText = 'hello, guest';
         btn1.addEventListener("click", nullP);
     }
     function clientPage() {
@@ -23,6 +26,7 @@ window.onload = function () {
     function nullP(){
         alert("please login first");
     }
+
 
     function addObjectForDisplay(obj) {
         let row = document.createElement('tr');

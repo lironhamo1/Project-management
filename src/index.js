@@ -769,57 +769,57 @@ app.get('/einav.png',(req,res)=> {
         res.end("yes");
     });
 
-    app.post("/InsertRowToOrders", (req, res) => {
-        var packageID = new ObjectID(req.body.pid);
-        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-        var mongoose = require('mongodb').MongoClient;
-        mongoose.connect(url, function (err, db) {
-            if (err) throw err;
-            //Choosing DB
-            var dbo = db.db("GoTravel");
-            dbo.collection('Package management').find({_id: packageID}).toArray(function (err, result) {
-                var numleft = result.packages_left;
-                var thepackage = result[0];
-                if (numleft === 0) {
-                    res.send('/Pay?error=1')
-                }
-                if (numleft === 0) {
-                    //Cant buy package ,none left.
-                }
-                var myquery = {_id: packageID};
-                var newvalues = {$set: {packages_left: numleft - 1}};
-                dbo.collection("Package management").updateOne(myquery, newvalues, function (err, res) {
-                    if (err) throw err;
-                    console.log("1 document updated");
-                    console.log(res)
-                });
-                var obj = {
-                    Status: "Approved",
-                    Dates: thepackage.trip_start + thepackage.trip_end,
-                    Destination: thepackage.locations,
-                    'User Name': req.body.firstname,
-                    'Last Name': req.body.lastname,
-                    Email: req.body.email,
-                    Phone: req.body.phone,
-                    UID: req.body.uid,
-                    CCD: req.body.ccd,
-                    LTD: req.body.ltd,
-                    Expiration: req.body.expdate,
-                    Price: thepackage.cost,
-                    TravelsNum: thepackage.travelsNum,
-                    'Package Type': thepackage.packageType
-                }
-                dbo.collection('Orders').insertOne(obj);
-
+app.post("/InsertRowToOrders", (req, res) => {
+    console.log(req.body)
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function (err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+        dbo.collection('Package management').find({serial: req.body.pid}).toArray(function (err, result) {
+            var numleft = result.packages_left;
+            var thepackage = result[0];
+            if (numleft === 0) {
+                res.send('/Pay?error=1')
+            }
+            if (numleft === 0) {
+                //Cant buy package ,none left.
+            }
+            var myquery = {serial:  req.body.pid};
+            var newvalues = {$set: {packages_left: numleft - 1}};
+            dbo.collection("Package management").updateOne(myquery, newvalues, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
             });
+            var obj = {
+                Status: "Approved",
+                Dates: thepackage.trip_start + thepackage.trip_end,
+                Destination: thepackage.locations,
+                'User Name': req.body.firstname,
+                'Last Name': req.body.lastname,
+                Email: req.body.email,
+                Phone: req.body.phone,
+                UID: req.body.uid,
+                CCD: req.body.ccd,
+                LTD: req.body.ltd,
+                Expiration: req.body.expdate,
+                Price: thepackage.cost,
+                TravelsNum: thepackage.travelsNum,
+                'Package Type': thepackage.packageType
+            }
+            dbo.collection('Orders').insertOne(obj);
+
         });
-
-
-        res.end("Payed successfully");
     });
 
 
-    app.post("/LoadAllFromOrders", (req, res) => {
+    res.end("Payed successfully");
+});
+
+
+
+app.post("/LoadAllFromOrders", (req, res) => {
         const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
         var mongoose = require('mongodb').MongoClient;
         console.log(req.body)

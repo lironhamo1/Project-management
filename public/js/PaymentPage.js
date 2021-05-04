@@ -7,17 +7,19 @@
 
 if (window.console==null) { window["console"] = { log : function() {} } }; // some browsers do not set console
 window.onload=function() {
-    console.log(localStorage);
-    var name = localStorage.getItem("user");
+    var name = localStorage.getItem("name");
     document.getElementById("hello").innerText = 'hello, ' + name;
+    var type = localStorage.getItem("type");
+    console.log(type)
+
 
     const btn1 = document.getElementById("hello");
     if (localStorage.getItem("type") == "agent") {
         btn1.addEventListener("click", agentPage);
     } if (localStorage.getItem("type") == "client") {
         btn1.addEventListener("click", clientPage);
-    } if (localStorage.getItem("type")==null) {
-        document.getElementById("hello").innerText='Hello,guest '
+    } if (type=="null") {
+        document.getElementById("hello").innerText = 'hello, guest';
         btn1.addEventListener("click", nullP);
     }
     function clientPage() {
@@ -34,11 +36,10 @@ window.onload=function() {
     function processOrderID()
     {
         var parameters = location.search.substring(1).split("&");
-
         var temp = parameters[0].split("=");
         var id = unescape(temp[1]);
         packageID=id;
-        console.log(id)
+        console.log("packageId:"+id)
         // eslint-disable-next-line no-undef
         $("#table tbody").append("<tr>" +
             "<td hidden><input type='text' name='pid' id=pid value="+packageID+">"+"ZIbi"+"</td>"+

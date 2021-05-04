@@ -1,7 +1,7 @@
 window.onload=function () {
 
     console.log(localStorage);
-    var name = localStorage.getItem("user");
+    var name = localStorage.getItem("name");
     document.getElementById("hello").innerText = 'hello, ' + name;
 
     const btn1 = document.getElementById("hello");

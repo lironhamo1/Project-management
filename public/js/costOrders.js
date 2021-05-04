@@ -1,15 +1,19 @@
 window.onload = function () {
-    console.log(localStorage);
-    var name = localStorage.getItem("user");
+    var user = localStorage.getItem("user")
+    var name = localStorage.getItem("name");
+    document.getElementById("title_").innerHTML=name+" Orders";
     document.getElementById("hello").innerText = 'hello, ' + name;
+    var type = localStorage.getItem("type");
+    console.log(type)
+
 
     const btn1 = document.getElementById("hello");
     if (localStorage.getItem("type") == "agent") {
         btn1.addEventListener("click", agentPage);
     } if (localStorage.getItem("type") == "client") {
         btn1.addEventListener("click", clientPage);
-    } if (localStorage.getItem("type")==null) {
-        document.getElementById("hello").innerText='Hello,guest '
+    } if (type=="null") {
+        document.getElementById("hello").innerText = 'hello, guest';
         btn1.addEventListener("click", nullP);
     }
     function clientPage() {
@@ -71,6 +75,7 @@ window.onload = function () {
                 if (response.ok) {
                     console.log('got data: ', response.data);
                     readOrders(response.data);
+
                 } else {
                     console.log("error");
                     throw new Error('Request failed.');
@@ -89,7 +94,6 @@ window.onload = function () {
                 document.getElementById("title_").innerHTML=database[i]['User Name']+" Orders";
                 addObjectForDisplay(database[i]);
             }
-            console.log(database[i]['Email'])
         }
     }
     readDB();
