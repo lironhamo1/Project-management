@@ -37,7 +37,4 @@ Project is created with:
 
 ## Status
 Project is: **in progress**
-### To-do list:
-* Website design
-
 
