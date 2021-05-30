@@ -317,7 +317,7 @@ window.onload=function() {
 		document.getElementById("typePackage").value=objToUpdate[12].innerHTML;
 		document.getElementById("about").value=objToUpdate[13].innerHTML;
 		document.getElementById("info").value=objToUpdate[14].innerHTML;
-		document.getElementById("fileUpload").value=objToUpdate[17].innerHTML;
+		//document.getElementById("fileUpload").value=objToUpdate[17].innerHTML;
 
 		updatPackage=this.id;
 
@@ -505,13 +505,12 @@ window.onload=function() {
 		let deletelist=document.getElementsByClassName("far fa-check-square");
 		let i=0;
 		for (i = deletelist.length-1; i >= 0  ; i--) {//delete from display
-			var id=deletelist[i].parentElement.parentElement.children[1].id
-			removePackageDB(id)
+			var id=deletelist[i].parentElement.parentElement.children[1].id;
+			removePackageDB(id);
 			deletelist[i].parentElement.parentElement.remove();
 
 		}
-		//packageList.splice(i,1);//delet from list
-		//delet from db* need to be done
+
 
 
 	}
@@ -569,6 +568,7 @@ window.onload=function() {
 
 	}
 	function UpdatPackage(){
+		alert("enter the filed area ,number of star,flight and type of Package ");
 		let rowToBeUpdare=document.getElementById(updatPackage).parentElement.childNodes;
 		rowToBeUpdare[2].innerHTML=document.getElementById("area").value;
 		rowToBeUpdare[3].innerHTML=document.getElementById("location").value;
@@ -584,7 +584,7 @@ window.onload=function() {
 		rowToBeUpdare[13].innerHTML=document.getElementById("about").value;
 		rowToBeUpdare[14].innerHTML=document.getElementById("info").value;
 		rowToBeUpdare[15].innerHTML=document.getElementById("purchased").value;
-		rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
+		//rowToBeUpdare[17].innerHTML=document.getElementById("img").value;
 		findPackageFromDB();
 
 
@@ -646,7 +646,7 @@ window.onload=function() {
 					trip_start=document.getElementById("start").value;
 					trip_end=document.getElementById("end").value;
 					cost=document.getElementById("cost").value;
-					travelsNum=document.getElementById(travelsNum).value;
+					travelsNum=document.getElementById("travelsNum").value;
 					packages_left=document.getElementById("left").value;
 					hotel=document.getElementById("hotel").value;
 					star=document.getElementById("stars").value;
@@ -654,7 +654,7 @@ window.onload=function() {
 					flight=document.getElementById("flight").value;
 					info=document.getElementById("info").value;
 					about=document.getElementById("about").value;
-					img=document.getElementById("fileUpload").value;
+					//img=document.getElementById("fileUpload").value;
 					var raw = JSON.stringify({
 						"locations":locations,
 						"area":area,
