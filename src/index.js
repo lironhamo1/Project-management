@@ -361,7 +361,7 @@ app.get('/einav.png',(req,res)=> {
         res.render('PaymentPage')
     })
 
-app.get('/readFile', async (req, res) => {
+app.get('/readFile', async () => {
     //let fileContent ;
     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
     var mongoose = require('mongodb').MongoClient;
@@ -373,7 +373,7 @@ app.get('/readFile', async (req, res) => {
         //Extracting data from accounts collection
         // eslint-disable-next-line no-unused-vars
         dbo.collection('Orders').find({}).toArray(function(err, result) {
-            temp=true
+            // temp=true
             //res.render('OrdersManagementPage',{temp: true})
             if (err) throw err;
             db.close();
