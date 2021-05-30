@@ -1,18 +1,17 @@
 module.exports = {
     "env": {
         "browser": true,
-        "commonjs": true,
         "es2021": true
     },
-<<<<<<< HEAD
     "extends": [
         "eslint:recommended",
     ],
-=======
-    "extends": "eslint:recommended",
->>>>>>> origin/dataBase
     "parserOptions": {
-        "ecmaVersion": 12
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
     },
     "rules": {
     }
