@@ -4,12 +4,13 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter</title>
-    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="newsAgent.css"/>
-    <script id="applicationScript" type="text/javascript" src="newsAgent.js"></script>
+    <title>Broadcast message</title>
+    <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="broadMessageAgent.css"/>
+    <script id="applicationScript" type="text/javascript" src="broadMessageAgent.js"></script>
+
 </head>
 <body>
-<div id="Costumer_Personal_Page">
+<div id="Broadcast message">
     <div id="background">
         <img id="p" src="p.png" srcset="p.png 1x">
 
@@ -35,18 +36,24 @@
         <rect id="Rectangle_75" rx="0" ry="0" x="0" y="0" width="1433" height="900">
             <div>
                 <table class="table" id="table">
-                    <tbody>
-                    <tr class="titles_table">
-                        <th>E-mail </th>
-                    </tr>
-                    </tbody>
+                    <tr>
+                        <th>
+                            <p class="tit" id="empty"><p>
+                                <tbody>
+                                <td>
+                                    <label id="labMessage">enter the message:</label></td>
+                                <td><input type="text"  name="msg" id="msg" required><br></td>
+                                <td ><button type="button" form="form1" id="submitBTN">submit</button></td>
+                                </tbody>
+                        </th>
+
                 </table>
-            </div>
-        </rect>
+            </div></rect>
     </svg>
     <div id="title_">
-        <br>Newsletter List</br>
+        <br>Create Broadcast Message</br>
     </div>
+    <!--  <button class=" button delete_wish "id="btn_wishList">delete from wishlist </button>-->
     <a href="https://api.whatsapp.com/send?phone=972503399257&amp;text=Hi there! I have a question :)"><img id="Whatsapp" src="Whatsapp.png" srcset="Whatsapp.png 1x"></a>
     <a href="https://www.facebook.com/Go-Travel-104865495139729/"><img id="facebook" src="facebook.png" srcset="facebook.png 1x"></a>
     <a href="https://www.instagram.com/go_travel_instagrm/"><img id="instagram" src="instagram.png" srcset="instagram.png 1x" ></a>

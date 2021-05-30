@@ -219,9 +219,9 @@ window.onload=function() {
 		packageType=document.getElementById("typePackage").value;
 		about=document.getElementById("about").value="";
 		info=document.getElementById("info").value="";
-
-		//img=document.getElementById("img");
+		img=document.getElementById("img");
 		//clear the slection fildes!!
+		///////////////////////////////////////////////////////////////////////
 
 	}
 	function addObjectForDesply(obj){
@@ -244,6 +244,7 @@ window.onload=function() {
 		let col15 = document.createElement('td'); //
 		let col16 = document.createElement('td'); //
 		let col17 = document.createElement('td'); //
+		let col18 = document.createElement('td');
 
 
 		row.appendChild(col); // append first column to row
@@ -264,6 +265,7 @@ window.onload=function() {
 		row.appendChild(col15);
 		row.appendChild(col16);
 		row.appendChild(col17);
+		row.appendChild(col18);
 
 		col.innerHTML = '<i class="far fa-square" </i>';
 		col.addEventListener("click",switchIcone);
@@ -275,8 +277,8 @@ window.onload=function() {
 		col4.innerHTML=obj.trip_start;
 		col5.innerHTML=obj.trip_end;
 		col6.innerHTML=obj.cost;
-		col7.innerHTML = obj.star; // put data in first column
-		col8.innerHTML =obj.flight; // put data in second column
+		col7.innerHTML = obj.travelsNum; // put data in first column
+		col8.innerHTML =obj.packages_left;; // put data in second column
 		col9.innerHTML=obj.hotel;
 		col10.innerHTML=obj.star;
 		col11.innerHTML=obj.flight;
@@ -285,10 +287,13 @@ window.onload=function() {
 		col14.innerHTML=obj.info;
 		col15.innerHTML=obj.purchased;
 		col16.innerHTML=obj.serial;
-
-		col17.innerHTML='<img src=obj.img>';
-
-
+		let str=obj.img.split('\\').pop().split('/').pop();
+		let newimg = document.createElement('img');
+		newimg.src =str;
+		newimg.style.width="100px";
+		newimg.style.height="100px";
+		col17.appendChild(newimg);
+		col18.innerHTML=obj.rate;
 
 		let table = document.getElementById("tableToModify"); // find table to append to
 		table.appendChild(row); // append row to table
@@ -296,7 +301,7 @@ window.onload=function() {
 	}
 	function WritingFieldsScreen(){
 		let objToUpdate=this.parentNode.childNodes;
-		document.getElementById("area").value=value=objToUpdate[2].innerHTML;
+		document.getElementById("area").value=objToUpdate[2].innerHTML;
 		document.getElementById("location").value=objToUpdate[3].innerHTML;
 		locations=document.getElementById("location").value
 		console.log("goout"+locations);
@@ -313,12 +318,13 @@ window.onload=function() {
 		document.getElementById("about").value=objToUpdate[13].innerHTML;
 		document.getElementById("info").value=objToUpdate[14].innerHTML;
 		document.getElementById("fileUpload").value=objToUpdate[17].innerHTML;
+
 		updatPackage=this.id;
 
 	}
 //class package
 	function CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
-						   flight,packageType,about,info,image,serial) {
+						   flight,packageType,about,info,image,serial,rate) {
 		let myObject = {
 			area: area,
 			locations: locations,
@@ -336,16 +342,14 @@ window.onload=function() {
 			img: image,
 			purchased:purchased,
 			serial: 1+serial,
+			rate:rate,
 
 
 		};
 		return myObject;
 	}
 
-	function addImageToDirctory(img){
-		const path='views\images';
 
-	}
 	function switchIcone(){
 		if(flagIcon==false){
 			this.innerHTML='<i class="far fa-check-square"></i>';
@@ -413,6 +417,7 @@ window.onload=function() {
 		if(trip_start>trip_end){
 			alert("the start date must to be smeller");
 		}
+		img=img.split('\\').pop().split('/').pop();
 		if(cost<=0||packages_left<=0||travelsNum<=0){
 			alert("The number must be bigger than 0!");
 			return;
@@ -421,16 +426,17 @@ window.onload=function() {
 
 
 		let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
-			flight,packageType,about,info,img,serial);
+			flight,packageType,about,info,img,serial,0);
 		serial=serial+1;
 		generalobject=myObj;
-		//writingToMongo(myObj);
+		writingToMongo(myObj);
 		addObjectForDesply(myObj);
 		//readFromMongoDB();
 		clearFields();
 	}
 	function writingToMongo(obj){
-
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
 		var raw = JSON.stringify({
 			"locations":obj.locations,
 			"area":obj.area,
@@ -447,8 +453,11 @@ window.onload=function() {
 			"about":obj.about,
 			"img":obj.img,
 			"serial":obj.serial,
+			"rate":obj.rate,
+
 		});
 		console.log(raw);
+
 		var requestOptions = {
 			method: 'POST',
 			headers: myHeaders,
@@ -645,7 +654,7 @@ window.onload=function() {
 					flight=document.getElementById("flight").value;
 					info=document.getElementById("info").value;
 					about=document.getElementById("about").value;
-					img=document.getElementById("img").value;
+					img=document.getElementById("fileUpload").value;
 					var raw = JSON.stringify({
 						"locations":locations,
 						"area":area,
@@ -662,6 +671,7 @@ window.onload=function() {
 						"about":about,
 						"img":img,
 						"serial":updatPackage,
+						/////////////////////////////////////no rate
 
 					});
 					console.log(raw);

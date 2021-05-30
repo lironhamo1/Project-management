@@ -225,15 +225,6 @@ window.onload=function() {
 
 	}
 
-	function toString(obj){
-		let srt="area "+obj.area+"\n"+"locations  "+obj.locations+"\n"+"trip_start  "+obj.trip_start+"\n"+"trip_end "+obj.trip_end+"\n"+
-			"cost "+obj.cost+"\n"+"travelsNum "+obj.travelsNum+"\n"+"packages_left  "+obj.packages_left+"\n"+"hotel  "+obj.hotel+"\n"+
-			+"star "+obj.star+"\n"+"purchased "+obj.purchased+"\n"+"flight  "+obj.flight+"\n"+"packageType  "+obj.packageType+"\n"+
-			"info  "+obj.info+"\n"+"about  "+obj.about+"\n"+"serial: "+obj.serial;
-
-		return srt;
-
-	}
 
 	function addObjectForDesply(obj){
 		let row = document.createElement('tr'); // create row node
@@ -255,7 +246,7 @@ window.onload=function() {
 		let col15 = document.createElement('td'); //
 		let col16 = document.createElement('td'); //
 		let col17 = document.createElement('td'); //
-
+		//let col18 = document.createElement('td'); //
 
 		row.appendChild(col); // append first column to row
 		row.appendChild(col1)
@@ -275,6 +266,7 @@ window.onload=function() {
 		row.appendChild(col15);
 		row.appendChild(col16);
 		row.appendChild(col17);
+		//row.appendChild(col18);
 
 		col.innerHTML = '<i class="far fa-heart"></i>';
 		col.addEventListener("click",like);
@@ -290,15 +282,20 @@ window.onload=function() {
 		col6.innerHTML=obj.cost;
 		col7.innerHTML = obj.travelsNum; // put data in first column
 		col8.innerHTML =obj.packages_left; // put data in second column
-		col9.innerHTML=obj.locations;
-		col10.innerHTML=obj.trip_start;
-		col11.innerHTML=obj.trip_end;
+		col9.innerHTML=obj.hotel;
+		col10.innerHTML=obj.star;
+		col11.innerHTML=obj.flight;
 		col12.innerHTML=obj.cost;
 		col13.innerHTML=obj.about;
 		col14.innerHTML=obj.info;
 		col15.innerHTML=obj.purchased;
 		col16.innerHTML=obj.serial;
-		col17.innerHTML=obj.img;
+		let str=obj.img.split('\\').pop().split('/').pop();
+		let newimg = document.createElement('img');
+		newimg.src =str;
+		newimg.style.width="100px";
+		newimg.style.height="100px";
+		col17.appendChild(newimg);
 
 		let table = document.getElementById("tableToModify"); // find table to append to
 		table.appendChild(row); // append row to table
@@ -324,7 +321,7 @@ window.onload=function() {
 	}
 //class package
 	function CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
-						   flight,packageType,about,info,image,serial) {
+						   flight,packageType,about,info,image,serial,rate) {
 		let myObject = {
 			area: area,
 			locations: locations,
@@ -342,6 +339,7 @@ window.onload=function() {
 			img: image,
 			purchased:purchased,
 			serial: 1+serial,
+			rate: rate,
 
 
 		};
@@ -381,7 +379,7 @@ window.onload=function() {
 		//alert(img);
 
 		let myObj=CreatePackage(area, locations,trip_end,trip_start,cost,travelsNum,packages_left,hotel,star,purchased,
-			flight,packageType,about,info,img,serial);
+			flight,packageType,about,info,img,serial,0);
 		serial=serial+1;
 		//writingToMongo(myObj);
 		packageList.push(myObj);

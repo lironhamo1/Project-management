@@ -91,7 +91,22 @@ function Validateinfo() {
 			})
 
 	}
+	if (type=="client"){
 
+		var temp={
+			to_mail:email,
+			from_name:"GoTravel",
+			to_name:FirstName,
+			message:"hello "+FirstName+",\n"+"We're so glad you joined the Go Travel service!\n",
+		};
+		emailjs.send('service_ulj3sfb','template_j0fld69',temp).then(function(res) {
+			console.log("success",res.status);
+
+
+		})
+
+	}
+	//document.getElementById("R_form").reset();
 return true;
 
 	}

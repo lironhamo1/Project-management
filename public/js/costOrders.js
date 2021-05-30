@@ -1,4 +1,6 @@
 var count=0;
+var serial;
+var rate;
 
 window.onload = function () {
     var user = localStorage.getItem("user")
@@ -39,6 +41,9 @@ window.onload = function () {
         let col7 = document.createElement('td');
         let col8 = document.createElement('td');
         let col9 = document.createElement('td');
+        let col10 = document.createElement('td');
+
+
 
         row.appendChild(col2);
         row.appendChild(col3);
@@ -48,6 +53,7 @@ window.onload = function () {
         row.appendChild(col7);
         row.appendChild(col8);
         row.appendChild(col9);
+        row.appendChild(col10);
 
 
         col2.innerHTML = obj['Status']; // put data in first column
@@ -58,6 +64,11 @@ window.onload = function () {
         col7.innerHTML = obj['Email'];
         col8.innerHTML = obj['Price'];
         col9.innerHTML = obj['Package Type'];
+        col9.innerHTML = obj['Package Type'];
+        serial=obj['serial'];
+        col10.innerHTML = 'press for rate the package';
+        col10.addEventListener("click",ratePackage);
+        col10.setAttribute('id',serial);
         // if (status=='undefined'){
         //     count=1;
         //     if (count == 0) {
@@ -68,6 +79,31 @@ window.onload = function () {
         table.appendChild(row);
     }
 
+    function ratePackage (){
+
+        rate = prompt("enter a rate 1-5", "0");
+        switch(rate) {
+            case "1":
+                findpackagefromDB(this.id,rate);
+                break;
+            case "2":
+                findpackagefromDB(this.id,rate);
+                break;
+            case "3":
+                findpackagefromDB(this.id,rate);
+                break;
+            case "4":
+                findpackagefromDB(this.id,rate);
+                break;
+            case "5":
+                findpackagefromDB(this.id,rate);
+                break;
+            default:
+                alert("you mast enter a rate between 1-5,good bey");
+        }
+
+
+    }
     function readDB() {
         var data;
         fetch("/readOrders", {
@@ -109,7 +145,100 @@ window.onload = function () {
 
         }
     }
-    readDB();
 
+    function findpackagefromDB(serial,rate) {
+        readDBforPackage().then((database)=>{
+            var i;
+            for (i = 0; i < database.length; i++) {
+                let  today = new Date();
+                let dd = String(today.getDate()).padStart(2, '0');
+                let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                let yyyy = today.getFullYear();
+
+                today = yyyy+ '-' + mm + '/' + dd;
+                if (database[i]['serial'] == serial ){
+                    if(database[i]['trip_end']<today ) {
+                       //  let newrate=database[i]['arrayRate'].length;
+                       //  alert(newrate);
+                       //  let sum=0;
+                       // for(let j=0;j<newrate;j++){
+                       //     sum=sum+database[i]['arrayRate'][j];
+                       // }
+                       // sum=sum+rate;
+
+                       //updatePacakgeRate(serial, Math.floor(Math.random() * (1 - 5 + 1)) + 1/(Math.floor(Math.random() * 11)+1),rate);
+                        updatePacakgeRate(serial,rate,rate);
+                    }
+
+                    else{
+                    alert("You must end your vacation in order to give a rating")
+                    }
+                }
+
+            }
+        });
+
+
+    }
+
+
+    function updatePacakgeRate(serial,rate,newrate){
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+            "serial":serial,
+            "rate": newrate,
+            //"arrayRate":rate,
+        });
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("updatePacakgeRate", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+
+    }
+
+
+    function readDBforPackage() {
+        let myPromise = new Promise((resolve, reject)=>{
+            var data={
+                name: "dana"
+            };
+            fetch("/wishlist", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(function (response) {
+                    if (response.ok) {
+                        console.log('got data: ', response.data);
+                        resolve(response.data);
+                        // findAccount(response.data);
+                    } else {
+                        console.log("error");
+                        throw new Error('Request failed.');
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+        });
+        return myPromise
+        // console.log(obj);
+
+}
+    readDB();
 }
 

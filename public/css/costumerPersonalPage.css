@@ -219,7 +219,7 @@
 	transform: matrix(1,0,0,1,0,0);
 }
 #Rectangle_75 {
-    object-position: 50% 20%;
+	object-position: 50% 20%;
 	opacity: 0.8;
 	fill: rgba(255,255,255,1);
 	stroke: rgba(112,112,112,1);
@@ -237,10 +237,10 @@
 	height: 620px;
 	left: 49px;
 	top: 348px;
-    z-index: 2;
+	z-index: 2;
 }
 #hello_{
-    left: 500px;
+	left: 500px;
 	top: 500px;
 	position: absolute;
 	overflow: visible;
@@ -249,70 +249,98 @@
 	font-weight: bold;
 	font-size: 40px;
 	color: rgba(0,0,0,1);
-    z-index: 3;
+	z-index: 3;
 }
 
 #title_ {
 	text-align: center;
 	top: 350px;
-    left:200px;
+	left:200px;
 	position: absolute;
 	overflow: visible;
 	width: 1188px;
 	white-space: nowrap;
-    font-family: Arial;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 60px;
 	color: rgba(0,0,0,1);
-    z-index: 3;
+	z-index: 3;
 }
 .button {
 	position: absolute;
 	overflow: visible;
 	width: 50;
 	white-space: nowrap;
-    font-family: Arial;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 40px;
 	color: rgba(0,0,0,1);
-    z-index: 3;
-    padding: 15px 32px;
-    cursor: pointer;
-    background-color: #26697556;
-    border-radius: 12px;
+	z-index: 3;
+	padding: 15px 32px;
+	cursor: pointer;
+	background-color: #26697556;
+	border-radius: 12px;
 }
 .password{
-    text-align: center;
+	text-align: center;
 	top: 600px;
-    left:50px;
+	left:50px;
 }
 
 .orders{
-    text-align: center;
+	text-align: center;
 	top: 700px;
-    left:50px;
+	left:50px;
 }
 .wish{
-    text-align: center;
+	text-align: center;
 	top: 800px;
-    left:50px;
+	left:50px;
+}
+.msg{
+	text-align: center;
+	top: 900px;
+	left:50px;
 }
 
+
 #Logout{
-    text-align: center;
+	text-align: center;
 	top: 1200px;
-    left: 800px;
+	left: 800px;
 	position: absolute;
 	overflow: visible;
 	width: 1188px;
 	white-space: nowrap;
-    font-family: Arial;
+	font-family: Arial;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 30px;
 	color: rgba(0,0,0,1);
-    z-index: 3;
-    cursor: pointer;
+	z-index: 3;
+	cursor: pointer;
+}
+#facebook {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	left: 20px;
+	top: 1300px;
+}
+#Whatsapp {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 160px;
+	top: 1305px;
+}
+#instagram
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 100px;
+	top: 1305px;
 }

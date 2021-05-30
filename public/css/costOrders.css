@@ -348,3 +348,25 @@ td{
     padding:15px 15px;
     padding-right: 2em;
 }
+#facebook {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    left: 20px;
+    top: 1300px;
+}
+#Whatsapp {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 160px;
+    top: 1305px;
+}
+#instagram
+{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 100px;
+    top: 1305px;
+}

@@ -12,16 +12,11 @@
 </head>
 <body>
 <div id="home">
-	<div id="background">
-		<img id="p" src="p.png" srcset="p.png 1x">
 
-		<img id="p_n" src="p_n.png" srcset="p_n.png 1x">
-
-	</div>
 	<div id="nav_bar">
 		<svg class="bar">
 
-			<rect id="bar" rx="0" ry="0" x="0" y="0" width="1532" height="88">
+			<rect id="bar" rx="0" ry="0" x="0" y="0" width="3000" height="88">
 			</rect>
 		</svg>
 		<a href="/">
@@ -38,6 +33,7 @@
 		<br>Home Page</br>
 		<br>
 		<form id="form1" action="">
+
 			<label for="area">Choose an area:</label>
 			<select id="area" name="area">
 				<option value="area">Area</option>
@@ -47,18 +43,18 @@
 				<option value="australia">Australia</option>
 				<option value="antarctica">Antarctica</option>
 			</select>
-
 			<label >Location:</label>
 			<input type="text"  name="location" id="location" >
 			<label >Start date:</label>
 			<input type="date" id="start" name="trip-start" >
+			<br><br>
 			<label >End date:</label>
 			<input type="date" id="end" name="trip-end" >
 			<label >Cost:</label>
 			<input type="number"  name="cost" id="cost" >
-			<br><br><br>
 			<label >Amount of travels:</label>
 			<input type="number"  name="travels" id="travelsNum" >
+			<br><br>
 			<label >Packages left:</label>
 			<input type="number"  name="left" id="left" >
 			<label >Hotel:</label>
@@ -72,20 +68,20 @@
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
-			<br><br><br>
+			<br><br>
 			<label >purchased:</label>
 			<input type="number"  name="purchased" id="purchased" >
 			<label >About:</label>
 			<input type="text"  name="about" id="about" >
 			<label >Information:</label>
 			<input type="text"  name="info" id="info" >
+			<br><br>
 			<label for="flight">include flight:</label>
 			<select id="flight" name="flight" >
 				<option id="optFlight" value="flight">Flight</option>
 				<option value="yes">Yes</option>
 				<option value="no">No</option>
 			</select>
-			<br><br>
 			<label for="typePackage">Choose type of Package:</label>
 			<select id="typePackage" name="typePackage">
 				<option value="type of Package">Type of Package</option>
@@ -97,16 +93,13 @@
 			</select>
 
 			<br><br>
-			<div id="imag">
-				<label for="myfile">Select an image:</label>
-				<input type="file" id="fileUpload" name="myfile" accept="image" >
-			</div>
+
 		</form>
 	</div>
 
 
 	<svg class="Rectangle_76"  >
-		<rect id="Rectangle_76" rx="0" ry="0" x="0" y="0" width="1433" height="500"  >
+		<rect id="Rectangle_76" rx="0" ry="0" x="0" y="0">
 			<table class="table" id="result">
 				<tbody id="tableToModify">
 				<tr>
@@ -128,6 +121,7 @@
 					<th scope="col"> purchased<i class="fas fa-money-bill-wave"></i></th>
 					<th scope="col">serial <i class="fas fa-list-ol"></i></th>
 					<th scope="col">image <i class="far fa-images"></i></th>
+
 				</tr>
 				<tr>
 					<td></td>
@@ -187,9 +181,11 @@
 				<option value="typePackage">typePackage</option>
 			</select>
 			<th><button class=" button update" id="search">Search</button></th>
-			<th><button class=" button person" id="person">Personal Page</button></th>
+
 			<a href="OrganizedTrip">
 				<button class=" button orgenizedTrip">Organized Trips</button></a>
+			<a href="recommendedPackages">
+				<button class=" button recommendedPackages">Recommended Packages</button></a>
 
 		</tr>
 	</table>
@@ -253,7 +249,9 @@
 		document.documentElement.scrollTop = 0;
 	}
 </script>
-
+<a href="https://api.whatsapp.com/send?phone=972503399257&amp;text=Hi there! I have a question :)"><img id="Whatsapp" src="Whatsapp.png" srcset="Whatsapp.png 1x"></a>
+<a href="https://www.facebook.com/Go-Travel-104865495139729/"><img id="facebook" src="facebook.png" srcset="facebook.png 1x"></a>
+<a href="https://www.instagram.com/go_travel_instagrm/"><img id="instagram" src="instagram.png" srcset="instagram.png 1x" ></a>
 
 </body>
 </html>

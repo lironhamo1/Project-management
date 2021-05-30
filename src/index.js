@@ -91,6 +91,16 @@ app.get('/einav.png',(req,res)=> {
     app.get('/changePassword', (req, res) => {
         res.render('changePassword')
     })
+    app.get('/recommendedPackages.css', (req, res) => {
+        res.sendFile(path.join(fullPathCss, 'recommendedPackages.css'))
+    })
+    app.get('/recommendedPackages.js', (req, res) => {
+        res.sendFile(path.join(fullPathJs, 'recommendedPackages.js'))
+        //res.render(path.join('/OrdersManagementPage'))
+    })
+    app.get('/recommendedPackages', (req, res) => {
+        res.render('recommendedPackages')
+    })
 
     app.get('/AgentPersonalPage.css', (req, res) => {
         res.sendFile(path.join(fullPathCss, 'AgentPersonalPage.css'))
@@ -256,7 +266,15 @@ app.get('/einav.png',(req,res)=> {
     app.get('/img1.jpg', (req, res) => {
         res.sendFile(path.join(fullPathimages + '/img1.jpg'))
     })
-
+    app.get('/BRC.jpg', (req, res) => {
+        res.sendFile(path.join(fullPathimages + '/BRC.jpg'))
+    })
+    app.get('/Australia.jpg', (req, res) => {
+        res.sendFile(path.join(fullPathimages + '/Australia.jpg'))
+    })
+    app.get('/ell.jpg', (req, res) => {
+        res.sendFile(path.join(fullPathimages + '/ell.jpg'))
+    })
 
     app.get('/logo.png', (req, res) => {
         res.sendFile(path.join(fullPathimages + '/logo.png'))
@@ -271,6 +289,10 @@ app.get('/einav.png',(req,res)=> {
     app.get('/p_p.png', (req, res) => {
         res.sendFile(path.join(fullPathimages + '/p_p.png'))
     })
+    app.get('/m.jpg', (req, res) => {
+        res.sendFile(path.join(fullPathimages + '/p_p.png'))
+    })
+
 
 
     app.get('/p_o.png', (req, res) => {
@@ -339,26 +361,26 @@ app.get('/einav.png',(req,res)=> {
         res.render('PaymentPage')
     })
 
-// app.get('/readFile', async (req, res) => {
-//     //let fileContent ;
-//     const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
-//     var mongoose = require('mongodb').MongoClient;
-//     mongoose.connect(url, function(err, db) {
-//         if (err) throw err;
-//         //Choosing DB
-//         var dbo = db.db("GoTravel");
-//
-//         //Extracting data from accounts collection
-//         // eslint-disable-next-line no-unused-vars
-//         dbo.collection('Orders').find({}).toArray(function(err, result) {
-//             temp=true
-//             //res.render('OrdersManagementPage',{temp: true})
-//             if (err) throw err;
-//             db.close();
-//         });
-//     });
-//
-// });
+app.get('/readFile', async (req, res) => {
+    //let fileContent ;
+    const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+    var mongoose = require('mongodb').MongoClient;
+    mongoose.connect(url, function(err, db) {
+        if (err) throw err;
+        //Choosing DB
+        var dbo = db.db("GoTravel");
+
+        //Extracting data from accounts collection
+        // eslint-disable-next-line no-unused-vars
+        dbo.collection('Orders').find({}).toArray(function(err, result) {
+            temp=true
+            //res.render('OrdersManagementPage',{temp: true})
+            if (err) throw err;
+            db.close();
+        });
+    });
+
+});
 
     app.post("/dani", (req, res) => {
         const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
@@ -472,9 +494,7 @@ app.get('/einav.png',(req,res)=> {
         var mongoose = require('mongodb').MongoClient;
         mongoose.connect(url, function (err, db) {
             if (err) throw err;
-            //Choosing DB
             var dbo = db.db("GoTravel");
-
             //Extracting data from accounts collection
             // eslint-disable-next-line no-unused-vars
             dbo.collection('Package management').find({}).toArray(function (err, result) {
@@ -509,7 +529,39 @@ app.get('/einav.png',(req,res)=> {
         });
     });
 
-    app.get('/newsAgent.css', (req, res) => {
+    app.post("/updatePacakgeRate", (req, res) => {
+        console.log(req.body)
+        res.send("test")
+        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+        var mongoose = require('mongodb').MongoClient;
+        mongoose.connect(url, function (err, db) {
+            if (err) throw err;
+            //Choosing DB
+            var dbo = db.db("GoTravel");
+            var myquery = {serial: req.body.serial};
+            var newvalues = {$set: {rate: req.body.rate}};
+            dbo.collection("Package management").updateOne(myquery, newvalues, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+                //Extracting data from accounts collection
+                // eslint-disable-next-line no-unused-vars
+                db.close();
+                console.log(res)
+            });
+        });
+    });
+    app.get('/instagram.png',(req,res)=> {
+        res.sendFile(path.join(fullPathimages + '/instagram.png'))
+    })
+    app.get('/facebook.png',(req,res)=> {
+        res.sendFile(path.join(fullPathimages + '/facebook.png'))
+    })
+    app.get('/Whatsapp.png',(req,res)=> {
+        res.sendFile(path.join(fullPathimages + '/Whatsapp.png'))
+    })
+
+
+app.get('/newsAgent.css', (req, res) => {
         res.sendFile(path.join(fullPathCss, 'newsAgent.css'))
     })
     app.get('/newsAgent.js', (req, res) => {
@@ -555,6 +607,48 @@ app.get('/einav.png',(req,res)=> {
             });
         });
     });
+    app.post("/broadMessage", (req, res) => {
+        res.send("test")
+        const url = "mongodb+srv://our-user28:12GoTravel34@cluster0.ofal3.mongodb.net/usersDB?retryWrites=true&w=majority";
+        var mongoose = require('mongodb').MongoClient;
+        mongoose.connect(url, function (err, db) {
+            if (err) throw err;
+            //Choosing DB
+            var dbo = db.db("GoTravel");
+            var myquery = {email: req.body.mail};
+            var newvalues = {$push: {messages: req.body.message}};
+            dbo.collection("accounts").updateOne(myquery, newvalues, function (err, res) {
+                if (err) throw err;
+                console.log("1 document updated");
+                //Extracting data from accounts collection
+                // eslint-disable-next-line no-unused-vars
+                db.close();
+                console.log(res)
+            });
+        });
+    });
+    app.get('/broadMessageAgent', (req, res) => {
+        res.render('broadMessageAgent')
+    })
+    app.get('/broadMessageAgent.css', (req, res) => {
+        res.sendFile(path.join(fullPathCss + '/broadMessageAgent.css'))
+    })
+    app.get('/broadMessageAgent.js', (req, res) => {
+        res.sendFile(path.join(fullPathJs + '/broadMessageAgent.js'))
+        //res.render(path.join('/OrdersManagementPage'))
+    })
+
+
+    app.get('/broadMessageClient', (req, res) => {
+        res.render('broadMessageClient')
+    })
+    app.get('/broadMessageClient.css', (req, res) => {
+        res.sendFile(path.join(fullPathCss + '/broadMessageClient.css'))
+    })
+    app.get('/broadMessageClient.js', (req, res) => {
+        res.sendFile(path.join(fullPathJs + '/broadMessageClient.js'))
+        //res.render(path.join('/OrdersManagementPage'))
+    })
 
 
     app.post("/wishListUP", (req, res) => {

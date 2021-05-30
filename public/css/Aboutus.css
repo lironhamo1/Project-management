@@ -528,3 +528,25 @@
 	top: 2285px;
 	overflow: visible;
 }
+#facebook {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	left: 20px;
+	top: 2700px;
+}
+#Whatsapp {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 160px;
+	top: 2705px;
+}
+#instagram
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 100px;
+	top: 2705px;
+}

@@ -518,3 +518,25 @@
 	top: 1387px;
 	transform: matrix(1,0,0,1,0,0);
 }
+#facebook {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+	left: 120px;
+	top: 1600px;
+}
+#Whatsapp {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 260px;
+	top: 1605px;
+}
+#instagram
+{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 200px;
+	top: 1605px;
+}
